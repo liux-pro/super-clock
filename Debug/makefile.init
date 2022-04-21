@@ -1,0 +1,11 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+arg1 = $(1)
+export PATH=D:\ra\e2s\toolchains\gcc_arm\gcc-arm-none-eabi-10.3-2021.10\bin\;C:\Users\Legend\.eclipse\com.renesas.platform_2104177674\Utilities;D:/ra/e2s/eclipse//plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_11.0.12.v20211011-1323/jre/bin/server;D:/ra/e2s/eclipse//plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_11.0.12.v20211011-1323/jre/bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\TDM-GCC-64\bin;C:\Program Files\nodejs\;C:\Program Files\Go\bin;C:\Program Files\WireGuard\;C:\Program Files\dotnet\;C:\Program Files (x86)\WS4W\;C:\Users\Legend\.cargo\bin;C:\Users\Legend\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\Legend\AppData\Local\Programs\Python\Python310\;C:\Users\Legend\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Multipass\bin;C:\Users\Legend\apache-maven-3.8.4\bin;C:\Users\Legend\AppData\Roaming\npm;C:\Users\Legend\go\bin;D:\tinygo0.21.0.windows-amd64\tinygo\bin;C:\Users\Legend\AppData\Local\Programs\Fiddler;C:\Users\Legend\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Legend\.git-secrets;C:\Python27;C:\Users\Legend\.platformio\penv\Scripts;C:\src\vcpkg;C:\Program Files\BellSoft\LibericaNIK-Full-21-OpenJDK-11\bin111;;D:\ra\e2s\eclipse
+export TCINSTALL=D:\ra\e2s\toolchains\gcc_arm\gcc-arm-none-eabi-10.3-2021.10$(call arg1,\)
+export CWD=$(CURDIR)
+export TC_VERSION=10.3.1.20210824
+export PWD=$(CURDIR)
+export GCC_VERSION=10.3.1
