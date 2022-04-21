@@ -10,10 +10,10 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include src/ws2812/subdir.mk
 -include src/subdir.mk
 -include ra_gen/subdir.mk
 -include ra/fsp/src/r_spi/subdir.mk
--include ra/fsp/src/r_kint/subdir.mk
 -include ra/fsp/src/r_ioport/subdir.mk
 -include ra/fsp/src/r_dtc/subdir.mk
 -include ra/fsp/src/bsp/mcu/all/subdir.mk

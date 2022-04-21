@@ -1,6 +1,6 @@
-ra/fsp/src/r_kint/r_kint.o: ../ra/fsp/src/r_kint/r_kint.c \
- D:\ra\workspace\super_clock\ra_cfg\fsp_cfg/r_kint_cfg.h \
- D:\ra\workspace\super_clock\ra\fsp\inc\instances/r_kint.h \
+src/ws2812/ws2812.o: ../src/ws2812/ws2812.cpp \
+ D:\ra\workspace\super_clock\src/ws2812/ws2812.h \
+ D:\ra\workspace\super_clock\ra_gen/hal_data.h \
  D:\ra\workspace\super_clock\ra\fsp\inc\api/bsp_api.h \
  D:\ra\workspace\super_clock\ra\fsp\inc/fsp_common_api.h \
  D:\ra\workspace\super_clock\ra\fsp\inc/fsp_version.h \
@@ -41,10 +41,20 @@ ra/fsp/src/r_kint/r_kint.o: ../ra/fsp/src/r_kint/r_kint.c \
  d:\ra\workspace\super_clock\ra\fsp\src\bsp\mcu\all\bsp_compiler_support.h \
  d:\ra\workspace\super_clock\ra\fsp\src\bsp\mcu\all\bsp_delay.h \
  d:\ra\workspace\super_clock\ra\fsp\src\bsp\mcu\all\bsp_mcu_api.h \
- D:\ra\workspace\super_clock\ra\fsp\inc\api/r_keymatrix_api.h \
- D:\ra\workspace\super_clock\ra\fsp\inc\api/bsp_api.h
-D:\ra\workspace\super_clock\ra_cfg\fsp_cfg/r_kint_cfg.h:
-D:\ra\workspace\super_clock\ra\fsp\inc\instances/r_kint.h:
+ D:\ra\workspace\super_clock\ra_gen/common_data.h \
+ D:\ra\workspace\super_clock\ra\fsp\inc\instances/r_ioport.h \
+ D:\ra\workspace\super_clock\ra\fsp\inc\api/r_ioport_api.h \
+ D:\ra\workspace\super_clock\ra\fsp\inc\api/bsp_api.h \
+ D:\ra\workspace\super_clock\ra_cfg\fsp_cfg/r_ioport_cfg.h \
+ D:\ra\workspace\super_clock\ra_cfg\fsp_cfg\bsp/bsp_pin_cfg.h \
+ D:\ra\workspace\super_clock\ra\fsp\inc\instances/r_dtc.h \
+ D:\ra\workspace\super_clock\ra\fsp\inc\api/r_transfer_api.h \
+ D:\ra\workspace\super_clock\ra_cfg\fsp_cfg/r_dtc_cfg.h \
+ D:\ra\workspace\super_clock\ra\fsp\inc\instances/r_spi.h \
+ D:\ra\workspace\super_clock\ra\fsp\inc\api/r_spi_api.h \
+ D:\ra\workspace\super_clock\ra\fsp\inc\api/r_transfer_api.h
+D:\ra\workspace\super_clock\src/ws2812/ws2812.h:
+D:\ra\workspace\super_clock\ra_gen/hal_data.h:
 D:\ra\workspace\super_clock\ra\fsp\inc\api/bsp_api.h:
 D:\ra\workspace\super_clock\ra\fsp\inc/fsp_common_api.h:
 D:\ra\workspace\super_clock\ra\fsp\inc/fsp_version.h:
@@ -85,5 +95,15 @@ d:\ra\workspace\super_clock\ra\fsp\inc\fsp_common_api.h:
 d:\ra\workspace\super_clock\ra\fsp\src\bsp\mcu\all\bsp_compiler_support.h:
 d:\ra\workspace\super_clock\ra\fsp\src\bsp\mcu\all\bsp_delay.h:
 d:\ra\workspace\super_clock\ra\fsp\src\bsp\mcu\all\bsp_mcu_api.h:
-D:\ra\workspace\super_clock\ra\fsp\inc\api/r_keymatrix_api.h:
+D:\ra\workspace\super_clock\ra_gen/common_data.h:
+D:\ra\workspace\super_clock\ra\fsp\inc\instances/r_ioport.h:
+D:\ra\workspace\super_clock\ra\fsp\inc\api/r_ioport_api.h:
 D:\ra\workspace\super_clock\ra\fsp\inc\api/bsp_api.h:
+D:\ra\workspace\super_clock\ra_cfg\fsp_cfg/r_ioport_cfg.h:
+D:\ra\workspace\super_clock\ra_cfg\fsp_cfg\bsp/bsp_pin_cfg.h:
+D:\ra\workspace\super_clock\ra\fsp\inc\instances/r_dtc.h:
+D:\ra\workspace\super_clock\ra\fsp\inc\api/r_transfer_api.h:
+D:\ra\workspace\super_clock\ra_cfg\fsp_cfg/r_dtc_cfg.h:
+D:\ra\workspace\super_clock\ra\fsp\inc\instances/r_spi.h:
+D:\ra\workspace\super_clock\ra\fsp\inc\api/r_spi_api.h:
+D:\ra\workspace\super_clock\ra\fsp\inc\api/r_transfer_api.h:

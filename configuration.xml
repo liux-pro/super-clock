@@ -153,10 +153,6 @@
       <description>Serial Peripheral Interface</description>
       <originalPack>Renesas.RA.3.6.0.pack</originalPack>
     </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_kint" variant="" vendor="Renesas" version="3.6.0">
-      <description>Key Input</description>
-      <originalPack>Renesas.RA.3.6.0.pack</originalPack>
-    </component>
   </raComponentSelection>
   <raElcConfiguration/>
   <raIcuConfiguration/>
@@ -226,34 +222,15 @@
       <property id="module.driver.transfer.num_blocks" value="0"/>
       <property id="module.driver.transfer.activation_source" value="_disabled"/>
     </module>
-    <module id="module.driver.keymatrix_on_kint.1814559603">
-      <property id="module.driver.keymatrix.name" value="g_kint0"/>
-      <property id="module.driver.keymatrix.channels" value=""/>
-      <property id="module.driver.keymatrix.hw_trigger" value="module.driver.keymatrix.hw_trigger.trig_rising"/>
-      <property id="module.driver.keymatrix.p_callback" value="kint_callback"/>
-      <property id="module.driver.keymatrix.ipl" value="board.icu.common.irq.priority2"/>
-    </module>
-    <module id="module.driver.keymatrix_on_kint.166164124">
-      <property id="module.driver.keymatrix.name" value="g_kint1"/>
-      <property id="module.driver.keymatrix.channels" value=""/>
-      <property id="module.driver.keymatrix.hw_trigger" value="module.driver.keymatrix.hw_trigger.trig_rising"/>
-      <property id="module.driver.keymatrix.p_callback" value="kint_callback"/>
-      <property id="module.driver.keymatrix.ipl" value="board.icu.common.irq.priority2"/>
-    </module>
     <context id="_hal.0">
       <stack module="module.driver.ioport_on_ioport.0"/>
       <stack module="module.driver.spi_on_spi.1968255156">
         <stack module="module.driver.transfer_on_dtc.1076306927" requires="module.driver.spi_on_spi.requires.transfer_tx"/>
         <stack module="module.driver.transfer_on_dtc.1724530047" requires="module.driver.spi_on_spi.requires.transfer_rx"/>
       </stack>
-      <stack module="module.driver.keymatrix_on_kint.1814559603"/>
-      <stack module="module.driver.keymatrix_on_kint.166164124"/>
     </context>
     <config id="config.driver.ioport">
       <property id="config.driver.ioport.checking" value="config.driver.ioport.checking.system"/>
-    </config>
-    <config id="config.driver.kint">
-      <property id="config.driver.kint.param_checking_enable" value="config.driver.kint.param_checking_enable.bsp"/>
     </config>
     <config id="config.driver.dtc">
       <property id="config.driver.dtc.param_checking_enable" value="config.driver.dtc.param_checking_enable.bsp"/>
@@ -282,12 +259,8 @@
       <configSetting altId="iic0.scl.p400" configurationId="iic0.scl"/>
       <configSetting altId="iic0.sda.p401" configurationId="iic0.sda"/>
       <configSetting altId="kint0.mode.custom" configurationId="kint0.mode"/>
-      <configSetting altId="p100.spi0.miso" configurationId="p100"/>
-      <configSetting altId="p100.gpio_mode.gpio_mode_peripheral" configurationId="p100.gpio_mode"/>
       <configSetting altId="p101.spi0.mosi" configurationId="p101"/>
       <configSetting altId="p101.gpio_mode.gpio_mode_peripheral" configurationId="p101.gpio_mode"/>
-      <configSetting altId="p102.spi0.rspck" configurationId="p102"/>
-      <configSetting altId="p102.gpio_mode.gpio_mode_peripheral" configurationId="p102.gpio_mode"/>
       <configSetting altId="p103.adc0.an19" configurationId="p103"/>
       <configSetting altId="p103.gpio_mode.gpio_mode_an" configurationId="p103.gpio_mode"/>
       <configSetting altId="p104.gpt4.gtiocb" configurationId="p104"/>
@@ -306,6 +279,10 @@
       <configSetting altId="p213.gpio_mode.gpio_mode_peripheral" configurationId="p213.gpio_mode"/>
       <configSetting altId="p300.debug0.swclk" configurationId="p300"/>
       <configSetting altId="p300.gpio_mode.gpio_mode_peripheral" configurationId="p300.gpio_mode"/>
+      <configSetting altId="p301.sci2.rxd" configurationId="p301"/>
+      <configSetting altId="p301.gpio_mode.gpio_mode_peripheral" configurationId="p301.gpio_mode"/>
+      <configSetting altId="p302.sci2.txd" configurationId="p302"/>
+      <configSetting altId="p302.gpio_mode.gpio_mode_peripheral" configurationId="p302.gpio_mode"/>
       <configSetting altId="p400.iic0.scl" configurationId="p400"/>
       <configSetting altId="p400.gpio_mode.gpio_mode_peripheral" configurationId="p400.gpio_mode"/>
       <configSetting altId="p401.iic0.sda" configurationId="p401"/>
@@ -313,19 +290,18 @@
       <configSetting altId="sci1.mode.asynchronous.free" configurationId="sci1.mode"/>
       <configSetting altId="sci1.rxd.p212" configurationId="sci1.rxd"/>
       <configSetting altId="sci1.txd.p213" configurationId="sci1.txd"/>
-      <configSetting altId="spi0.miso.p100" configurationId="spi0.miso"/>
+      <configSetting altId="sci2.mode.asynchronous.free" configurationId="sci2.mode"/>
+      <configSetting altId="sci2.rxd.p301" configurationId="sci2.rxd"/>
+      <configSetting altId="sci2.txd.p302" configurationId="sci2.txd"/>
       <configSetting altId="spi0.mode.custom.a" configurationId="spi0.mode"/>
       <configSetting altId="spi0.mosi.p101" configurationId="spi0.mosi"/>
-      <configSetting altId="spi0.rspck.p102" configurationId="spi0.rspck"/>
       <lockSetting id="ctsu0.cfcts10" lock="true"/>
       <lockSetting id="ctsu0.cfcts11" lock="true"/>
       <lockSetting id="ctsu0.tscap" lock="true"/>
       <lockSetting id="gpt4.gtiocb" lock="true"/>
       <lockSetting id="iic0.scl" lock="true"/>
       <lockSetting id="iic0.sda" lock="true"/>
-      <lockSetting id="spi0.miso" lock="true"/>
       <lockSetting id="spi0.mosi" lock="true"/>
-      <lockSetting id="spi0.rspck" lock="true"/>
     </pincfg>
   </raPinConfiguration>
 </raConfiguration>

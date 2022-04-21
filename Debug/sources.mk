@@ -71,8 +71,8 @@ ra/fsp/src/bsp/cmsis/Device/RENESAS/Source \
 ra/fsp/src/bsp/mcu/all \
 ra/fsp/src/r_dtc \
 ra/fsp/src/r_ioport \
-ra/fsp/src/r_kint \
 ra/fsp/src/r_spi \
 ra_gen \
 src \
+src/ws2812 \
 

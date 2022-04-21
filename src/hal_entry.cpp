@@ -1,5 +1,6 @@
-#include <ws2812.h>
+#include <ws2812/ws2812.h>
 #include "hal_data.h"
+
 
 FSP_CPP_HEADER
 void R_BSP_WarmStart(bsp_warm_start_event_t event);
@@ -13,7 +14,27 @@ void hal_entry(void)
 {
     /* TODO: add your own code here */
     ws2812_init();
-    ws2812_red();
+    ws2812_black();
+    ws2812_set_color(3,0,255,0);
+    ws2812_set_color(5,0,0,0);
+    ws2812_send();
+    R_BSP_SoftwareDelay(500, BSP_DELAY_UNITS_MILLISECONDS);
+
+    while(1){
+    	for(uint8_t i=0;i<8;i++){
+            ws2812_black();
+            ws2812_set_color(i,0,255,0);
+            ws2812_send_sync();
+            R_BSP_SoftwareDelay(16, BSP_DELAY_UNITS_MILLISECONDS);
+    	}
+    	for(uint8_t i=8;i>0;i--){
+            ws2812_black();
+            ws2812_set_color(i-1,255,0,0);
+            ws2812_send_sync();
+            R_BSP_SoftwareDelay(16, BSP_DELAY_UNITS_MILLISECONDS);
+    	}
+    }
+
 
 
     while(1);
