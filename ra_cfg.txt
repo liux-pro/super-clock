@@ -150,7 +150,7 @@ FSP Configuration
   Module "UART (r_sci_uart)"
     Parameter Checking: Default (BSP)
     FIFO Support: Disable
-    DTC Support: Disable
+    DTC Support: Enable
     Flow Control Support: Disable
     RS-485 Support: Disable
     
@@ -162,6 +162,9 @@ FSP Configuration
     Pin Output Support: Disabled
     Write Protect Enable: Disabled
     Clock Source: PCLKD
+    
+  Module "Realtime Clock (r_rtc)"
+    Parameter Checking: Default (BSP)
     
   HAL
     Instance "g_ioport I/O Port (r_ioport)"
@@ -251,8 +254,8 @@ FSP Configuration
       Extra: RS-485: DE Pin Number: Disabled
       Interrupts: Callback: user_uart_callback
       Interrupts: Receive Interrupt Priority: Priority 2
-      Interrupts: Transmit Data Empty Interrupt Priority: Priority 2
-      Interrupts: Transmit End Interrupt Priority: Priority 1
+      Interrupts: Transmit Data Empty Interrupt Priority: Priority 0 (highest)
+      Interrupts: Transmit End Interrupt Priority: Priority 0 (highest)
       Interrupts: Error Interrupt Priority: Priority 2
       
     Instance "g_adc0 ADC (r_adc)"
@@ -339,4 +342,17 @@ FSP Configuration
       Extra Features: Interrupt Skipping (GPTE/GPTEH only): Skip ADC Events: None
       Extra Features: Output Disable: GTIOCA Disable Setting: Disable Prohibited
       Extra Features: Output Disable: GTIOCB Disable Setting: Disable Prohibited
+      
+    Instance "g_rtc0 Realtime Clock (r_rtc)"
+      Name: g_rtc0
+      Clock Source: LOCO
+      Frequency Comparision Value (LOCO): 255
+      Automatic Adjustment Mode: Enabled
+      Automatic Adjustment Period: 10 Seconds
+      Adjustment Type (Plus-Minus): NONE
+      Error Adjustment Value: 0
+      Callback: NULL
+      Alarm Interrupt Priority: Disabled
+      Period Interrupt Priority: Disabled
+      Carry Interrupt Priority: Priority 2
       

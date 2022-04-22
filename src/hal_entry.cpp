@@ -3,6 +3,7 @@
 #include "debug/debug.h"
 #include "timer/timer0.h"
 
+
 extern "C" {
 #include "dtmf/goertzel-dtmf.h"
 }
@@ -20,6 +21,9 @@ void debug(const char *fmt, ...);
  * is called by main() when no RTOS is used.
  **********************************************************************************************************************/
 
+
+
+
 void hal_entry(void) {
 	/* TODO: add your own code here */
 	ws2812_init();
@@ -34,6 +38,42 @@ void hal_entry(void) {
 	debug("%s", "legend-tech");
 
 	R_BSP_SoftwareDelay(20, BSP_DELAY_UNITS_MILLISECONDS);
+
+
+	/* rtc_time_t is an alias for the C Standard time.h struct 'tm' */
+	rtc_time_t set_time;
+	rtc_time_t get_time;
+
+	long long int a =1650631454;
+	gmtime_r(&a,&set_time);
+
+	/* Initialize the RTC module */
+	err = R_RTC_Open(&g_rtc0_ctrl, &g_rtc0_cfg);
+	/* Handle any errors. This function should be defined by the user. */
+	assert(FSP_SUCCESS == err);
+
+
+	/* Set the calendar time */
+	R_RTC_CalendarTimeSet(&g_rtc0_ctrl, &set_time);
+	/* Get the calendar time */
+
+
+	R_BSP_SoftwareDelay(2000, BSP_DELAY_UNITS_MILLISECONDS);
+	R_RTC_CalendarTimeGet(&g_rtc0_ctrl, &get_time);
+	R_BSP_SoftwareDelay(1000, BSP_DELAY_UNITS_MILLISECONDS);
+	debug("tm_mday%d\n",get_time.tm_mday);
+	debug("tm_mon%d\n",get_time.tm_mon);
+	debug("tm_year%d\n",get_time.tm_year);
+	debug("tm_hour%d\n",get_time.tm_hour);
+	debug("tm_min%d\n",get_time.tm_min);
+	debug("tm_sec%d\n",get_time.tm_sec);
+	debug("tm_wday%d\n",get_time.tm_wday);
+	debug("tm_yday%d\n",get_time.tm_yday);
+
+
+
+
+
 
 
 	while (1)

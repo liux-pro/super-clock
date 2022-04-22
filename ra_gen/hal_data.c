@@ -6,6 +6,34 @@
 #define ADC_TRIGGER_ADC0_B      ADC_TRIGGER_SYNC_ELC
 #define ADC_TRIGGER_ADC1        ADC_TRIGGER_SYNC_ELC
 #define ADC_TRIGGER_ADC1_B      ADC_TRIGGER_SYNC_ELC
+rtc_instance_ctrl_t g_rtc0_ctrl;
+const rtc_error_adjustment_cfg_t g_rtc0_err_cfg = { .adjustment_mode =
+		RTC_ERROR_ADJUSTMENT_MODE_AUTOMATIC, .adjustment_period =
+		RTC_ERROR_ADJUSTMENT_PERIOD_10_SECOND, .adjustment_type =
+		RTC_ERROR_ADJUSTMENT_NONE, .adjustment_value = 0, };
+const rtc_cfg_t g_rtc0_cfg = { .clock_source = RTC_CLOCK_SOURCE_LOCO,
+		.freq_compare_value_loco = 255, .p_err_cfg = &g_rtc0_err_cfg,
+		.p_callback = NULL, .p_context = NULL, .alarm_ipl = (BSP_IRQ_DISABLED),
+		.periodic_ipl = (BSP_IRQ_DISABLED), .carry_ipl = (2),
+#if defined(VECTOR_NUMBER_RTC_ALARM)
+    .alarm_irq               = VECTOR_NUMBER_RTC_ALARM,
+#else
+		.alarm_irq = FSP_INVALID_VECTOR,
+#endif
+#if defined(VECTOR_NUMBER_RTC_PERIOD)
+    .periodic_irq            = VECTOR_NUMBER_RTC_PERIOD,
+#else
+		.periodic_irq = FSP_INVALID_VECTOR,
+#endif
+#if defined(VECTOR_NUMBER_RTC_CARRY)
+    .carry_irq               = VECTOR_NUMBER_RTC_CARRY,
+#else
+		.carry_irq = FSP_INVALID_VECTOR,
+#endif
+		};
+/* Instance structure to use this module. */
+const rtc_instance_t g_rtc0 = { .p_ctrl = &g_rtc0_ctrl, .p_cfg = &g_rtc0_cfg,
+		.p_api = &g_rtc_on_rtc };
 gpt_instance_ctrl_t g_timer0_ctrl;
 #if 0
 const gpt_extended_pwm_cfg_t g_timer0_pwm_extend =
@@ -215,7 +243,7 @@ const uart_cfg_t g_uart0_cfg = { .channel = 9, .data_bits = UART_DATA_BITS_8,
                 .p_transfer_rx       = &RA_NOT_DEFINED,
 #endif
 #undef RA_NOT_DEFINED
-		.rxi_ipl = (2), .txi_ipl = (2), .tei_ipl = (1), .eri_ipl = (2),
+		.rxi_ipl = (2), .txi_ipl = (0), .tei_ipl = (0), .eri_ipl = (2),
 #if defined(VECTOR_NUMBER_SCI9_RXI)
                 .rxi_irq             = VECTOR_NUMBER_SCI9_RXI,
 #else

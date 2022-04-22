@@ -46,6 +46,9 @@ src/timer/timer0.o: ../src/timer/timer0.cpp ../src/timer/timer0.h \
  D:\ra\workspace\super_clock\ra\fsp\inc\api/bsp_api.h \
  D:\ra\workspace\super_clock\ra_cfg\fsp_cfg/r_ioport_cfg.h \
  D:\ra\workspace\super_clock\ra_cfg\fsp_cfg\bsp/bsp_pin_cfg.h \
+ D:\ra\workspace\super_clock\ra\fsp\inc\instances/r_rtc.h \
+ D:\ra\workspace\super_clock\ra_cfg\fsp_cfg/r_rtc_cfg.h \
+ D:\ra\workspace\super_clock\ra\fsp\inc\api/r_rtc_api.h \
  D:\ra\workspace\super_clock\ra\fsp\inc\instances/r_gpt.h \
  D:\ra\workspace\super_clock\ra\fsp\inc\api/r_timer_api.h \
  D:\ra\workspace\super_clock\ra\fsp\inc\instances/r_adc.h \
@@ -110,6 +113,9 @@ D:\ra\workspace\super_clock\ra\fsp\inc\api/r_ioport_api.h:
 D:\ra\workspace\super_clock\ra\fsp\inc\api/bsp_api.h:
 D:\ra\workspace\super_clock\ra_cfg\fsp_cfg/r_ioport_cfg.h:
 D:\ra\workspace\super_clock\ra_cfg\fsp_cfg\bsp/bsp_pin_cfg.h:
+D:\ra\workspace\super_clock\ra\fsp\inc\instances/r_rtc.h:
+D:\ra\workspace\super_clock\ra_cfg\fsp_cfg/r_rtc_cfg.h:
+D:\ra\workspace\super_clock\ra\fsp\inc\api/r_rtc_api.h:
 D:\ra\workspace\super_clock\ra\fsp\inc\instances/r_gpt.h:
 D:\ra\workspace\super_clock\ra\fsp\inc\api/r_timer_api.h:
 D:\ra\workspace\super_clock\ra\fsp\inc\instances/r_adc.h:

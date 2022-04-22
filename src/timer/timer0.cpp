@@ -10,7 +10,7 @@
 
 void timer0_callback(timer_callback_args_t *p_args) {
 	if (TIMER_EVENT_CYCLE_END == p_args->event) {
-		debug("aaa\n");
+		debug("alive\n");
 	}
 }
 

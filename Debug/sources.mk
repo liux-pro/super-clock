@@ -73,11 +73,13 @@ ra/fsp/src/r_adc \
 ra/fsp/src/r_dtc \
 ra/fsp/src/r_gpt \
 ra/fsp/src/r_ioport \
+ra/fsp/src/r_rtc \
 ra/fsp/src/r_sci_uart \
 ra/fsp/src/r_spi \
 ra_gen \
 src/debug \
 src/dtmf \
+src/fcal \
 src \
 src/timer \
 src/ws2812 \
