@@ -1,5 +1,4 @@
-src/hal_entry.o: ../src/hal_entry.cpp \
- D:\ra\workspace\super_clock\src/ws2812/ws2812.h \
+src/timer/timer0.o: ../src/timer/timer0.cpp ../src/timer/timer0.h \
  D:\ra\workspace\super_clock\ra_gen/hal_data.h \
  D:\ra\workspace\super_clock\ra\fsp\inc\api/bsp_api.h \
  D:\ra\workspace\super_clock\ra\fsp\inc/fsp_common_api.h \
@@ -62,9 +61,8 @@ src/hal_entry.o: ../src/hal_entry.cpp \
  D:\ra\workspace\super_clock\ra_cfg\fsp_cfg/r_dtc_cfg.h \
  D:\ra\workspace\super_clock\ra\fsp\inc\instances/r_spi.h \
  D:\ra\workspace\super_clock\ra\fsp\inc\api/r_spi_api.h \
- ../src/debug/debug.h ../src/timer/timer0.h ../src/dtmf/goertzel-dtmf.h \
- ../src/dtmf/goertzel.h
-D:\ra\workspace\super_clock\src/ws2812/ws2812.h:
+ D:\ra\workspace\super_clock\src/debug/debug.h
+../src/timer/timer0.h:
 D:\ra\workspace\super_clock\ra_gen/hal_data.h:
 D:\ra\workspace\super_clock\ra\fsp\inc\api/bsp_api.h:
 D:\ra\workspace\super_clock\ra\fsp\inc/fsp_common_api.h:
@@ -127,7 +125,4 @@ D:\ra\workspace\super_clock\ra\fsp\inc\api/r_transfer_api.h:
 D:\ra\workspace\super_clock\ra_cfg\fsp_cfg/r_dtc_cfg.h:
 D:\ra\workspace\super_clock\ra\fsp\inc\instances/r_spi.h:
 D:\ra\workspace\super_clock\ra\fsp\inc\api/r_spi_api.h:
-../src/debug/debug.h:
-../src/timer/timer0.h:
-../src/dtmf/goertzel-dtmf.h:
-../src/dtmf/goertzel.h:
+D:\ra\workspace\super_clock\src/debug/debug.h:

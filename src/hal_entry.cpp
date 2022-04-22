@@ -1,7 +1,8 @@
 #include <ws2812/ws2812.h>
 #include "hal_data.h"
-#include "stdio.h"
-#include <stdarg.h>
+#include "debug/debug.h"
+#include "timer/timer0.h"
+
 extern "C" {
 #include "dtmf/goertzel-dtmf.h"
 }
@@ -40,17 +41,11 @@ void hal_entry(void) {
 //		ws2812_send_sync();
 //		R_BSP_SoftwareDelay(16, BSP_DELAY_UNITS_MILLISECONDS);
 //	}
-	err = R_SCI_UART_Open(&g_uart0_ctrl, &g_uart0_cfg);
-	assert(FSP_SUCCESS == err);
+	debug_init();
+	timer0_init();
 	debug("%s", "legend-tech");
 	R_BSP_SoftwareDelay(20, BSP_DELAY_UNITS_MILLISECONDS);
 
-	/* Initializes the module. */
-	err = R_GPT_Open(&g_timer0_ctrl, &g_timer0_cfg);
-	/* Handle any errors. This function should be defined by the user. */
-	assert(FSP_SUCCESS == err);
-	/* Start the timer. */
-	(void) R_GPT_Start(&g_timer0_ctrl);
 
 	while (1)
 		;
@@ -83,30 +78,6 @@ void hal_entry(void) {
 #endif
 }
 
-void timer0_callback(timer_callback_args_t *p_args) {
-	if (TIMER_EVENT_CYCLE_END == p_args->event) {
-		debug("aaa\n");
-	}
-
-}
-
-void debug(const char *fmt, ...) {
-	//参考https://www.ibm.com/docs/en/zos/2.1.0?topic=functions-vsprintf-format-print-data-buffer
-	va_list arg_ptr;
-	va_start(arg_ptr, fmt);
-	static unsigned char send_buff[100];
-	uart_send_complete_flag = false;
-	vsprintf((char*) send_buff, fmt, arg_ptr);
-	uint8_t len = strlen((char*) send_buff);
-	err = R_SCI_UART_Write(&g_uart0_ctrl, send_buff, len);
-	va_end(arg_ptr);
-}
-
-void user_uart_callback(uart_callback_args_t *p_args) {
-	if (p_args->event == UART_EVENT_TX_COMPLETE) {
-		uart_send_complete_flag = true;
-	}
-}
 
 void adc_callback(adc_callback_args_t *p_args) {
 

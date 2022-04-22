@@ -101,9 +101,9 @@ d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-n
 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-signalr.o)
                               d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-signal.o) (_kill_r)
 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-strlen.o)
-                              ./src/hal_entry.o (strlen)
+                              ./src/debug/debug.o (strlen)
 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-vsprintf.o)
-                              ./src/hal_entry.o (vsprintf)
+                              ./src/debug/debug.o (vsprintf)
 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-nano-mallocr.o)
                               d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-signal.o) (_malloc_r)
 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-nano-svfprintf.o)
@@ -257,6 +257,13 @@ Discarded input sections
  .debug_frame   0x00000000      0x148 ./src/ws2812/ws2812.o
  .ARM.attributes
                 0x00000000       0x30 ./src/ws2812/ws2812.o
+ .text          0x00000000        0x0 ./src/timer/timer0.o
+ .data          0x00000000        0x0 ./src/timer/timer0.o
+ .bss           0x00000000        0x0 ./src/timer/timer0.o
+ .ARM.extab.text.timer0_callback
+                0x00000000        0x0 ./src/timer/timer0.o
+ .ARM.extab.text._Z11timer0_initv
+                0x00000000        0x0 ./src/timer/timer0.o
  .text          0x00000000        0x0 ./src/dtmf/goertzel-dtmf.o
  .data          0x00000000        0x0 ./src/dtmf/goertzel-dtmf.o
  .bss           0x00000000        0x0 ./src/dtmf/goertzel-dtmf.o
@@ -313,16 +320,19 @@ Discarded input sections
  .debug_frame   0x00000000       0xdc ./src/dtmf/goertzel.o
  .ARM.attributes
                 0x00000000       0x30 ./src/dtmf/goertzel.o
+ .text          0x00000000        0x0 ./src/debug/debug.o
+ .data          0x00000000        0x0 ./src/debug/debug.o
+ .bss           0x00000000        0x0 ./src/debug/debug.o
+ .ARM.extab.text._Z5debugPKcz
+                0x00000000        0x0 ./src/debug/debug.o
+ .ARM.extab.text._Z10debug_initv
+                0x00000000        0x0 ./src/debug/debug.o
+ .ARM.extab.text.user_uart_callback
+                0x00000000        0x0 ./src/debug/debug.o
  .text          0x00000000        0x0 ./src/hal_entry.o
  .data          0x00000000        0x0 ./src/hal_entry.o
  .bss           0x00000000        0x0 ./src/hal_entry.o
- .ARM.extab.text._Z5debugPKcz
-                0x00000000        0x0 ./src/hal_entry.o
  .ARM.extab.text.hal_entry
-                0x00000000        0x0 ./src/hal_entry.o
- .ARM.extab.text.timer0_callback
-                0x00000000        0x0 ./src/hal_entry.o
- .ARM.extab.text.user_uart_callback
                 0x00000000        0x0 ./src/hal_entry.o
  .text.adc_callback
                 0x00000000       0x10 ./src/hal_entry.o
@@ -332,7 +342,10 @@ Discarded input sections
                 0x00000000        0x8 ./src/hal_entry.o
  .ARM.extab.text.R_BSP_WarmStart
                 0x00000000        0x0 ./src/hal_entry.o
+ .bss.err       0x00000000        0x4 ./src/hal_entry.o
  .bss.scan_complete_flag
+                0x00000000        0x1 ./src/hal_entry.o
+ .bss.uart_send_complete_flag
                 0x00000000        0x1 ./src/hal_entry.o
  .text          0x00000000        0x0 ./ra_gen/common_data.o
  .data          0x00000000        0x0 ./ra_gen/common_data.o
@@ -587,6 +600,8 @@ Discarded input sections
  .bss           0x00000000        0x0 ./ra/fsp/src/bsp/mcu/all/bsp_common.o
  .text.R_FSP_VersionGet
                 0x00000000        0xc ./ra/fsp/src/bsp/mcu/all/bsp_common.o
+ .text.__assert_func
+                0x00000000        0x4 ./ra/fsp/src/bsp/mcu/all/bsp_common.o
  .text          0x00000000        0x0 ./ra/fsp/src/bsp/mcu/all/bsp_delay.o
  .data          0x00000000        0x0 ./ra/fsp/src/bsp/mcu/all/bsp_delay.o
  .bss           0x00000000        0x0 ./ra/fsp/src/bsp/mcu/all/bsp_delay.o
@@ -1074,8 +1089,10 @@ LOAD d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/
 LOAD d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp/crt0.o
 START GROUP
 LOAD ./src/ws2812/ws2812.o
+LOAD ./src/timer/timer0.o
 LOAD ./src/dtmf/goertzel-dtmf.o
 LOAD ./src/dtmf/goertzel.o
+LOAD ./src/debug/debug.o
 LOAD ./src/hal_entry.o
 LOAD ./ra_gen/common_data.o
 LOAD ./ra_gen/hal_data.o
@@ -1170,7 +1187,7 @@ LOAD d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/
 LOAD d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libnosys.a
 END GROUP
 
-.text           0x00000000     0x34c0
+.text           0x00000000     0x3418
                 0x00000000                __tz_FLASH_S = ABSOLUTE (FLASH_START)
                 0x00000000                __ROM_Start = .
  *(.fixed_vectors*)
@@ -1193,314 +1210,317 @@ END GROUP
  *(.mcuboot_sce9_key*)
  *(.text*)
  .text          0x00000500       0x50 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp/crtbegin.o
- .text._Z5debugPKcz
-                0x00000550       0x50 ./src/hal_entry.o
-                0x00000550                debug(char const*, ...)
- .text.hal_entry
-                0x000005a0       0xa4 ./src/hal_entry.o
-                0x000005a0                hal_entry
  .text.timer0_callback
-                0x00000644       0x18 ./src/hal_entry.o
-                0x00000644                timer0_callback
+                0x00000550       0x18 ./src/timer/timer0.o
+                0x00000550                timer0_callback
+ .text._Z11timer0_initv
+                0x00000568       0x20 ./src/timer/timer0.o
+                0x00000568                timer0_init()
+ .text._Z5debugPKcz
+                0x00000588       0x3c ./src/debug/debug.o
+                0x00000588                debug(char const*, ...)
+ .text._Z10debug_initv
+                0x000005c4       0x18 ./src/debug/debug.o
+                0x000005c4                debug_init()
  .text.user_uart_callback
-                0x0000065c       0x14 ./src/hal_entry.o
-                0x0000065c                user_uart_callback
+                0x000005dc        0x4 ./src/debug/debug.o
+                0x000005dc                user_uart_callback
+ .text.hal_entry
+                0x000005e0       0x2c ./src/hal_entry.o
+                0x000005e0                hal_entry
  .text.R_BSP_WarmStart
-                0x00000670       0x38 ./src/hal_entry.o
-                0x00000670                R_BSP_WarmStart
+                0x0000060c       0x38 ./src/hal_entry.o
+                0x0000060c                R_BSP_WarmStart
  .text.startup.main
-                0x000006a8        0xc ./ra_gen/main.o
-                0x000006a8                main
+                0x00000644        0xc ./ra_gen/main.o
+                0x00000644                main
  .text.r_spi_call_callback
-                0x000006b4       0x38 ./ra/fsp/src/r_spi/r_spi.o
+                0x00000650       0x38 ./ra/fsp/src/r_spi/r_spi.o
  .text.spi_rxi_isr
-                0x000006ec       0x9c ./ra/fsp/src/r_spi/r_spi.o
-                0x000006ec                spi_rxi_isr
+                0x00000688       0x9c ./ra/fsp/src/r_spi/r_spi.o
+                0x00000688                spi_rxi_isr
  .text.spi_txi_isr
-                0x00000788       0xe4 ./ra/fsp/src/r_spi/r_spi.o
-                0x00000788                spi_txi_isr
+                0x00000724       0xe4 ./ra/fsp/src/r_spi/r_spi.o
+                0x00000724                spi_txi_isr
  .text.spi_tei_isr
-                0x0000086c       0x78 ./ra/fsp/src/r_spi/r_spi.o
-                0x0000086c                spi_tei_isr
+                0x00000808       0x78 ./ra/fsp/src/r_spi/r_spi.o
+                0x00000808                spi_tei_isr
  .text.spi_eri_isr
-                0x000008e4       0x78 ./ra/fsp/src/r_spi/r_spi.o
-                0x000008e4                spi_eri_isr
+                0x00000880       0x78 ./ra/fsp/src/r_spi/r_spi.o
+                0x00000880                spi_eri_isr
  .text.R_SCI_UART_Write
-                0x0000095c       0x40 ./ra/fsp/src/r_sci_uart/r_sci_uart.o
-                0x0000095c                R_SCI_UART_Write
+                0x000008f8       0x40 ./ra/fsp/src/r_sci_uart/r_sci_uart.o
+                0x000008f8                R_SCI_UART_Write
  .text.r_sci_irq_cfg
-                0x0000099c       0x84 ./ra/fsp/src/r_sci_uart/r_sci_uart.o
+                0x00000938       0x84 ./ra/fsp/src/r_sci_uart/r_sci_uart.o
  .text.r_sci_uart_call_callback
-                0x00000a20       0x50 ./ra/fsp/src/r_sci_uart/r_sci_uart.o
+                0x000009bc       0x50 ./ra/fsp/src/r_sci_uart/r_sci_uart.o
  .text.R_SCI_UART_Open
-                0x00000a70      0x288 ./ra/fsp/src/r_sci_uart/r_sci_uart.o
-                0x00000a70                R_SCI_UART_Open
+                0x00000a0c      0x288 ./ra/fsp/src/r_sci_uart/r_sci_uart.o
+                0x00000a0c                R_SCI_UART_Open
  .text.sci_uart_txi_isr
-                0x00000cf8       0x94 ./ra/fsp/src/r_sci_uart/r_sci_uart.o
-                0x00000cf8                sci_uart_txi_isr
+                0x00000c94       0x94 ./ra/fsp/src/r_sci_uart/r_sci_uart.o
+                0x00000c94                sci_uart_txi_isr
  .text.sci_uart_rxi_isr
-                0x00000d8c       0xa0 ./ra/fsp/src/r_sci_uart/r_sci_uart.o
-                0x00000d8c                sci_uart_rxi_isr
+                0x00000d28       0xa0 ./ra/fsp/src/r_sci_uart/r_sci_uart.o
+                0x00000d28                sci_uart_rxi_isr
  .text.sci_uart_tei_isr
-                0x00000e2c       0x48 ./ra/fsp/src/r_sci_uart/r_sci_uart.o
-                0x00000e2c                sci_uart_tei_isr
+                0x00000dc8       0x48 ./ra/fsp/src/r_sci_uart/r_sci_uart.o
+                0x00000dc8                sci_uart_tei_isr
  .text.sci_uart_eri_isr
-                0x00000e74       0x74 ./ra/fsp/src/r_sci_uart/r_sci_uart.o
-                0x00000e74                sci_uart_eri_isr
+                0x00000e10       0x74 ./ra/fsp/src/r_sci_uart/r_sci_uart.o
+                0x00000e10                sci_uart_eri_isr
  .text.R_IOPORT_Close
-                0x00000ee8        0x8 ./ra/fsp/src/r_ioport/r_ioport.o
-                0x00000ee8                R_IOPORT_Close
+                0x00000e84        0x8 ./ra/fsp/src/r_ioport/r_ioport.o
+                0x00000e84                R_IOPORT_Close
  .text.R_IOPORT_PinRead
-                0x00000ef0       0x24 ./ra/fsp/src/r_ioport/r_ioport.o
-                0x00000ef0                R_IOPORT_PinRead
+                0x00000e8c       0x24 ./ra/fsp/src/r_ioport/r_ioport.o
+                0x00000e8c                R_IOPORT_PinRead
  .text.R_IOPORT_PortRead
-                0x00000f14       0x18 ./ra/fsp/src/r_ioport/r_ioport.o
-                0x00000f14                R_IOPORT_PortRead
+                0x00000eb0       0x18 ./ra/fsp/src/r_ioport/r_ioport.o
+                0x00000eb0                R_IOPORT_PortRead
  .text.R_IOPORT_PortWrite
-                0x00000f2c       0x20 ./ra/fsp/src/r_ioport/r_ioport.o
-                0x00000f2c                R_IOPORT_PortWrite
+                0x00000ec8       0x20 ./ra/fsp/src/r_ioport/r_ioport.o
+                0x00000ec8                R_IOPORT_PortWrite
  .text.R_IOPORT_PinWrite
-                0x00000f4c       0x28 ./ra/fsp/src/r_ioport/r_ioport.o
-                0x00000f4c                R_IOPORT_PinWrite
+                0x00000ee8       0x28 ./ra/fsp/src/r_ioport/r_ioport.o
+                0x00000ee8                R_IOPORT_PinWrite
  .text.R_IOPORT_PortDirectionSet
-                0x00000f74       0x24 ./ra/fsp/src/r_ioport/r_ioport.o
-                0x00000f74                R_IOPORT_PortDirectionSet
+                0x00000f10       0x24 ./ra/fsp/src/r_ioport/r_ioport.o
+                0x00000f10                R_IOPORT_PortDirectionSet
  .text.R_IOPORT_PortEventInputRead
-                0x00000f98       0x18 ./ra/fsp/src/r_ioport/r_ioport.o
-                0x00000f98                R_IOPORT_PortEventInputRead
+                0x00000f34       0x18 ./ra/fsp/src/r_ioport/r_ioport.o
+                0x00000f34                R_IOPORT_PortEventInputRead
  .text.R_IOPORT_PinEventInputRead
-                0x00000fb0       0x2c ./ra/fsp/src/r_ioport/r_ioport.o
-                0x00000fb0                R_IOPORT_PinEventInputRead
+                0x00000f4c       0x2c ./ra/fsp/src/r_ioport/r_ioport.o
+                0x00000f4c                R_IOPORT_PinEventInputRead
  .text.R_IOPORT_PortEventOutputWrite
-                0x00000fdc       0x20 ./ra/fsp/src/r_ioport/r_ioport.o
-                0x00000fdc                R_IOPORT_PortEventOutputWrite
+                0x00000f78       0x20 ./ra/fsp/src/r_ioport/r_ioport.o
+                0x00000f78                R_IOPORT_PortEventOutputWrite
  .text.R_IOPORT_EthernetModeCfg
-                0x00000ffc        0x4 ./ra/fsp/src/r_ioport/r_ioport.o
-                0x00000ffc                R_IOPORT_EthernetModeCfg
+                0x00000f98        0x4 ./ra/fsp/src/r_ioport/r_ioport.o
+                0x00000f98                R_IOPORT_EthernetModeCfg
  .text.R_IOPORT_PinEventOutputWrite
-                0x00001000       0x4c ./ra/fsp/src/r_ioport/r_ioport.o
-                0x00001000                R_IOPORT_PinEventOutputWrite
+                0x00000f9c       0x4c ./ra/fsp/src/r_ioport/r_ioport.o
+                0x00000f9c                R_IOPORT_PinEventOutputWrite
  .text.r_ioport_pins_config
-                0x0000104c       0xf8 ./ra/fsp/src/r_ioport/r_ioport.o
+                0x00000fe8       0xf8 ./ra/fsp/src/r_ioport/r_ioport.o
  .text.R_IOPORT_Open
-                0x00001144       0x18 ./ra/fsp/src/r_ioport/r_ioport.o
-                0x00001144                R_IOPORT_Open
+                0x000010e0       0x18 ./ra/fsp/src/r_ioport/r_ioport.o
+                0x000010e0                R_IOPORT_Open
  .text.R_IOPORT_PinsCfg
-                0x0000115c        0xc ./ra/fsp/src/r_ioport/r_ioport.o
-                0x0000115c                R_IOPORT_PinsCfg
+                0x000010f8        0xc ./ra/fsp/src/r_ioport/r_ioport.o
+                0x000010f8                R_IOPORT_PinsCfg
  .text.R_IOPORT_PinCfg
-                0x00001168       0xa0 ./ra/fsp/src/r_ioport/r_ioport.o
-                0x00001168                R_IOPORT_PinCfg
+                0x00001104       0xa0 ./ra/fsp/src/r_ioport/r_ioport.o
+                0x00001104                R_IOPORT_PinCfg
  .text.R_GPT_Start
-                0x00001208        0xc ./ra/fsp/src/r_gpt/r_gpt.o
-                0x00001208                R_GPT_Start
+                0x000011a4        0xc ./ra/fsp/src/r_gpt/r_gpt.o
+                0x000011a4                R_GPT_Start
  .text.r_gpt_enable_irq
-                0x00001214       0x90 ./ra/fsp/src/r_gpt/r_gpt.o
+                0x000011b0       0x90 ./ra/fsp/src/r_gpt/r_gpt.o
  .text.R_GPT_Open
-                0x000012a4       0xf8 ./ra/fsp/src/r_gpt/r_gpt.o
-                0x000012a4                R_GPT_Open
+                0x00001240       0xf8 ./ra/fsp/src/r_gpt/r_gpt.o
+                0x00001240                R_GPT_Open
  .text.r_gpt_call_callback
-                0x0000139c       0x40 ./ra/fsp/src/r_gpt/r_gpt.o
+                0x00001338       0x40 ./ra/fsp/src/r_gpt/r_gpt.o
  .text.gpt_counter_overflow_isr
-                0x000013dc       0x74 ./ra/fsp/src/r_gpt/r_gpt.o
-                0x000013dc                gpt_counter_overflow_isr
+                0x00001378       0x74 ./ra/fsp/src/r_gpt/r_gpt.o
+                0x00001378                gpt_counter_overflow_isr
  .text.r_adc_call_callback
-                0x00001450       0x3c ./ra/fsp/src/r_adc/r_adc.o
+                0x000013ec       0x3c ./ra/fsp/src/r_adc/r_adc.o
  .text.r_adc_scan_end_common_isr
-                0x0000148c       0x5c ./ra/fsp/src/r_adc/r_adc.o
+                0x00001428       0x5c ./ra/fsp/src/r_adc/r_adc.o
  .text.adc_scan_end_isr
-                0x000014e8        0xc ./ra/fsp/src/r_adc/r_adc.o
-                0x000014e8                adc_scan_end_isr
+                0x00001484        0xc ./ra/fsp/src/r_adc/r_adc.o
+                0x00001484                adc_scan_end_isr
  .text.SystemCoreClockUpdate
-                0x000014f4       0x2c ./ra/fsp/src/bsp/mcu/all/bsp_clocks.o
-                0x000014f4                SystemCoreClockUpdate
+                0x00001490       0x2c ./ra/fsp/src/bsp/mcu/all/bsp_clocks.o
+                0x00001490                SystemCoreClockUpdate
  .text.bsp_clock_init
-                0x00001520      0x140 ./ra/fsp/src/bsp/mcu/all/bsp_clocks.o
-                0x00001520                bsp_clock_init
+                0x000014bc      0x140 ./ra/fsp/src/bsp/mcu/all/bsp_clocks.o
+                0x000014bc                bsp_clock_init
  .text.bsp_init_internal
-                0x00001660        0x4 ./ra/fsp/src/bsp/mcu/all/bsp_common.o
-                0x00001660                bsp_init_internal
-                0x00001660                bsp_init
- .text.__assert_func
-                0x00001664        0x4 ./ra/fsp/src/bsp/mcu/all/bsp_common.o
-                0x00001664                __assert_func
+                0x000015fc        0x4 ./ra/fsp/src/bsp/mcu/all/bsp_common.o
+                0x000015fc                bsp_init_internal
+                0x000015fc                bsp_init
  .text.bsp_prv_software_delay_loop
-                0x00001668        0x8 ./ra/fsp/src/bsp/mcu/all/bsp_delay.o
-                0x00001668                bsp_prv_software_delay_loop
+                0x00001600        0x8 ./ra/fsp/src/bsp/mcu/all/bsp_delay.o
+                0x00001600                bsp_prv_software_delay_loop
  .text.R_BSP_SoftwareDelay
-                0x00001670       0x5c ./ra/fsp/src/bsp/mcu/all/bsp_delay.o
-                0x00001670                R_BSP_SoftwareDelay
+                0x00001608       0x5c ./ra/fsp/src/bsp/mcu/all/bsp_delay.o
+                0x00001608                R_BSP_SoftwareDelay
  .text.NMI_Handler
-                0x000016cc       0x48 ./ra/fsp/src/bsp/mcu/all/bsp_group_irq.o
-                0x000016cc                NMI_Handler
+                0x00001664       0x48 ./ra/fsp/src/bsp/mcu/all/bsp_group_irq.o
+                0x00001664                NMI_Handler
  .text.bsp_irq_cfg
-                0x00001714       0x28 ./ra/fsp/src/bsp/mcu/all/bsp_irq.o
-                0x00001714                bsp_irq_cfg
+                0x000016ac       0x28 ./ra/fsp/src/bsp/mcu/all/bsp_irq.o
+                0x000016ac                bsp_irq_cfg
  .text.R_BSP_RegisterProtectEnable
-                0x0000173c       0x54 ./ra/fsp/src/bsp/mcu/all/bsp_register_protection.o
-                0x0000173c                R_BSP_RegisterProtectEnable
+                0x000016d4       0x54 ./ra/fsp/src/bsp/mcu/all/bsp_register_protection.o
+                0x000016d4                R_BSP_RegisterProtectEnable
  .text.R_BSP_RegisterProtectDisable
-                0x00001790       0x4c ./ra/fsp/src/bsp/mcu/all/bsp_register_protection.o
-                0x00001790                R_BSP_RegisterProtectDisable
- .text._sbrk    0x000017dc       0x44 ./ra/fsp/src/bsp/mcu/all/bsp_sbrk.o
-                0x000017dc                _sbrk
+                0x00001728       0x4c ./ra/fsp/src/bsp/mcu/all/bsp_register_protection.o
+                0x00001728                R_BSP_RegisterProtectDisable
+ .text._sbrk    0x00001774       0x44 ./ra/fsp/src/bsp/mcu/all/bsp_sbrk.o
+                0x00001774                _sbrk
  .text.Default_Handler
-                0x00001820        0x4 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.o
-                0x00001820                DebugMon_Handler
-                0x00001820                HardFault_Handler
-                0x00001820                SysTick_Handler
-                0x00001820                PendSV_Handler
-                0x00001820                UsageFault_Handler
-                0x00001820                SecureFault_Handler
-                0x00001820                Default_Handler
-                0x00001820                MemManage_Handler
-                0x00001820                SVC_Handler
-                0x00001820                BusFault_Handler
+                0x000017b8        0x4 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.o
+                0x000017b8                DebugMon_Handler
+                0x000017b8                HardFault_Handler
+                0x000017b8                SysTick_Handler
+                0x000017b8                PendSV_Handler
+                0x000017b8                UsageFault_Handler
+                0x000017b8                SecureFault_Handler
+                0x000017b8                Default_Handler
+                0x000017b8                MemManage_Handler
+                0x000017b8                SVC_Handler
+                0x000017b8                BusFault_Handler
  .text.Reset_Handler
-                0x00001824        0xc ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.o
-                0x00001824                Reset_Handler
+                0x000017bc        0xc ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.o
+                0x000017bc                Reset_Handler
  .text.SystemInit
-                0x00001830      0x144 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.o
-                0x00001830                SystemInit
- .text          0x00001974       0x5c d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp\libgcc.a(_muldi3.o)
-                0x00001974                __muldi3
-                0x00001974                __aeabi_lmul
- .text          0x000019d0      0xa10 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp\libgcc.a(unwind-arm.o)
-                0x00001c98                _Unwind_GetCFA
-                0x00001c9c                __gnu_Unwind_RaiseException
-                0x00001cf0                __gnu_Unwind_ForcedUnwind
-                0x00001d04                __gnu_Unwind_Resume
-                0x00001d48                __gnu_Unwind_Resume_or_Rethrow
-                0x00001d60                _Unwind_Complete
-                0x00001d64                _Unwind_DeleteException
-                0x00001d74                _Unwind_VRS_Get
-                0x00001dc0                _Unwind_VRS_Set
-                0x00001e0c                __gnu_Unwind_Backtrace
-                0x00002158                __aeabi_unwind_cpp_pr0
-                0x00002164                __aeabi_unwind_cpp_pr1
-                0x00002170                __aeabi_unwind_cpp_pr2
-                0x0000217c                _Unwind_VRS_Pop
- .text          0x000023e0      0x144 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp\libgcc.a(libunwind.o)
-                0x000023e0                __restore_core_regs
-                0x000023e0                restore_core_regs
-                0x0000240c                __gnu_Unwind_Restore_VFP
-                0x00002410                __gnu_Unwind_Save_VFP
-                0x00002414                __gnu_Unwind_Restore_VFP_D
-                0x00002418                __gnu_Unwind_Save_VFP_D
-                0x0000241c                __gnu_Unwind_Restore_VFP_D_16_to_31
-                0x00002420                __gnu_Unwind_Save_VFP_D_16_to_31
-                0x00002424                __gnu_Unwind_Restore_WMMXD
-                0x00002428                __gnu_Unwind_Save_WMMXD
-                0x0000242c                __gnu_Unwind_Restore_WMMXC
-                0x00002430                __gnu_Unwind_Save_WMMXC
-                0x00002434                ___Unwind_RaiseException
-                0x00002434                _Unwind_RaiseException
-                0x00002464                _Unwind_Resume
-                0x00002464                ___Unwind_Resume
-                0x00002494                _Unwind_Resume_or_Rethrow
-                0x00002494                ___Unwind_Resume_or_Rethrow
-                0x000024c4                _Unwind_ForcedUnwind
-                0x000024c4                ___Unwind_ForcedUnwind
-                0x000024f4                ___Unwind_Backtrace
-                0x000024f4                _Unwind_Backtrace
- .text          0x00002524      0x388 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp\libgcc.a(pr-support.o)
-                0x00002574                __gnu_unwind_execute
-                0x00002864                __gnu_unwind_frame
-                0x0000288c                _Unwind_GetRegionStart
-                0x00002898                _Unwind_GetLanguageSpecificData
- .text.abort    0x000028ac        0xe d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-abort.o)
-                0x000028ac                abort
- *fill*         0x000028ba        0x2 ff
- .text.__errno  0x000028bc        0xc d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-errno.o)
-                0x000028bc                __errno
- .text.memcpy   0x000028c8       0x12 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-memcpy-stub.o)
-                0x000028c8                memcpy
- .text.memset   0x000028da       0x10 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-memset.o)
-                0x000028da                memset
+                0x000017c8      0x144 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.o
+                0x000017c8                SystemInit
+ .text          0x0000190c       0x5c d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp\libgcc.a(_muldi3.o)
+                0x0000190c                __muldi3
+                0x0000190c                __aeabi_lmul
+ .text          0x00001968      0xa10 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp\libgcc.a(unwind-arm.o)
+                0x00001c30                _Unwind_GetCFA
+                0x00001c34                __gnu_Unwind_RaiseException
+                0x00001c88                __gnu_Unwind_ForcedUnwind
+                0x00001c9c                __gnu_Unwind_Resume
+                0x00001ce0                __gnu_Unwind_Resume_or_Rethrow
+                0x00001cf8                _Unwind_Complete
+                0x00001cfc                _Unwind_DeleteException
+                0x00001d0c                _Unwind_VRS_Get
+                0x00001d58                _Unwind_VRS_Set
+                0x00001da4                __gnu_Unwind_Backtrace
+                0x000020f0                __aeabi_unwind_cpp_pr0
+                0x000020fc                __aeabi_unwind_cpp_pr1
+                0x00002108                __aeabi_unwind_cpp_pr2
+                0x00002114                _Unwind_VRS_Pop
+ .text          0x00002378      0x144 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp\libgcc.a(libunwind.o)
+                0x00002378                __restore_core_regs
+                0x00002378                restore_core_regs
+                0x000023a4                __gnu_Unwind_Restore_VFP
+                0x000023a8                __gnu_Unwind_Save_VFP
+                0x000023ac                __gnu_Unwind_Restore_VFP_D
+                0x000023b0                __gnu_Unwind_Save_VFP_D
+                0x000023b4                __gnu_Unwind_Restore_VFP_D_16_to_31
+                0x000023b8                __gnu_Unwind_Save_VFP_D_16_to_31
+                0x000023bc                __gnu_Unwind_Restore_WMMXD
+                0x000023c0                __gnu_Unwind_Save_WMMXD
+                0x000023c4                __gnu_Unwind_Restore_WMMXC
+                0x000023c8                __gnu_Unwind_Save_WMMXC
+                0x000023cc                ___Unwind_RaiseException
+                0x000023cc                _Unwind_RaiseException
+                0x000023fc                _Unwind_Resume
+                0x000023fc                ___Unwind_Resume
+                0x0000242c                _Unwind_Resume_or_Rethrow
+                0x0000242c                ___Unwind_Resume_or_Rethrow
+                0x0000245c                _Unwind_ForcedUnwind
+                0x0000245c                ___Unwind_ForcedUnwind
+                0x0000248c                ___Unwind_Backtrace
+                0x0000248c                _Unwind_Backtrace
+ .text          0x000024bc      0x388 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp\libgcc.a(pr-support.o)
+                0x0000250c                __gnu_unwind_execute
+                0x000027fc                __gnu_unwind_frame
+                0x00002824                _Unwind_GetRegionStart
+                0x00002830                _Unwind_GetLanguageSpecificData
+ .text.abort    0x00002844        0xe d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-abort.o)
+                0x00002844                abort
+ *fill*         0x00002852        0x2 ff
+ .text.__errno  0x00002854        0xc d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-errno.o)
+                0x00002854                __errno
+ .text.memcpy   0x00002860       0x12 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-memcpy-stub.o)
+                0x00002860                memcpy
+ .text.memset   0x00002872       0x10 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-memset.o)
+                0x00002872                memset
  .text._raise_r
-                0x000028ea       0x50 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-signal.o)
-                0x000028ea                _raise_r
- *fill*         0x0000293a        0x2 ff
- .text.raise    0x0000293c       0x14 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-signal.o)
-                0x0000293c                raise
- .text._kill_r  0x00002950       0x24 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-signalr.o)
-                0x00002950                _kill_r
+                0x00002882       0x50 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-signal.o)
+                0x00002882                _raise_r
+ *fill*         0x000028d2        0x2 ff
+ .text.raise    0x000028d4       0x14 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-signal.o)
+                0x000028d4                raise
+ .text._kill_r  0x000028e8       0x24 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-signalr.o)
+                0x000028e8                _kill_r
  .text._getpid_r
-                0x00002974        0x8 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-signalr.o)
-                0x00002974                _getpid_r
- .text          0x0000297c        0xe d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-strlen.o)
-                0x0000297c                strlen
- *fill*         0x0000298a        0x2 ff
+                0x0000290c        0x8 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-signalr.o)
+                0x0000290c                _getpid_r
+ .text          0x00002914        0xe d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-strlen.o)
+                0x00002914                strlen
+ *fill*         0x00002922        0x2 ff
  .text._vsprintf_r
-                0x0000298c       0x2c d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-vsprintf.o)
-                0x0000298c                _vsprintf_r
-                0x0000298c                _vsiprintf_r
+                0x00002924       0x2c d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-vsprintf.o)
+                0x00002924                _vsprintf_r
+                0x00002924                _vsiprintf_r
  .text.vsprintf
-                0x000029b8       0x18 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-vsprintf.o)
-                0x000029b8                vsiprintf
-                0x000029b8                vsprintf
+                0x00002950       0x18 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-vsprintf.o)
+                0x00002950                vsiprintf
+                0x00002950                vsprintf
  .text.sbrk_aligned
-                0x000029d0       0x40 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-nano-mallocr.o)
+                0x00002968       0x40 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-nano-mallocr.o)
  .text._malloc_r
-                0x00002a10       0xec d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-nano-mallocr.o)
-                0x00002a10                _malloc_r
+                0x000029a8       0xec d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-nano-mallocr.o)
+                0x000029a8                _malloc_r
  .text.__ssputs_r
-                0x00002afc       0xc4 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-nano-svfprintf.o)
-                0x00002afc                __ssputs_r
+                0x00002a94       0xc4 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-nano-svfprintf.o)
+                0x00002a94                __ssputs_r
  .text._svfprintf_r
-                0x00002bc0      0x1fc d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-nano-svfprintf.o)
-                0x00002bc0                _svfiprintf_r
-                0x00002bc0                _svfprintf_r
+                0x00002b58      0x1fc d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-nano-svfprintf.o)
+                0x00002b58                _svfiprintf_r
+                0x00002b58                _svfprintf_r
  .text._printf_common
-                0x00002dbc       0xdc d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-nano-vfprintf_i.o)
-                0x00002dbc                _printf_common
+                0x00002d54       0xdc d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-nano-vfprintf_i.o)
+                0x00002d54                _printf_common
  .text._printf_i
-                0x00002e98      0x218 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-nano-vfprintf_i.o)
-                0x00002e98                _printf_i
- .text._sbrk_r  0x000030b0       0x20 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-sbrkr.o)
-                0x000030b0                _sbrk_r
- .text.memchr   0x000030d0       0x16 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-memchr-stub.o)
-                0x000030d0                memchr
- .text.memmove  0x000030e6       0x26 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-memmove.o)
-                0x000030e6                memmove
+                0x00002e30      0x218 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-nano-vfprintf_i.o)
+                0x00002e30                _printf_i
+ .text._sbrk_r  0x00003048       0x20 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-sbrkr.o)
+                0x00003048                _sbrk_r
+ .text.memchr   0x00003068       0x16 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-memchr-stub.o)
+                0x00003068                memchr
+ .text.memmove  0x0000307e       0x26 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-memmove.o)
+                0x0000307e                memmove
  .text.__malloc_lock
-                0x0000310c       0x10 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-mlock.o)
-                0x0000310c                __malloc_lock
+                0x000030a4       0x10 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-mlock.o)
+                0x000030a4                __malloc_lock
  .text.__malloc_unlock
-                0x0000311c       0x10 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-mlock.o)
-                0x0000311c                __malloc_unlock
- .text._free_r  0x0000312c       0x8c d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-nano-freer.o)
-                0x0000312c                _free_r
+                0x000030b4       0x10 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-mlock.o)
+                0x000030b4                __malloc_unlock
+ .text._free_r  0x000030c4       0x8c d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-nano-freer.o)
+                0x000030c4                _free_r
  .text._realloc_r
-                0x000031b8       0x5c d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-nano-reallocr.o)
-                0x000031b8                _realloc_r
+                0x00003150       0x5c d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-nano-reallocr.o)
+                0x00003150                _realloc_r
  .text.__retarget_lock_acquire_recursive
-                0x00003214        0x2 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-lock.o)
-                0x00003214                __retarget_lock_acquire_recursive
+                0x000031ac        0x2 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-lock.o)
+                0x000031ac                __retarget_lock_acquire_recursive
  .text.__retarget_lock_release_recursive
-                0x00003216        0x2 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-lock.o)
-                0x00003216                __retarget_lock_release_recursive
+                0x000031ae        0x2 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-lock.o)
+                0x000031ae                __retarget_lock_release_recursive
  .text._malloc_usable_size_r
-                0x00003218       0x10 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-nano-msizer.o)
-                0x00003218                _malloc_usable_size_r
- .text          0x00003228       0x14 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp\libgcc.a(_thumb1_case_shi.o)
-                0x00003228                __gnu_thumb1_case_shi
- .text._getpid  0x0000323c       0x14 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libnosys.a(getpid.o)
-                0x0000323c                _getpid
- .text._kill    0x00003250       0x14 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libnosys.a(kill.o)
-                0x00003250                _kill
- .text._exit    0x00003264        0x4 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libnosys.a(_exit.o)
-                0x00003264                _exit
+                0x000031b0       0x10 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-nano-msizer.o)
+                0x000031b0                _malloc_usable_size_r
+ .text          0x000031c0       0x14 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp\libgcc.a(_thumb1_case_shi.o)
+                0x000031c0                __gnu_thumb1_case_shi
+ .text._getpid  0x000031d4       0x14 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libnosys.a(getpid.o)
+                0x000031d4                _getpid
+ .text._kill    0x000031e8       0x14 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libnosys.a(kill.o)
+                0x000031e8                _kill
+ .text._exit    0x000031fc        0x4 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libnosys.a(_exit.o)
+                0x000031fc                _exit
  *(.version)
- .version       0x00003268       0x50 ./ra/fsp/src/bsp/mcu/all/bsp_common.o
+ .version       0x00003200       0x50 ./ra/fsp/src/bsp/mcu/all/bsp_common.o
  *(.init)
- .init          0x000032b8        0x4 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp/crti.o
-                0x000032b8                _init
- .init          0x000032bc        0x8 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp/crtn.o
+ .init          0x00003250        0x4 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp/crti.o
+                0x00003250                _init
+ .init          0x00003254        0x8 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp/crtn.o
  *(.fini)
- .fini          0x000032c4        0x4 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp/crti.o
-                0x000032c4                _fini
- .fini          0x000032c8        0x8 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp/crtn.o
+ .fini          0x0000325c        0x4 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp/crti.o
+                0x0000325c                _fini
+ .fini          0x00003260        0x8 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp/crtn.o
  *crtbegin.o(.ctors)
  *crtbegin?.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o *crtend?.o) .ctors)
@@ -1512,107 +1532,111 @@ END GROUP
  *(SORT_BY_NAME(.dtors.*))
  *(.dtors)
  *(.rodata*)
- .rodata.hal_entry.str1.4
-                0x000032d0       0x4f ./src/hal_entry.o
- *fill*         0x0000331f        0x1 ff
  .rodata.timer0_callback.str1.4
-                0x00003320        0x5 ./src/hal_entry.o
- *fill*         0x00003325        0x3 ff
+                0x00003268        0x5 ./src/timer/timer0.o
+ *fill*         0x0000326d        0x3 ff
+ .rodata.hal_entry.str1.4
+                0x00003270        0xf ./src/hal_entry.o
+ *fill*         0x0000327f        0x1 ff
  .rodata.g_ioport
-                0x00003328        0xc ./ra_gen/common_data.o
-                0x00003328                g_ioport
+                0x00003280        0xc ./ra_gen/common_data.o
+                0x00003280                g_ioport
  .rodata.g_timer0_cfg
-                0x00003334       0x20 ./ra_gen/hal_data.o
-                0x00003334                g_timer0_cfg
+                0x0000328c       0x20 ./ra_gen/hal_data.o
+                0x0000328c                g_timer0_cfg
  .rodata.g_timer0_extend
-                0x00003354       0x30 ./ra_gen/hal_data.o
-                0x00003354                g_timer0_extend
+                0x000032ac       0x30 ./ra_gen/hal_data.o
+                0x000032ac                g_timer0_extend
  .rodata.g_uart0_cfg
-                0x00003384       0x20 ./ra_gen/hal_data.o
-                0x00003384                g_uart0_cfg
+                0x000032dc       0x20 ./ra_gen/hal_data.o
+                0x000032dc                g_uart0_cfg
  .rodata.g_uart0_cfg_extend
-                0x000033a4       0x14 ./ra_gen/hal_data.o
-                0x000033a4                g_uart0_cfg_extend
+                0x000032fc       0x14 ./ra_gen/hal_data.o
+                0x000032fc                g_uart0_cfg_extend
  .rodata.g_bsp_pin_cfg
-                0x000033b8        0x8 ./ra_gen/pin_data.o
-                0x000033b8                g_bsp_pin_cfg
+                0x00003310        0x8 ./ra_gen/pin_data.o
+                0x00003310                g_bsp_pin_cfg
  .rodata.g_bsp_pin_cfg_data
-                0x000033c0       0x68 ./ra_gen/pin_data.o
-                0x000033c0                g_bsp_pin_cfg_data
+                0x00003318       0x68 ./ra_gen/pin_data.o
+                0x00003318                g_bsp_pin_cfg_data
  .rodata.g_interrupt_event_link_select
-                0x00003428       0x20 ./ra_gen/vector_data.o
-                0x00003428                g_interrupt_event_link_select
+                0x00003380       0x20 ./ra_gen/vector_data.o
+                0x00003380                g_interrupt_event_link_select
  .rodata.g_ioport_on_ioport
-                0x00003448       0x38 ./ra/fsp/src/r_ioport/r_ioport.o
-                0x00003448                g_ioport_on_ioport
+                0x000033a0       0x38 ./ra/fsp/src/r_ioport/r_ioport.o
+                0x000033a0                g_ioport_on_ioport
  .rodata.g_prcr_masks
-                0x00003480        0x8 ./ra/fsp/src/bsp/mcu/all/bsp_register_protection.o
+                0x000033d8        0x8 ./ra/fsp/src/bsp/mcu/all/bsp_register_protection.o
  .rodata._svfprintf_r.str1.1
-                0x00003488       0x11 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-nano-svfprintf.o)
+                0x000033e0       0x11 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-nano-svfprintf.o)
  .rodata._printf_i.str1.1
-                0x00003499       0x22 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-nano-vfprintf_i.o)
-                0x000034bb                __usb_dev_descriptor_start_fs = .
+                0x000033f1       0x22 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-nano-vfprintf_i.o)
+                0x00003413                __usb_dev_descriptor_start_fs = .
  *(.usb_device_desc_fs*)
-                0x000034bb                __usb_cfg_descriptor_start_fs = .
+                0x00003413                __usb_cfg_descriptor_start_fs = .
  *(.usb_config_desc_fs*)
-                0x000034bb                __usb_interface_descriptor_start_fs = .
+                0x00003413                __usb_interface_descriptor_start_fs = .
  *(.usb_interface_desc_fs*)
-                0x000034bb                __usb_descriptor_end_fs = .
-                0x000034bb                __usb_dev_descriptor_start_hs = .
+                0x00003413                __usb_descriptor_end_fs = .
+                0x00003413                __usb_dev_descriptor_start_hs = .
  *(.usb_device_desc_hs*)
-                0x000034bb                __usb_cfg_descriptor_start_hs = .
+                0x00003413                __usb_cfg_descriptor_start_hs = .
  *(.usb_config_desc_hs*)
-                0x000034bb                __usb_interface_descriptor_start_hs = .
+                0x00003413                __usb_interface_descriptor_start_hs = .
  *(.usb_interface_desc_hs*)
-                0x000034bb                __usb_descriptor_end_hs = .
+                0x00003413                __usb_descriptor_end_hs = .
  *(.eh_frame*)
- *fill*         0x000034bb        0x1 ff
- .eh_frame      0x000034bc        0x0 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp/crtbegin.o
- .eh_frame      0x000034bc        0x4 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp/crtend.o
-                0x000034c0                __ROM_End = .
+ *fill*         0x00003413        0x1 ff
+ .eh_frame      0x00003414        0x0 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp/crtbegin.o
+ .eh_frame      0x00003414        0x4 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp/crtend.o
+                0x00003418                __ROM_End = .
                 0x000000c0                __Vectors_Size = (__Vectors_End - __Vectors)
 
-.glue_7         0x000034c0        0x0
- .glue_7        0x000034c0        0x0 linker stubs
+.glue_7         0x00003418        0x0
+ .glue_7        0x00003418        0x0 linker stubs
 
-.glue_7t        0x000034c0        0x0
- .glue_7t       0x000034c0        0x0 linker stubs
+.glue_7t        0x00003418        0x0
+ .glue_7t       0x00003418        0x0 linker stubs
 
-.vfp11_veneer   0x000034c0        0x0
- .vfp11_veneer  0x000034c0        0x0 linker stubs
+.vfp11_veneer   0x00003418        0x0
+ .vfp11_veneer  0x00003418        0x0 linker stubs
 
-.v4_bx          0x000034c0        0x0
- .v4_bx         0x000034c0        0x0 linker stubs
+.v4_bx          0x00003418        0x0
+ .v4_bx         0x00003418        0x0 linker stubs
 
-.iplt           0x000034c0        0x0
- .iplt          0x000034c0        0x0 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp/crtbegin.o
+.iplt           0x00003418        0x0
+ .iplt          0x00003418        0x0 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp/crtbegin.o
 
-.ARM.extab      0x000034c0       0x30
+.ARM.extab      0x00003418       0x30
  *(.ARM.extab* .gnu.linkonce.armextab.*)
- .ARM.extab     0x000034c0       0x24 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp\libgcc.a(unwind-arm.o)
- .ARM.extab     0x000034e4        0xc d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp\libgcc.a(pr-support.o)
-                0x000034f0                __exidx_start = .
+ .ARM.extab     0x00003418       0x24 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp\libgcc.a(unwind-arm.o)
+ .ARM.extab     0x0000343c        0xc d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp\libgcc.a(pr-support.o)
+                0x00003448                __exidx_start = .
 
-.ARM.exidx      0x000034f0       0xe8
+.ARM.exidx      0x00003448       0xf8
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
- .ARM.exidx.text._Z5debugPKcz
-                0x000034f0        0x8 ./src/hal_entry.o
- .ARM.exidx.text.hal_entry
-                0x000034f8        0x8 ./src/hal_entry.o
  .ARM.exidx.text.timer0_callback
-                0x00003500        0x0 ./src/hal_entry.o
+                0x00003448        0x8 ./src/timer/timer0.o
+ .ARM.exidx.text._Z11timer0_initv
+                0x00003450        0x0 ./src/timer/timer0.o
                                   0x8 (size before relaxing)
+ .ARM.exidx.text._Z5debugPKcz
+                0x00003450        0x8 ./src/debug/debug.o
+ .ARM.exidx.text._Z10debug_initv
+                0x00003458        0x8 ./src/debug/debug.o
  .ARM.exidx.text.user_uart_callback
-                0x00003500        0x8 ./src/hal_entry.o
+                0x00003460        0x8 ./src/debug/debug.o
+ .ARM.exidx.text.hal_entry
+                0x00003468        0x8 ./src/hal_entry.o
  .ARM.exidx.text.R_BSP_WarmStart
-                0x00003508       0x10 ./src/hal_entry.o
+                0x00003470       0x10 ./src/hal_entry.o
                                   0x8 (size before relaxing)
- .ARM.exidx     0x00003518       0x90 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp\libgcc.a(unwind-arm.o)
+ .ARM.exidx     0x00003480       0x90 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp\libgcc.a(unwind-arm.o)
                                  0xd8 (size before relaxing)
- .ARM.exidx     0x000035a8       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp\libgcc.a(pr-support.o)
+ .ARM.exidx     0x00003510       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp\libgcc.a(pr-support.o)
                                  0x38 (size before relaxing)
-                0x000035d8                __exidx_end = .
-                0x000035d8                __etext = .
+                0x00003540                __exidx_end = .
+                0x00003540                __etext = .
                 0x20004000                __tz_RAM_S = ORIGIN (RAM)
 
 .fsp_dtc_vector_table
@@ -1620,7 +1644,7 @@ END GROUP
                 0x20004000                . = ORIGIN (RAM)
  *(.fsp_dtc_vector_table)
 
-.data           0x20004000       0x70 load address 0x000035d8
+.data           0x20004000       0x70 load address 0x00003540
                 0x20004000                __data_start__ = .
                 0x20004000                . = ALIGN (0x4)
                 0x20004000                __Code_In_RAM_Start = .
@@ -1657,7 +1681,7 @@ END GROUP
                 0x20004070                . = ALIGN (0x4)
                 0x20004070                __data_end__ = .
 
-.igot.plt       0x20004070        0x0 load address 0x00003648
+.igot.plt       0x20004070        0x0 load address 0x000035b0
  .igot.plt      0x20004070        0x0 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp/crtbegin.o
 
 .gnu.sgstubs    0x00003800        0x0
@@ -1677,10 +1701,10 @@ END GROUP
  *(.code_in_qspi*)
                 0x60000000                __qspi_flash_end__ = .
                 0x00000000                __qspi_flash_code_size__ = (__qspi_flash_end__ - __qspi_flash_start__)
-                0x00003648                __qspi_flash_code_addr__ = (__etext + (__data_end__ - __data_start__))
+                0x000035b0                __qspi_flash_code_addr__ = (__etext + (__data_end__ - __data_start__))
 
 .qspi_non_retentive
-                0x60000000        0x0 load address 0x00003648
+                0x60000000        0x0 load address 0x000035b0
                 0x60000000                __qspi_non_retentive_start__ = .
  *(.qspi_non_retentive*)
                 0x60000000                __qspi_non_retentive_end__ = .
@@ -1713,10 +1737,10 @@ END GROUP
  *(.code_in_ospi_device_0*)
                 0x68000000                __ospi_device_0_end__ = .
                 0x00000000                __ospi_device_0_code_size__ = (__ospi_device_0_end__ - __ospi_device_0_start__)
-                0x00003648                __ospi_device_0_code_addr__ = (__etext + (__data_end__ - __data_start__))
+                0x000035b0                __ospi_device_0_code_addr__ = (__etext + (__data_end__ - __data_start__))
 
 .ospi_device_0_non_retentive
-                0x68000000        0x0 load address 0x00003648
+                0x68000000        0x0 load address 0x000035b0
                 0x68000000                __ospi_device_0_non_retentive_start__ = .
  *(.ospi_device_0_non_retentive*)
                 0x68000000                __ospi_device_0_non_retentive_end__ = .
@@ -1733,10 +1757,10 @@ END GROUP
  *(.code_in_ospi_device_1*)
                 0x70000000                __ospi_device_1_end__ = .
                 0x00000000                __ospi_device_1_code_size__ = (__ospi_device_1_end__ - __ospi_device_1_start__)
-                0x00003648                __ospi_device_1_code_addr__ = (__etext + (__data_end__ - __data_start__))
+                0x000035b0                __ospi_device_1_code_addr__ = (__etext + (__data_end__ - __data_start__))
 
 .ospi_device_1_non_retentive
-                0x70000000        0x0 load address 0x00003648
+                0x70000000        0x0 load address 0x000035b0
                 0x70000000                __ospi_device_1_non_retentive_start__ = .
  *(.ospi_device_1_non_retentive*)
                 0x70000000                __ospi_device_1_non_retentive_end__ = .
@@ -1756,83 +1780,77 @@ END GROUP
  *(.heap.*)
                 0x20004088                __noinit_end = .
 
-.bss            0x20004088      0x1c4
+.bss            0x20004088      0x1bc
                 0x20004088                . = ALIGN (0x4)
                 0x20004088                __bss_start__ = .
  *(.bss*)
  .bss           0x20004088       0x1c d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp/crtbegin.o
  .bss._ZZ5debugPKczE9send_buff
-                0x200040a4       0x64 ./src/hal_entry.o
- .bss.err       0x20004108        0x4 ./src/hal_entry.o
-                0x20004108                err
- .bss.uart_send_complete_flag
-                0x2000410c        0x1 ./src/hal_entry.o
-                0x2000410c                uart_send_complete_flag
- *fill*         0x2000410d        0x3 
+                0x200040a4       0x64 ./src/debug/debug.o
  .bss.g_ioport_ctrl
-                0x20004110        0x8 ./ra_gen/common_data.o
-                0x20004110                g_ioport_ctrl
+                0x20004108        0x8 ./ra_gen/common_data.o
+                0x20004108                g_ioport_ctrl
  .bss.g_timer0_ctrl
-                0x20004118       0x20 ./ra_gen/hal_data.o
-                0x20004118                g_timer0_ctrl
+                0x20004110       0x20 ./ra_gen/hal_data.o
+                0x20004110                g_timer0_ctrl
  .bss.g_uart0_ctrl
-                0x20004138       0x30 ./ra_gen/hal_data.o
-                0x20004138                g_uart0_ctrl
+                0x20004130       0x30 ./ra_gen/hal_data.o
+                0x20004130                g_uart0_ctrl
  .bss.g_bsp_group_irq_sources
-                0x20004168       0x40 ./ra/fsp/src/bsp/mcu/all/bsp_group_irq.o
-                0x20004168                g_bsp_group_irq_sources
+                0x20004160       0x40 ./ra/fsp/src/bsp/mcu/all/bsp_group_irq.o
+                0x20004160                g_bsp_group_irq_sources
  .bss.g_protect_pfswe_counter
-                0x200041a8        0x4 ./ra/fsp/src/bsp/mcu/all/bsp_io.o
-                0x200041a8                g_protect_pfswe_counter
+                0x200041a0        0x4 ./ra/fsp/src/bsp/mcu/all/bsp_io.o
+                0x200041a0                g_protect_pfswe_counter
  .bss.gp_renesas_isr_context
-                0x200041ac       0x80 ./ra/fsp/src/bsp/mcu/all/bsp_irq.o
-                0x200041ac                gp_renesas_isr_context
+                0x200041a4       0x80 ./ra/fsp/src/bsp/mcu/all/bsp_irq.o
+                0x200041a4                gp_renesas_isr_context
  .bss.g_protect_counters
-                0x2000422c        0x8 ./ra/fsp/src/bsp/mcu/all/bsp_register_protection.o
-                0x2000422c                g_protect_counters
+                0x20004224        0x8 ./ra/fsp/src/bsp/mcu/all/bsp_register_protection.o
+                0x20004224                g_protect_counters
  .bss.current_heap_end.0
-                0x20004234        0x4 ./ra/fsp/src/bsp/mcu/all/bsp_sbrk.o
+                0x2000422c        0x4 ./ra/fsp/src/bsp/mcu/all/bsp_sbrk.o
  .bss.SystemCoreClock
-                0x20004238        0x4 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.o
-                0x20004238                SystemCoreClock
+                0x20004230        0x4 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.o
+                0x20004230                SystemCoreClock
  .bss.__malloc_free_list
-                0x2000423c        0x4 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-nano-mallocr.o)
-                0x2000423c                __malloc_free_list
+                0x20004234        0x4 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-nano-mallocr.o)
+                0x20004234                __malloc_free_list
  .bss.__malloc_sbrk_start
-                0x20004240        0x4 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-nano-mallocr.o)
-                0x20004240                __malloc_sbrk_start
- .bss.errno     0x20004244        0x4 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-reent.o)
-                0x20004244                errno
+                0x20004238        0x4 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-nano-mallocr.o)
+                0x20004238                __malloc_sbrk_start
+ .bss.errno     0x2000423c        0x4 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-reent.o)
+                0x2000423c                errno
  .bss.__lock___malloc_recursive_mutex
-                0x20004248        0x1 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-lock.o)
-                0x20004248                __lock___malloc_recursive_mutex
+                0x20004240        0x1 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-lock.o)
+                0x20004240                __lock___malloc_recursive_mutex
  *(COMMON)
-                0x2000424c                . = ALIGN (0x4)
- *fill*         0x20004249        0x3 
-                0x2000424c                __bss_end__ = .
+                0x20004244                . = ALIGN (0x4)
+ *fill*         0x20004241        0x3 
+                0x20004244                __bss_end__ = .
 
-.heap           0x2000424c        0x4
-                0x20004250                . = ALIGN (0x8)
- *fill*         0x2000424c        0x4 
-                0x20004250                __HeapBase = .
+.heap           0x20004244        0x4
+                0x20004248                . = ALIGN (0x8)
+ *fill*         0x20004244        0x4 
+                0x20004248                __HeapBase = .
  *(.heap)
-                0x20004250                __HeapLimit = .
+                0x20004248                __HeapLimit = .
 
-.stack_dummy    0x20004250      0x400
-                0x20004250                . = ALIGN (0x8)
-                0x20004250                __StackLimit = .
+.stack_dummy    0x20004248      0x400
+                0x20004248                . = ALIGN (0x8)
+                0x20004248                __StackLimit = .
  *(.stack)
- .stack         0x20004250      0x400 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.o
-                0x20004650                __StackTop = .
+ .stack         0x20004248      0x400 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.o
+                0x20004648                __StackTop = .
  *(.stack*)
-                0x20004650                __StackTopAll = .
-                0x20004650                PROVIDE (__stack = __StackTopAll)
-                0x20004650                __RAM_segment_used_end__ = ALIGN (__StackTopAll, 0x4)
+                0x20004648                __StackTopAll = .
+                0x20004648                PROVIDE (__stack = __StackTopAll)
+                0x20004648                __RAM_segment_used_end__ = ALIGN (__StackTopAll, 0x4)
                 0x20004800                __tz_RAM_C = DEFINED (RAM_NSC_START)?ABSOLUTE (RAM_NSC_START):__RESERVE_NS_RAM?ABSOLUTE (RAM_NS_BUFFER_BLOCK_START):ALIGN (__RAM_segment_used_end__, 0x400)
                 0x20006000                __tz_RAM_N = DEFINED (RAM_NS_START)?ABSOLUTE (RAM_NS_START):__RESERVE_NS_RAM?ABSOLUTE (RAM_NS_BUFFER_BLOCK_START):ALIGN (__tz_RAM_C, 0x2000)
 
-.ns_buffer      0x20004650        0x0
-                0x20004650                . = __RESERVE_NS_RAM?ABSOLUTE ((RAM_NS_BUFFER_START & 0xffffffe0)):.
+.ns_buffer      0x20004648        0x0
+                0x20004648                . = __RESERVE_NS_RAM?ABSOLUTE ((RAM_NS_BUFFER_START & 0xffffffe0)):.
  *(.ns_buffer*)
 
 .data_flash     0x40100000        0x0
@@ -1935,115 +1953,121 @@ LOAD linker stubs
  .ARM.attributes
                 0x00000022       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp/crtbegin.o
  .ARM.attributes
-                0x00000052       0x30 ./src/hal_entry.o
+                0x00000052       0x30 ./src/timer/timer0.o
  .ARM.attributes
-                0x00000082       0x30 ./ra_gen/common_data.o
+                0x00000082       0x30 ./src/debug/debug.o
  .ARM.attributes
-                0x000000b2       0x30 ./ra_gen/hal_data.o
+                0x000000b2       0x30 ./src/hal_entry.o
  .ARM.attributes
-                0x000000e2       0x30 ./ra_gen/main.o
+                0x000000e2       0x30 ./ra_gen/common_data.o
  .ARM.attributes
-                0x00000112       0x30 ./ra_gen/pin_data.o
+                0x00000112       0x30 ./ra_gen/hal_data.o
  .ARM.attributes
-                0x00000142       0x30 ./ra_gen/vector_data.o
+                0x00000142       0x30 ./ra_gen/main.o
  .ARM.attributes
-                0x00000172       0x30 ./ra/fsp/src/r_spi/r_spi.o
+                0x00000172       0x30 ./ra_gen/pin_data.o
  .ARM.attributes
-                0x000001a2       0x30 ./ra/fsp/src/r_sci_uart/r_sci_uart.o
+                0x000001a2       0x30 ./ra_gen/vector_data.o
  .ARM.attributes
-                0x000001d2       0x30 ./ra/fsp/src/r_ioport/r_ioport.o
+                0x000001d2       0x30 ./ra/fsp/src/r_spi/r_spi.o
  .ARM.attributes
-                0x00000202       0x30 ./ra/fsp/src/r_gpt/r_gpt.o
+                0x00000202       0x30 ./ra/fsp/src/r_sci_uart/r_sci_uart.o
  .ARM.attributes
-                0x00000232       0x30 ./ra/fsp/src/r_adc/r_adc.o
+                0x00000232       0x30 ./ra/fsp/src/r_ioport/r_ioport.o
  .ARM.attributes
-                0x00000262       0x30 ./ra/fsp/src/bsp/mcu/all/bsp_clocks.o
+                0x00000262       0x30 ./ra/fsp/src/r_gpt/r_gpt.o
  .ARM.attributes
-                0x00000292       0x30 ./ra/fsp/src/bsp/mcu/all/bsp_common.o
+                0x00000292       0x30 ./ra/fsp/src/r_adc/r_adc.o
  .ARM.attributes
-                0x000002c2       0x30 ./ra/fsp/src/bsp/mcu/all/bsp_delay.o
+                0x000002c2       0x30 ./ra/fsp/src/bsp/mcu/all/bsp_clocks.o
  .ARM.attributes
-                0x000002f2       0x30 ./ra/fsp/src/bsp/mcu/all/bsp_group_irq.o
+                0x000002f2       0x30 ./ra/fsp/src/bsp/mcu/all/bsp_common.o
  .ARM.attributes
-                0x00000322       0x30 ./ra/fsp/src/bsp/mcu/all/bsp_io.o
+                0x00000322       0x30 ./ra/fsp/src/bsp/mcu/all/bsp_delay.o
  .ARM.attributes
-                0x00000352       0x30 ./ra/fsp/src/bsp/mcu/all/bsp_irq.o
+                0x00000352       0x30 ./ra/fsp/src/bsp/mcu/all/bsp_group_irq.o
  .ARM.attributes
-                0x00000382       0x30 ./ra/fsp/src/bsp/mcu/all/bsp_register_protection.o
+                0x00000382       0x30 ./ra/fsp/src/bsp/mcu/all/bsp_io.o
  .ARM.attributes
-                0x000003b2       0x30 ./ra/fsp/src/bsp/mcu/all/bsp_rom_registers.o
+                0x000003b2       0x30 ./ra/fsp/src/bsp/mcu/all/bsp_irq.o
  .ARM.attributes
-                0x000003e2       0x30 ./ra/fsp/src/bsp/mcu/all/bsp_sbrk.o
+                0x000003e2       0x30 ./ra/fsp/src/bsp/mcu/all/bsp_register_protection.o
  .ARM.attributes
-                0x00000412       0x30 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.o
+                0x00000412       0x30 ./ra/fsp/src/bsp/mcu/all/bsp_rom_registers.o
  .ARM.attributes
-                0x00000442       0x30 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.o
+                0x00000442       0x30 ./ra/fsp/src/bsp/mcu/all/bsp_sbrk.o
  .ARM.attributes
-                0x00000472       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp\libgcc.a(_muldi3.o)
+                0x00000472       0x30 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.o
  .ARM.attributes
-                0x000004a2       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp\libgcc.a(unwind-arm.o)
+                0x000004a2       0x30 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.o
  .ARM.attributes
-                0x000004d2       0x22 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp\libgcc.a(libunwind.o)
+                0x000004d2       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp\libgcc.a(_muldi3.o)
  .ARM.attributes
-                0x000004f4       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp\libgcc.a(pr-support.o)
+                0x00000502       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp\libgcc.a(unwind-arm.o)
  .ARM.attributes
-                0x00000524       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-abort.o)
+                0x00000532       0x22 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp\libgcc.a(libunwind.o)
  .ARM.attributes
-                0x00000554       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-errno.o)
+                0x00000554       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp\libgcc.a(pr-support.o)
  .ARM.attributes
-                0x00000584       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-impure.o)
+                0x00000584       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-abort.o)
  .ARM.attributes
-                0x000005b4       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-memcpy-stub.o)
+                0x000005b4       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-errno.o)
  .ARM.attributes
-                0x000005e4       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-memset.o)
+                0x000005e4       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-impure.o)
  .ARM.attributes
-                0x00000614       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-signal.o)
+                0x00000614       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-memcpy-stub.o)
  .ARM.attributes
-                0x00000644       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-signalr.o)
+                0x00000644       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-memset.o)
  .ARM.attributes
-                0x00000674       0x1c d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-strlen.o)
+                0x00000674       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-signal.o)
  .ARM.attributes
-                0x00000690       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-vsprintf.o)
+                0x000006a4       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-signalr.o)
  .ARM.attributes
-                0x000006c0       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-nano-mallocr.o)
+                0x000006d4       0x1c d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-strlen.o)
  .ARM.attributes
-                0x000006f0       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-nano-svfprintf.o)
+                0x000006f0       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-vsprintf.o)
  .ARM.attributes
-                0x00000720       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-nano-vfprintf_i.o)
+                0x00000720       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-nano-mallocr.o)
  .ARM.attributes
-                0x00000750       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-reent.o)
+                0x00000750       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-nano-svfprintf.o)
  .ARM.attributes
-                0x00000780       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-sbrkr.o)
+                0x00000780       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-nano-vfprintf_i.o)
  .ARM.attributes
-                0x000007b0       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-memchr-stub.o)
+                0x000007b0       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-reent.o)
  .ARM.attributes
-                0x000007e0       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-memmove.o)
+                0x000007e0       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-sbrkr.o)
  .ARM.attributes
-                0x00000810       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-mlock.o)
+                0x00000810       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-memchr-stub.o)
  .ARM.attributes
-                0x00000840       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-nano-freer.o)
+                0x00000840       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-memmove.o)
  .ARM.attributes
-                0x00000870       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-nano-reallocr.o)
+                0x00000870       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-mlock.o)
  .ARM.attributes
-                0x000008a0       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-lock.o)
+                0x000008a0       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-nano-freer.o)
  .ARM.attributes
-                0x000008d0       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-nano-msizer.o)
+                0x000008d0       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-nano-reallocr.o)
  .ARM.attributes
-                0x00000900       0x22 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp\libgcc.a(_thumb1_case_shi.o)
+                0x00000900       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-lock.o)
  .ARM.attributes
-                0x00000922       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp/crtend.o
+                0x00000930       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-nano-msizer.o)
  .ARM.attributes
-                0x00000952       0x22 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp/crtn.o
+                0x00000960       0x22 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp\libgcc.a(_thumb1_case_shi.o)
  .ARM.attributes
-                0x00000974       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libnosys.a(getpid.o)
+                0x00000982       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp/crtend.o
  .ARM.attributes
-                0x000009a4       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libnosys.a(kill.o)
+                0x000009b2       0x22 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp/crtn.o
  .ARM.attributes
-                0x000009d4       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libnosys.a(_exit.o)
+                0x000009d4       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libnosys.a(getpid.o)
+ .ARM.attributes
+                0x00000a04       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libnosys.a(kill.o)
+ .ARM.attributes
+                0x00000a34       0x30 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libnosys.a(_exit.o)
 
 .comment        0x00000000       0x49
- .comment       0x00000000       0x49 ./src/hal_entry.o
+ .comment       0x00000000       0x49 ./src/timer/timer0.o
                                  0x4a (size before relaxing)
+ .comment       0x00000049       0x4a ./src/debug/debug.o
+ .comment       0x00000049       0x4a ./src/hal_entry.o
  .comment       0x00000049       0x4a ./ra_gen/common_data.o
  .comment       0x00000049       0x4a ./ra_gen/hal_data.o
  .comment       0x00000049       0x4a ./ra_gen/main.o
@@ -2066,56 +2090,62 @@ LOAD linker stubs
  .comment       0x00000049       0x4a ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.o
  .comment       0x00000049       0x4a ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.o
 
-.debug_info     0x00000000    0x48e55
- .debug_info    0x00000000     0x72df ./src/hal_entry.o
- .debug_info    0x000072df     0x1244 ./ra_gen/common_data.o
- .debug_info    0x00008523     0xacae ./ra_gen/hal_data.o
- .debug_info    0x000131d1       0xb1 ./ra_gen/main.o
- .debug_info    0x00013282      0x9e1 ./ra_gen/pin_data.o
- .debug_info    0x00013c63      0x3f1 ./ra_gen/vector_data.o
- .debug_info    0x00014054     0x7ebe ./ra/fsp/src/r_spi/r_spi.o
- .debug_info    0x0001bf12     0x93ab ./ra/fsp/src/r_sci_uart/r_sci_uart.o
- .debug_info    0x000252bd     0x2f57 ./ra/fsp/src/r_ioport/r_ioport.o
- .debug_info    0x00028214     0x9360 ./ra/fsp/src/r_gpt/r_gpt.o
- .debug_info    0x00031574     0xa6fe ./ra/fsp/src/r_adc/r_adc.o
- .debug_info    0x0003bc72     0x495b ./ra/fsp/src/bsp/mcu/all/bsp_clocks.o
- .debug_info    0x000405cd      0x906 ./ra/fsp/src/bsp/mcu/all/bsp_common.o
- .debug_info    0x00040ed3      0x1ef ./ra/fsp/src/bsp/mcu/all/bsp_delay.o
- .debug_info    0x000410c2     0x1389 ./ra/fsp/src/bsp/mcu/all/bsp_group_irq.o
- .debug_info    0x0004244b       0xaa ./ra/fsp/src/bsp/mcu/all/bsp_io.o
- .debug_info    0x000424f5      0xf2a ./ra/fsp/src/bsp/mcu/all/bsp_irq.o
- .debug_info    0x0004341f     0x39f2 ./ra/fsp/src/bsp/mcu/all/bsp_register_protection.o
- .debug_info    0x00046e11       0xdd ./ra/fsp/src/bsp/mcu/all/bsp_rom_registers.o
- .debug_info    0x00046eee      0x142 ./ra/fsp/src/bsp/mcu/all/bsp_sbrk.o
- .debug_info    0x00047030      0x148 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.o
- .debug_info    0x00047178     0x1cdd ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.o
+.debug_info     0x00000000    0x4ab85
+ .debug_info    0x00000000     0x2aa7 ./src/timer/timer0.o
+ .debug_info    0x00002aa7     0x368e ./src/debug/debug.o
+ .debug_info    0x00006135     0x2eda ./src/hal_entry.o
+ .debug_info    0x0000900f     0x1244 ./ra_gen/common_data.o
+ .debug_info    0x0000a253     0xacae ./ra_gen/hal_data.o
+ .debug_info    0x00014f01       0xb1 ./ra_gen/main.o
+ .debug_info    0x00014fb2      0x9e1 ./ra_gen/pin_data.o
+ .debug_info    0x00015993      0x3f1 ./ra_gen/vector_data.o
+ .debug_info    0x00015d84     0x7ebe ./ra/fsp/src/r_spi/r_spi.o
+ .debug_info    0x0001dc42     0x93ab ./ra/fsp/src/r_sci_uart/r_sci_uart.o
+ .debug_info    0x00026fed     0x2f57 ./ra/fsp/src/r_ioport/r_ioport.o
+ .debug_info    0x00029f44     0x9360 ./ra/fsp/src/r_gpt/r_gpt.o
+ .debug_info    0x000332a4     0xa6fe ./ra/fsp/src/r_adc/r_adc.o
+ .debug_info    0x0003d9a2     0x495b ./ra/fsp/src/bsp/mcu/all/bsp_clocks.o
+ .debug_info    0x000422fd      0x906 ./ra/fsp/src/bsp/mcu/all/bsp_common.o
+ .debug_info    0x00042c03      0x1ef ./ra/fsp/src/bsp/mcu/all/bsp_delay.o
+ .debug_info    0x00042df2     0x1389 ./ra/fsp/src/bsp/mcu/all/bsp_group_irq.o
+ .debug_info    0x0004417b       0xaa ./ra/fsp/src/bsp/mcu/all/bsp_io.o
+ .debug_info    0x00044225      0xf2a ./ra/fsp/src/bsp/mcu/all/bsp_irq.o
+ .debug_info    0x0004514f     0x39f2 ./ra/fsp/src/bsp/mcu/all/bsp_register_protection.o
+ .debug_info    0x00048b41       0xdd ./ra/fsp/src/bsp/mcu/all/bsp_rom_registers.o
+ .debug_info    0x00048c1e      0x142 ./ra/fsp/src/bsp/mcu/all/bsp_sbrk.o
+ .debug_info    0x00048d60      0x148 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.o
+ .debug_info    0x00048ea8     0x1cdd ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.o
 
-.debug_abbrev   0x00000000     0x3804
- .debug_abbrev  0x00000000      0x4c5 ./src/hal_entry.o
- .debug_abbrev  0x000004c5      0x150 ./ra_gen/common_data.o
- .debug_abbrev  0x00000615      0x2fd ./ra_gen/hal_data.o
- .debug_abbrev  0x00000912       0x66 ./ra_gen/main.o
- .debug_abbrev  0x00000978       0xdc ./ra_gen/pin_data.o
- .debug_abbrev  0x00000a54       0x9e ./ra_gen/vector_data.o
- .debug_abbrev  0x00000af2      0x5db ./ra/fsp/src/r_spi/r_spi.o
- .debug_abbrev  0x000010cd      0x5ac ./ra/fsp/src/r_sci_uart/r_sci_uart.o
- .debug_abbrev  0x00001679      0x39a ./ra/fsp/src/r_ioport/r_ioport.o
- .debug_abbrev  0x00001a13      0x5ed ./ra/fsp/src/r_gpt/r_gpt.o
- .debug_abbrev  0x00002000      0x5e8 ./ra/fsp/src/r_adc/r_adc.o
- .debug_abbrev  0x000025e8      0x38a ./ra/fsp/src/bsp/mcu/all/bsp_clocks.o
- .debug_abbrev  0x00002972      0x188 ./ra/fsp/src/bsp/mcu/all/bsp_common.o
- .debug_abbrev  0x00002afa      0x10d ./ra/fsp/src/bsp/mcu/all/bsp_delay.o
- .debug_abbrev  0x00002c07      0x256 ./ra/fsp/src/bsp/mcu/all/bsp_group_irq.o
- .debug_abbrev  0x00002e5d       0x5e ./ra/fsp/src/bsp/mcu/all/bsp_io.o
- .debug_abbrev  0x00002ebb      0x1a6 ./ra/fsp/src/bsp/mcu/all/bsp_irq.o
- .debug_abbrev  0x00003061      0x252 ./ra/fsp/src/bsp/mcu/all/bsp_register_protection.o
- .debug_abbrev  0x000032b3       0x5f ./ra/fsp/src/bsp/mcu/all/bsp_rom_registers.o
- .debug_abbrev  0x00003312       0xcc ./ra/fsp/src/bsp/mcu/all/bsp_sbrk.o
- .debug_abbrev  0x000033de       0xe6 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.o
- .debug_abbrev  0x000034c4      0x340 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.o
+.debug_abbrev   0x00000000     0x3e28
+ .debug_abbrev  0x00000000      0x320 ./src/timer/timer0.o
+ .debug_abbrev  0x00000320      0x411 ./src/debug/debug.o
+ .debug_abbrev  0x00000731      0x3b8 ./src/hal_entry.o
+ .debug_abbrev  0x00000ae9      0x150 ./ra_gen/common_data.o
+ .debug_abbrev  0x00000c39      0x2fd ./ra_gen/hal_data.o
+ .debug_abbrev  0x00000f36       0x66 ./ra_gen/main.o
+ .debug_abbrev  0x00000f9c       0xdc ./ra_gen/pin_data.o
+ .debug_abbrev  0x00001078       0x9e ./ra_gen/vector_data.o
+ .debug_abbrev  0x00001116      0x5db ./ra/fsp/src/r_spi/r_spi.o
+ .debug_abbrev  0x000016f1      0x5ac ./ra/fsp/src/r_sci_uart/r_sci_uart.o
+ .debug_abbrev  0x00001c9d      0x39a ./ra/fsp/src/r_ioport/r_ioport.o
+ .debug_abbrev  0x00002037      0x5ed ./ra/fsp/src/r_gpt/r_gpt.o
+ .debug_abbrev  0x00002624      0x5e8 ./ra/fsp/src/r_adc/r_adc.o
+ .debug_abbrev  0x00002c0c      0x38a ./ra/fsp/src/bsp/mcu/all/bsp_clocks.o
+ .debug_abbrev  0x00002f96      0x188 ./ra/fsp/src/bsp/mcu/all/bsp_common.o
+ .debug_abbrev  0x0000311e      0x10d ./ra/fsp/src/bsp/mcu/all/bsp_delay.o
+ .debug_abbrev  0x0000322b      0x256 ./ra/fsp/src/bsp/mcu/all/bsp_group_irq.o
+ .debug_abbrev  0x00003481       0x5e ./ra/fsp/src/bsp/mcu/all/bsp_io.o
+ .debug_abbrev  0x000034df      0x1a6 ./ra/fsp/src/bsp/mcu/all/bsp_irq.o
+ .debug_abbrev  0x00003685      0x252 ./ra/fsp/src/bsp/mcu/all/bsp_register_protection.o
+ .debug_abbrev  0x000038d7       0x5f ./ra/fsp/src/bsp/mcu/all/bsp_rom_registers.o
+ .debug_abbrev  0x00003936       0xcc ./ra/fsp/src/bsp/mcu/all/bsp_sbrk.o
+ .debug_abbrev  0x00003a02       0xe6 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.o
+ .debug_abbrev  0x00003ae8      0x340 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.o
 
 .debug_loc      0x00000000     0x6b97
- .debug_loc     0x00000000       0x99 ./src/hal_entry.o
+ .debug_loc     0x00000000       0x42 ./src/timer/timer0.o
+ .debug_loc     0x00000042       0x15 ./src/debug/debug.o
+ .debug_loc     0x00000057       0x42 ./src/hal_entry.o
  .debug_loc     0x00000099     0x1a73 ./ra/fsp/src/r_spi/r_spi.o
  .debug_loc     0x00001b0c     0x117f ./ra/fsp/src/r_sci_uart/r_sci_uart.o
  .debug_loc     0x00002c8b      0xefd ./ra/fsp/src/r_ioport/r_ioport.o
@@ -2130,186 +2160,200 @@ LOAD linker stubs
  .debug_loc     0x0000698a       0xf3 ./ra/fsp/src/bsp/mcu/all/bsp_sbrk.o
  .debug_loc     0x00006a7d      0x11a ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.o
 
-.debug_aranges  0x00000000      0x5c0
+.debug_aranges  0x00000000      0x600
  .debug_aranges
-                0x00000000       0x48 ./src/hal_entry.o
+                0x00000000       0x28 ./src/timer/timer0.o
  .debug_aranges
-                0x00000048       0x20 ./ra_gen/common_data.o
+                0x00000028       0x30 ./src/debug/debug.o
  .debug_aranges
-                0x00000068       0x20 ./ra_gen/hal_data.o
+                0x00000058       0x30 ./src/hal_entry.o
  .debug_aranges
-                0x00000088       0x20 ./ra_gen/main.o
+                0x00000088       0x20 ./ra_gen/common_data.o
  .debug_aranges
-                0x000000a8       0x18 ./ra_gen/pin_data.o
+                0x000000a8       0x20 ./ra_gen/hal_data.o
  .debug_aranges
-                0x000000c0       0x18 ./ra_gen/vector_data.o
+                0x000000c8       0x20 ./ra_gen/main.o
  .debug_aranges
-                0x000000d8       0x80 ./ra/fsp/src/r_spi/r_spi.o
+                0x000000e8       0x18 ./ra_gen/pin_data.o
  .debug_aranges
-                0x00000158       0x98 ./ra/fsp/src/r_sci_uart/r_sci_uart.o
+                0x00000100       0x18 ./ra_gen/vector_data.o
  .debug_aranges
-                0x000001f0       0x90 ./ra/fsp/src/r_ioport/r_ioport.o
+                0x00000118       0x80 ./ra/fsp/src/r_spi/r_spi.o
  .debug_aranges
-                0x00000280       0xd8 ./ra/fsp/src/r_gpt/r_gpt.o
+                0x00000198       0x98 ./ra/fsp/src/r_sci_uart/r_sci_uart.o
  .debug_aranges
-                0x00000358       0xb8 ./ra/fsp/src/r_adc/r_adc.o
+                0x00000230       0x90 ./ra/fsp/src/r_ioport/r_ioport.o
  .debug_aranges
-                0x00000410       0x48 ./ra/fsp/src/bsp/mcu/all/bsp_clocks.o
+                0x000002c0       0xd8 ./ra/fsp/src/r_gpt/r_gpt.o
  .debug_aranges
-                0x00000458       0x30 ./ra/fsp/src/bsp/mcu/all/bsp_common.o
+                0x00000398       0xb8 ./ra/fsp/src/r_adc/r_adc.o
  .debug_aranges
-                0x00000488       0x28 ./ra/fsp/src/bsp/mcu/all/bsp_delay.o
+                0x00000450       0x48 ./ra/fsp/src/bsp/mcu/all/bsp_clocks.o
  .debug_aranges
-                0x000004b0       0x28 ./ra/fsp/src/bsp/mcu/all/bsp_group_irq.o
+                0x00000498       0x30 ./ra/fsp/src/bsp/mcu/all/bsp_common.o
  .debug_aranges
-                0x000004d8       0x18 ./ra/fsp/src/bsp/mcu/all/bsp_io.o
+                0x000004c8       0x28 ./ra/fsp/src/bsp/mcu/all/bsp_delay.o
  .debug_aranges
-                0x000004f0       0x20 ./ra/fsp/src/bsp/mcu/all/bsp_irq.o
+                0x000004f0       0x28 ./ra/fsp/src/bsp/mcu/all/bsp_group_irq.o
  .debug_aranges
-                0x00000510       0x28 ./ra/fsp/src/bsp/mcu/all/bsp_register_protection.o
+                0x00000518       0x18 ./ra/fsp/src/bsp/mcu/all/bsp_io.o
  .debug_aranges
-                0x00000538       0x18 ./ra/fsp/src/bsp/mcu/all/bsp_rom_registers.o
+                0x00000530       0x20 ./ra/fsp/src/bsp/mcu/all/bsp_irq.o
  .debug_aranges
-                0x00000550       0x20 ./ra/fsp/src/bsp/mcu/all/bsp_sbrk.o
+                0x00000550       0x28 ./ra/fsp/src/bsp/mcu/all/bsp_register_protection.o
  .debug_aranges
-                0x00000570       0x28 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.o
+                0x00000578       0x18 ./ra/fsp/src/bsp/mcu/all/bsp_rom_registers.o
  .debug_aranges
-                0x00000598       0x28 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.o
+                0x00000590       0x20 ./ra/fsp/src/bsp/mcu/all/bsp_sbrk.o
+ .debug_aranges
+                0x000005b0       0x28 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.o
+ .debug_aranges
+                0x000005d8       0x28 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.o
 
-.debug_ranges   0x00000000     0x16b8
- .debug_ranges  0x00000000       0x38 ./src/hal_entry.o
- .debug_ranges  0x00000038       0x10 ./ra_gen/common_data.o
- .debug_ranges  0x00000048       0x10 ./ra_gen/hal_data.o
- .debug_ranges  0x00000058       0x10 ./ra_gen/main.o
- .debug_ranges  0x00000068      0x6f0 ./ra/fsp/src/r_spi/r_spi.o
- .debug_ranges  0x00000758      0x5f8 ./ra/fsp/src/r_sci_uart/r_sci_uart.o
- .debug_ranges  0x00000d50      0x1b0 ./ra/fsp/src/r_ioport/r_ioport.o
- .debug_ranges  0x00000f00      0x298 ./ra/fsp/src/r_gpt/r_gpt.o
- .debug_ranges  0x00001198      0x358 ./ra/fsp/src/r_adc/r_adc.o
- .debug_ranges  0x000014f0       0xc8 ./ra/fsp/src/bsp/mcu/all/bsp_clocks.o
- .debug_ranges  0x000015b8       0x20 ./ra/fsp/src/bsp/mcu/all/bsp_common.o
- .debug_ranges  0x000015d8       0x18 ./ra/fsp/src/bsp/mcu/all/bsp_delay.o
- .debug_ranges  0x000015f0       0x30 ./ra/fsp/src/bsp/mcu/all/bsp_group_irq.o
- .debug_ranges  0x00001620       0x10 ./ra/fsp/src/bsp/mcu/all/bsp_irq.o
- .debug_ranges  0x00001630       0x48 ./ra/fsp/src/bsp/mcu/all/bsp_register_protection.o
- .debug_ranges  0x00001678       0x10 ./ra/fsp/src/bsp/mcu/all/bsp_sbrk.o
- .debug_ranges  0x00001688       0x18 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.o
- .debug_ranges  0x000016a0       0x18 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.o
+.debug_ranges   0x00000000     0x16d8
+ .debug_ranges  0x00000000       0x18 ./src/timer/timer0.o
+ .debug_ranges  0x00000018       0x20 ./src/debug/debug.o
+ .debug_ranges  0x00000038       0x20 ./src/hal_entry.o
+ .debug_ranges  0x00000058       0x10 ./ra_gen/common_data.o
+ .debug_ranges  0x00000068       0x10 ./ra_gen/hal_data.o
+ .debug_ranges  0x00000078       0x10 ./ra_gen/main.o
+ .debug_ranges  0x00000088      0x6f0 ./ra/fsp/src/r_spi/r_spi.o
+ .debug_ranges  0x00000778      0x5f8 ./ra/fsp/src/r_sci_uart/r_sci_uart.o
+ .debug_ranges  0x00000d70      0x1b0 ./ra/fsp/src/r_ioport/r_ioport.o
+ .debug_ranges  0x00000f20      0x298 ./ra/fsp/src/r_gpt/r_gpt.o
+ .debug_ranges  0x000011b8      0x358 ./ra/fsp/src/r_adc/r_adc.o
+ .debug_ranges  0x00001510       0xc8 ./ra/fsp/src/bsp/mcu/all/bsp_clocks.o
+ .debug_ranges  0x000015d8       0x20 ./ra/fsp/src/bsp/mcu/all/bsp_common.o
+ .debug_ranges  0x000015f8       0x18 ./ra/fsp/src/bsp/mcu/all/bsp_delay.o
+ .debug_ranges  0x00001610       0x30 ./ra/fsp/src/bsp/mcu/all/bsp_group_irq.o
+ .debug_ranges  0x00001640       0x10 ./ra/fsp/src/bsp/mcu/all/bsp_irq.o
+ .debug_ranges  0x00001650       0x48 ./ra/fsp/src/bsp/mcu/all/bsp_register_protection.o
+ .debug_ranges  0x00001698       0x10 ./ra/fsp/src/bsp/mcu/all/bsp_sbrk.o
+ .debug_ranges  0x000016a8       0x18 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.o
+ .debug_ranges  0x000016c0       0x18 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.o
 
-.debug_line     0x00000000     0x85af
- .debug_line    0x00000000      0x762 ./src/hal_entry.o
- .debug_line    0x00000762      0x262 ./ra_gen/common_data.o
- .debug_line    0x000009c4      0x367 ./ra_gen/hal_data.o
- .debug_line    0x00000d2b       0x5e ./ra_gen/main.o
- .debug_line    0x00000d89      0x182 ./ra_gen/pin_data.o
- .debug_line    0x00000f0b       0xc5 ./ra_gen/vector_data.o
- .debug_line    0x00000fd0     0x155d ./ra/fsp/src/r_spi/r_spi.o
- .debug_line    0x0000252d     0x14ef ./ra/fsp/src/r_sci_uart/r_sci_uart.o
- .debug_line    0x00003a1c      0xa74 ./ra/fsp/src/r_ioport/r_ioport.o
- .debug_line    0x00004490      0xfc3 ./ra/fsp/src/r_gpt/r_gpt.o
- .debug_line    0x00005453     0x13da ./ra/fsp/src/r_adc/r_adc.o
- .debug_line    0x0000682d      0x5f5 ./ra/fsp/src/bsp/mcu/all/bsp_clocks.o
- .debug_line    0x00006e22      0x240 ./ra/fsp/src/bsp/mcu/all/bsp_common.o
- .debug_line    0x00007062      0x255 ./ra/fsp/src/bsp/mcu/all/bsp_delay.o
- .debug_line    0x000072b7      0x299 ./ra/fsp/src/bsp/mcu/all/bsp_group_irq.o
- .debug_line    0x00007550      0x153 ./ra/fsp/src/bsp/mcu/all/bsp_io.o
- .debug_line    0x000076a3      0x26b ./ra/fsp/src/bsp/mcu/all/bsp_irq.o
- .debug_line    0x0000790e      0x357 ./ra/fsp/src/bsp/mcu/all/bsp_register_protection.o
- .debug_line    0x00007c65      0x11f ./ra/fsp/src/bsp/mcu/all/bsp_rom_registers.o
- .debug_line    0x00007d84      0x1a9 ./ra/fsp/src/bsp/mcu/all/bsp_sbrk.o
- .debug_line    0x00007f2d      0x1d7 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.o
- .debug_line    0x00008104      0x4ab ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.o
+.debug_line     0x00000000     0x8f42
+ .debug_line    0x00000000      0x529 ./src/timer/timer0.o
+ .debug_line    0x00000529      0x5a1 ./src/debug/debug.o
+ .debug_line    0x00000aca      0x62b ./src/hal_entry.o
+ .debug_line    0x000010f5      0x262 ./ra_gen/common_data.o
+ .debug_line    0x00001357      0x367 ./ra_gen/hal_data.o
+ .debug_line    0x000016be       0x5e ./ra_gen/main.o
+ .debug_line    0x0000171c      0x182 ./ra_gen/pin_data.o
+ .debug_line    0x0000189e       0xc5 ./ra_gen/vector_data.o
+ .debug_line    0x00001963     0x155d ./ra/fsp/src/r_spi/r_spi.o
+ .debug_line    0x00002ec0     0x14ef ./ra/fsp/src/r_sci_uart/r_sci_uart.o
+ .debug_line    0x000043af      0xa74 ./ra/fsp/src/r_ioport/r_ioport.o
+ .debug_line    0x00004e23      0xfc3 ./ra/fsp/src/r_gpt/r_gpt.o
+ .debug_line    0x00005de6     0x13da ./ra/fsp/src/r_adc/r_adc.o
+ .debug_line    0x000071c0      0x5f5 ./ra/fsp/src/bsp/mcu/all/bsp_clocks.o
+ .debug_line    0x000077b5      0x240 ./ra/fsp/src/bsp/mcu/all/bsp_common.o
+ .debug_line    0x000079f5      0x255 ./ra/fsp/src/bsp/mcu/all/bsp_delay.o
+ .debug_line    0x00007c4a      0x299 ./ra/fsp/src/bsp/mcu/all/bsp_group_irq.o
+ .debug_line    0x00007ee3      0x153 ./ra/fsp/src/bsp/mcu/all/bsp_io.o
+ .debug_line    0x00008036      0x26b ./ra/fsp/src/bsp/mcu/all/bsp_irq.o
+ .debug_line    0x000082a1      0x357 ./ra/fsp/src/bsp/mcu/all/bsp_register_protection.o
+ .debug_line    0x000085f8      0x11f ./ra/fsp/src/bsp/mcu/all/bsp_rom_registers.o
+ .debug_line    0x00008717      0x1a9 ./ra/fsp/src/bsp/mcu/all/bsp_sbrk.o
+ .debug_line    0x000088c0      0x1d7 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.o
+ .debug_line    0x00008a97      0x4ab ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.o
 
-.debug_str      0x00000000    0x10b39
- .debug_str     0x00000000     0x6b3c ./src/hal_entry.o
-                               0x6d5c (size before relaxing)
- .debug_str     0x00006b3c       0xfc ./ra_gen/common_data.o
+.debug_str      0x00000000    0x10ba0
+ .debug_str     0x00000000     0x12bb ./src/timer/timer0.o
+                               0x137d (size before relaxing)
+ .debug_str     0x000012bb     0x3938 ./src/debug/debug.o
+                               0x3e99 (size before relaxing)
+ .debug_str     0x00004bf3     0x1fa2 ./src/hal_entry.o
+                               0x50a1 (size before relaxing)
+ .debug_str     0x00006b95       0xfc ./ra_gen/common_data.o
                                0x321d (size before relaxing)
- .debug_str     0x00006c38     0x489e ./ra_gen/hal_data.o
+ .debug_str     0x00006c91     0x489e ./ra_gen/hal_data.o
                                0x9d9c (size before relaxing)
- .debug_str     0x0000b4d6       0x16 ./ra_gen/main.o
+ .debug_str     0x0000b52f       0x16 ./ra_gen/main.o
                                 0x18c (size before relaxing)
- .debug_str     0x0000b4ec      0x5d6 ./ra_gen/pin_data.o
+ .debug_str     0x0000b545      0x5d6 ./ra_gen/pin_data.o
                                0x1c9c (size before relaxing)
- .debug_str     0x0000bac2      0xc4f ./ra_gen/vector_data.o
+ .debug_str     0x0000bb1b      0xc4f ./ra_gen/vector_data.o
                                 0xdb5 (size before relaxing)
- .debug_str     0x0000c711     0x1e17 ./ra/fsp/src/r_spi/r_spi.o
+ .debug_str     0x0000c76a     0x1e17 ./ra/fsp/src/r_spi/r_spi.o
                                0x4c41 (size before relaxing)
- .debug_str     0x0000e528      0x32c ./ra/fsp/src/r_sci_uart/r_sci_uart.o
+ .debug_str     0x0000e581      0x32c ./ra/fsp/src/r_sci_uart/r_sci_uart.o
                                0x6370 (size before relaxing)
- .debug_str     0x0000e854      0x778 ./ra/fsp/src/r_ioport/r_ioport.o
+ .debug_str     0x0000e8ad      0x778 ./ra/fsp/src/r_ioport/r_ioport.o
                                0x3a10 (size before relaxing)
- .debug_str     0x0000efcc      0x973 ./ra/fsp/src/r_gpt/r_gpt.o
+ .debug_str     0x0000f025      0x973 ./ra/fsp/src/r_gpt/r_gpt.o
                                0x5e46 (size before relaxing)
- .debug_str     0x0000f93f      0x630 ./ra/fsp/src/r_adc/r_adc.o
+ .debug_str     0x0000f998      0x630 ./ra/fsp/src/r_adc/r_adc.o
                                0x701a (size before relaxing)
- .debug_str     0x0000ff6f      0x40f ./ra/fsp/src/bsp/mcu/all/bsp_clocks.o
+ .debug_str     0x0000ffc8      0x40f ./ra/fsp/src/bsp/mcu/all/bsp_clocks.o
                                0x1f51 (size before relaxing)
- .debug_str     0x0001037e       0xfd ./ra/fsp/src/bsp/mcu/all/bsp_common.o
+ .debug_str     0x000103d7      0x10b ./ra/fsp/src/bsp/mcu/all/bsp_common.o
                                0x1a2f (size before relaxing)
- .debug_str     0x0001047b       0x99 ./ra/fsp/src/bsp/mcu/all/bsp_delay.o
+ .debug_str     0x000104e2       0x99 ./ra/fsp/src/bsp/mcu/all/bsp_delay.o
                                 0x2c2 (size before relaxing)
- .debug_str     0x00010514      0x1de ./ra/fsp/src/bsp/mcu/all/bsp_group_irq.o
+ .debug_str     0x0001057b      0x1de ./ra/fsp/src/bsp/mcu/all/bsp_group_irq.o
                                0x1f3a (size before relaxing)
- .debug_str     0x000106f2       0x23 ./ra/fsp/src/bsp/mcu/all/bsp_io.o
+ .debug_str     0x00010759       0x23 ./ra/fsp/src/bsp/mcu/all/bsp_io.o
                                 0x1b5 (size before relaxing)
- .debug_str     0x00010715       0x30 ./ra/fsp/src/bsp/mcu/all/bsp_irq.o
+ .debug_str     0x0001077c       0x30 ./ra/fsp/src/bsp/mcu/all/bsp_irq.o
                                0x1231 (size before relaxing)
- .debug_str     0x00010745      0x12b ./ra/fsp/src/bsp/mcu/all/bsp_register_protection.o
+ .debug_str     0x000107ac      0x12b ./ra/fsp/src/bsp/mcu/all/bsp_register_protection.o
                                0x1861 (size before relaxing)
- .debug_str     0x00010870       0x51 ./ra/fsp/src/bsp/mcu/all/bsp_rom_registers.o
+ .debug_str     0x000108d7       0x51 ./ra/fsp/src/bsp/mcu/all/bsp_rom_registers.o
                                 0x1cb (size before relaxing)
- .debug_str     0x000108c1       0x96 ./ra/fsp/src/bsp/mcu/all/bsp_sbrk.o
+ .debug_str     0x00010928       0x96 ./ra/fsp/src/bsp/mcu/all/bsp_sbrk.o
                                 0x216 (size before relaxing)
- .debug_str     0x00010957       0x82 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.o
+ .debug_str     0x000109be       0x82 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.o
                                 0x1ff (size before relaxing)
- .debug_str     0x000109d9      0x160 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.o
+ .debug_str     0x00010a40      0x160 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.o
                                 0xcc3 (size before relaxing)
 
-.debug_frame    0x00000000     0x159c
- .debug_frame   0x00000000       0x98 ./src/hal_entry.o
- .debug_frame   0x00000098       0x20 ./ra_gen/common_data.o
- .debug_frame   0x000000b8       0x28 ./ra_gen/hal_data.o
- .debug_frame   0x000000e0       0x28 ./ra_gen/main.o
- .debug_frame   0x00000108      0x188 ./ra/fsp/src/r_spi/r_spi.o
- .debug_frame   0x00000290      0x1cc ./ra/fsp/src/r_sci_uart/r_sci_uart.o
- .debug_frame   0x0000045c      0x154 ./ra/fsp/src/r_ioport/r_ioport.o
- .debug_frame   0x000005b0      0x228 ./ra/fsp/src/r_gpt/r_gpt.o
- .debug_frame   0x000007d8      0x1fc ./ra/fsp/src/r_adc/r_adc.o
- .debug_frame   0x000009d4       0x90 ./ra/fsp/src/bsp/mcu/all/bsp_clocks.o
- .debug_frame   0x00000a64       0x40 ./ra/fsp/src/bsp/mcu/all/bsp_common.o
- .debug_frame   0x00000aa4       0x3c ./ra/fsp/src/bsp/mcu/all/bsp_delay.o
- .debug_frame   0x00000ae0       0x40 ./ra/fsp/src/bsp/mcu/all/bsp_group_irq.o
- .debug_frame   0x00000b20       0x20 ./ra/fsp/src/bsp/mcu/all/bsp_irq.o
- .debug_frame   0x00000b40       0x48 ./ra/fsp/src/bsp/mcu/all/bsp_register_protection.o
- .debug_frame   0x00000b88       0x28 ./ra/fsp/src/bsp/mcu/all/bsp_sbrk.o
- .debug_frame   0x00000bb0       0x38 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.o
- .debug_frame   0x00000be8       0x40 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.o
- .debug_frame   0x00000c28       0x34 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp\libgcc.a(_muldi3.o)
- .debug_frame   0x00000c5c      0x2b4 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp\libgcc.a(unwind-arm.o)
- .debug_frame   0x00000f10       0xf4 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp\libgcc.a(pr-support.o)
- .debug_frame   0x00001004       0x28 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-abort.o)
- .debug_frame   0x0000102c       0x20 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-errno.o)
- .debug_frame   0x0000104c       0x28 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-memcpy-stub.o)
- .debug_frame   0x00001074       0x20 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-memset.o)
- .debug_frame   0x00001094       0xe0 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-signal.o)
- .debug_frame   0x00001174       0x44 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-signalr.o)
- .debug_frame   0x000011b8       0x40 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-vsprintf.o)
- .debug_frame   0x000011f8       0x50 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-nano-mallocr.o)
- .debug_frame   0x00001248       0x74 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-nano-svfprintf.o)
- .debug_frame   0x000012bc       0x54 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-nano-vfprintf_i.o)
- .debug_frame   0x00001310       0x48 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-reent.o)
- .debug_frame   0x00001358       0x2c d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-sbrkr.o)
- .debug_frame   0x00001384       0x20 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-memchr-stub.o)
- .debug_frame   0x000013a4       0x28 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-memmove.o)
- .debug_frame   0x000013cc       0x40 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-mlock.o)
- .debug_frame   0x0000140c       0x2c d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-nano-freer.o)
- .debug_frame   0x00001438       0x34 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-nano-reallocr.o)
- .debug_frame   0x0000146c       0xb0 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-lock.o)
- .debug_frame   0x0000151c       0x20 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-nano-msizer.o)
- .debug_frame   0x0000153c       0x20 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libnosys.a(getpid.o)
- .debug_frame   0x0000155c       0x20 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libnosys.a(kill.o)
- .debug_frame   0x0000157c       0x20 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libnosys.a(_exit.o)
+.debug_frame    0x00000000     0x15ec
+ .debug_frame   0x00000000       0x40 ./src/timer/timer0.o
+ .debug_frame   0x00000040       0x58 ./src/debug/debug.o
+ .debug_frame   0x00000098       0x50 ./src/hal_entry.o
+ .debug_frame   0x000000e8       0x20 ./ra_gen/common_data.o
+ .debug_frame   0x00000108       0x28 ./ra_gen/hal_data.o
+ .debug_frame   0x00000130       0x28 ./ra_gen/main.o
+ .debug_frame   0x00000158      0x188 ./ra/fsp/src/r_spi/r_spi.o
+ .debug_frame   0x000002e0      0x1cc ./ra/fsp/src/r_sci_uart/r_sci_uart.o
+ .debug_frame   0x000004ac      0x154 ./ra/fsp/src/r_ioport/r_ioport.o
+ .debug_frame   0x00000600      0x228 ./ra/fsp/src/r_gpt/r_gpt.o
+ .debug_frame   0x00000828      0x1fc ./ra/fsp/src/r_adc/r_adc.o
+ .debug_frame   0x00000a24       0x90 ./ra/fsp/src/bsp/mcu/all/bsp_clocks.o
+ .debug_frame   0x00000ab4       0x40 ./ra/fsp/src/bsp/mcu/all/bsp_common.o
+ .debug_frame   0x00000af4       0x3c ./ra/fsp/src/bsp/mcu/all/bsp_delay.o
+ .debug_frame   0x00000b30       0x40 ./ra/fsp/src/bsp/mcu/all/bsp_group_irq.o
+ .debug_frame   0x00000b70       0x20 ./ra/fsp/src/bsp/mcu/all/bsp_irq.o
+ .debug_frame   0x00000b90       0x48 ./ra/fsp/src/bsp/mcu/all/bsp_register_protection.o
+ .debug_frame   0x00000bd8       0x28 ./ra/fsp/src/bsp/mcu/all/bsp_sbrk.o
+ .debug_frame   0x00000c00       0x38 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.o
+ .debug_frame   0x00000c38       0x40 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.o
+ .debug_frame   0x00000c78       0x34 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp\libgcc.a(_muldi3.o)
+ .debug_frame   0x00000cac      0x2b4 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp\libgcc.a(unwind-arm.o)
+ .debug_frame   0x00000f60       0xf4 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v8-m.base/nofp\libgcc.a(pr-support.o)
+ .debug_frame   0x00001054       0x28 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-abort.o)
+ .debug_frame   0x0000107c       0x20 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-errno.o)
+ .debug_frame   0x0000109c       0x28 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-memcpy-stub.o)
+ .debug_frame   0x000010c4       0x20 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-memset.o)
+ .debug_frame   0x000010e4       0xe0 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-signal.o)
+ .debug_frame   0x000011c4       0x44 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-signalr.o)
+ .debug_frame   0x00001208       0x40 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-vsprintf.o)
+ .debug_frame   0x00001248       0x50 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-nano-mallocr.o)
+ .debug_frame   0x00001298       0x74 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-nano-svfprintf.o)
+ .debug_frame   0x0000130c       0x54 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-nano-vfprintf_i.o)
+ .debug_frame   0x00001360       0x48 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-reent.o)
+ .debug_frame   0x000013a8       0x2c d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-sbrkr.o)
+ .debug_frame   0x000013d4       0x20 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-memchr-stub.o)
+ .debug_frame   0x000013f4       0x28 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-memmove.o)
+ .debug_frame   0x0000141c       0x40 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-mlock.o)
+ .debug_frame   0x0000145c       0x2c d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-nano-freer.o)
+ .debug_frame   0x00001488       0x34 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-nano-reallocr.o)
+ .debug_frame   0x000014bc       0xb0 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-lock.o)
+ .debug_frame   0x0000156c       0x20 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libg_nano.a(lib_a-nano-msizer.o)
+ .debug_frame   0x0000158c       0x20 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libnosys.a(getpid.o)
+ .debug_frame   0x000015ac       0x20 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libnosys.a(kill.o)
+ .debug_frame   0x000015cc       0x20 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libnosys.a(_exit.o)
 
 .stab           0x00000000       0x3c
  .stab          0x00000000       0x24 d:/ra/e2s/toolchains/gcc_arm/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v8-m.base/nofp\libnosys.a(getpid.o)

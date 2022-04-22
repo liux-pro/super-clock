@@ -76,7 +76,9 @@ ra/fsp/src/r_ioport \
 ra/fsp/src/r_sci_uart \
 ra/fsp/src/r_spi \
 ra_gen \
+src/debug \
 src/dtmf \
 src \
+src/timer \
 src/ws2812 \
 
