@@ -11,11 +11,15 @@ RM := rm -rf
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include src/ws2812/subdir.mk
+-include src/dtmf/subdir.mk
 -include src/subdir.mk
 -include ra_gen/subdir.mk
 -include ra/fsp/src/r_spi/subdir.mk
+-include ra/fsp/src/r_sci_uart/subdir.mk
 -include ra/fsp/src/r_ioport/subdir.mk
+-include ra/fsp/src/r_gpt/subdir.mk
 -include ra/fsp/src/r_dtc/subdir.mk
+-include ra/fsp/src/r_adc/subdir.mk
 -include ra/fsp/src/bsp/mcu/all/subdir.mk
 -include ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/subdir.mk
 -include subdir.mk
@@ -119,7 +123,7 @@ all: super_clock.elf secondary-outputs
 super_clock.elf: $(OBJS) $(USER_OBJS) $(LINKER_SCRIPT)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GNU Arm Cross C++ Linker'
-	$(file > super_clock.elf.in,-mcpu=cortex-m23 -mthumb -O2 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -Wunused -Wuninitialized -Wall -Wextra -Wmissing-declarations -Wconversion -Wpointer-arith -Wshadow -Wlogical-op -Waggregate-return -Wfloat-equal  -g -T "fsp.ld" -Xlinker --gc-sections -L "D:\\ra\\workspace\\super_clock/script" -Wl,-Map,"super_clock.map" --specs=nano.specs --specs=rdimon.specs -o "super_clock.elf" -Wl,--start-group $(OBJS) $(USER_OBJS) $(LIBS) -Wl,--end-group)
+	$(file > super_clock.elf.in,-mcpu=cortex-m23 -mthumb -O2 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -Wunused -Wuninitialized -Wall -Wextra -Wmissing-declarations -Wconversion -Wpointer-arith -Wshadow -Wlogical-op -Waggregate-return -Wfloat-equal  -g -T "fsp.ld" -Xlinker --gc-sections -L "D:\\ra\\workspace\\super_clock/script" -Wl,-Map,"super_clock.map" --specs=nano.specs -o "super_clock.elf" -Wl,--start-group $(OBJS) $(USER_OBJS) $(LIBS) -Wl,--end-group)
 	arm-none-eabi-g++ @"super_clock.elf.in"
 	@echo 'Finished building target: $@'
 	@echo ' '

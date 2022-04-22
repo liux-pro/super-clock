@@ -29,13 +29,13 @@ uint8_t CODE1 = 0xFC;
 //记录信号是否发完
 volatile bool ws2812_busy = false;
 
-fsp_err_t err;
+fsp_err_t ws2812_err;
 
 //初始化串口，参数已经自动生成了，所以这里没参数
 void ws2812_init() {
 	//打开spi
-	err = R_SPI_Open(&g_spi0_ctrl, &g_spi0_cfg);
-	assert(FSP_SUCCESS == err);
+	ws2812_err = R_SPI_Open(&g_spi0_ctrl, &g_spi0_cfg);
+	assert(FSP_SUCCESS == ws2812_err);
 	//初始化显存
 	ws2812_black();
 }
@@ -68,7 +68,7 @@ void ws2812_black() {
 //}
 
 void ws2812_set_color(uint16_t n, uint8_t r, uint8_t g, uint8_t b) {
-	uint8_t *p_buffer = buffer+(n * 24);
+	uint8_t *p_buffer = &buffer[n * 24];
 
 	for (int mask = 1 << 7; mask > 0; mask = mask >> 1) {
 		if ((g & mask) > 0) {
@@ -99,16 +99,16 @@ void ws2812_copy_to_buffer(uint8_t *source, uint16_t size) {
 //发送颜色数据
 void ws2812_send() {
 	ws2812_busy = true;
-	err = R_SPI_Write(&g_spi0_ctrl, buffer, sizeof(buffer),
+	ws2812_err = R_SPI_Write(&g_spi0_ctrl, buffer, sizeof(buffer),
 			SPI_BIT_WIDTH_8_BITS);
-	assert(FSP_SUCCESS == err);
+	assert(FSP_SUCCESS == ws2812_err);
 }
 //同步发送颜色数据
 void ws2812_send_sync() {
 	ws2812_busy = true;
-	err = R_SPI_Write(&g_spi0_ctrl, buffer, sizeof(buffer),
+	ws2812_err = R_SPI_Write(&g_spi0_ctrl, buffer, sizeof(buffer),
 			SPI_BIT_WIDTH_8_BITS);
-	assert(FSP_SUCCESS == err);
+	assert(FSP_SUCCESS == ws2812_err);
     while(ws2812_is_busy());
 }
 

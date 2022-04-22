@@ -33,10 +33,7 @@
   <raModuleConfiguration/>
   <raPinConfiguration>
     <pincfg active="true" name="" symbol="">
-      <configSetting altId="adc0.an19.p103" configurationId="adc0.an19"/>
-      <configSetting altId="ctsu0.cfcts10.p109" configurationId="ctsu0.cfcts10"/>
-      <configSetting altId="ctsu0.cfcts11.p110" configurationId="ctsu0.cfcts11"/>
-      <configSetting altId="ctsu0.tscap.p112" configurationId="ctsu0.tscap"/>
+      <configSetting altId="adc0.an19.p103" configurationId="adc0.an19" isUsedByDriver="true"/>
       <configSetting altId="debug0.swclk.p300" configurationId="debug0.swclk" isUsedByDriver="true"/>
       <configSetting altId="debug0.swdio.p108" configurationId="debug0.swdio" isUsedByDriver="true"/>
       <configSetting altId="gpt4.gtiocb.p104" configurationId="gpt4.gtiocb"/>
@@ -46,6 +43,8 @@
       <configSetting altId="sci1.txd.p213" configurationId="sci1.txd"/>
       <configSetting altId="sci2.rxd.p301" configurationId="sci2.rxd"/>
       <configSetting altId="sci2.txd.p302" configurationId="sci2.txd"/>
+      <configSetting altId="sci9.rxd.p110" configurationId="sci9.rxd" isUsedByDriver="true"/>
+      <configSetting altId="sci9.txd.p109" configurationId="sci9.txd" isUsedByDriver="true"/>
       <configSetting altId="spi0.mosi.p101" configurationId="spi0.mosi" isUsedByDriver="true"/>
     </pincfg>
   </raPinConfiguration>
