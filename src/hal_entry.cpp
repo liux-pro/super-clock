@@ -22,28 +22,17 @@ void debug(const char *fmt, ...);
 
 void hal_entry(void) {
 	/* TODO: add your own code here */
-//	ws2812_init();
-//	ws2812_black();
-//	ws2812_set_color(3, 0, 255, 0);
-//	ws2812_set_color(5, 0, 0, 0);
-//	ws2812_send();
-//	R_BSP_SoftwareDelay(500, BSP_DELAY_UNITS_MILLISECONDS);
-//
-//	for (uint8_t i = 0; i < 8; i++) {
-//		ws2812_black();
-//		ws2812_set_color(i, 0, 255, 0);
-//		ws2812_send_sync();
-//		R_BSP_SoftwareDelay(16, BSP_DELAY_UNITS_MILLISECONDS);
-//	}
-//	for (uint8_t i = 8; i > 0; i--) {
-//		ws2812_black();
-//		ws2812_set_color(i - 1, 255, 0, 0);
-//		ws2812_send_sync();
-//		R_BSP_SoftwareDelay(16, BSP_DELAY_UNITS_MILLISECONDS);
-//	}
+	ws2812_init();
+	ws2812_black();
+	ws2812_set_color(2, 255, 255, 0);
+	ws2812_set_color(3, 0, 255, 0);
+	ws2812_set_color(4, 0, 255, 0);
+	ws2812_send();
+
 	debug_init();
 	timer0_init();
 	debug("%s", "legend-tech");
+
 	R_BSP_SoftwareDelay(20, BSP_DELAY_UNITS_MILLISECONDS);
 
 
