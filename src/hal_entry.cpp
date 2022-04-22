@@ -42,19 +42,18 @@ void hal_entry(void) {
 //	}
 	err = R_SCI_UART_Open(&g_uart0_ctrl, &g_uart0_cfg);
 	assert(FSP_SUCCESS == err);
-	debug("%s","legend-tech");
+	debug("%s", "legend-tech");
 	R_BSP_SoftwareDelay(20, BSP_DELAY_UNITS_MILLISECONDS);
 
+	/* Initializes the module. */
+	err = R_GPT_Open(&g_timer0_ctrl, &g_timer0_cfg);
+	/* Handle any errors. This function should be defined by the user. */
+	assert(FSP_SUCCESS == err);
+	/* Start the timer. */
+	(void) R_GPT_Start(&g_timer0_ctrl);
 
-    /* Initializes the module. */
-    err = R_GPT_Open(&g_timer0_ctrl, &g_timer0_cfg);
-    /* Handle any errors. This function should be defined by the user. */
-    assert(FSP_SUCCESS == err);
-    /* Start the timer. */
-    (void) R_GPT_Start(&g_timer0_ctrl);
-
-
-    while(1);
+	while (1)
+		;
 ///////////////
 	err = R_ADC_Open(&g_adc0_ctrl, &g_adc0_cfg);
 	err = R_ADC_ScanCfg(&g_adc0_ctrl, &g_adc0_channel_cfg);
@@ -70,7 +69,7 @@ void hal_entry(void) {
 		}
 		err = R_ADC_Read(&g_adc0_ctrl, ADC_CHANNEL_19, &adc_data1);
 		assert(FSP_SUCCESS == err);
-		debug("%d\n",adc_data1);
+		debug("%d\n", adc_data1);
 //		R_BSP_SoftwareDelay(0, BSP_DELAY_UNITS_MILLISECONDS);
 
 	}
@@ -84,26 +83,21 @@ void hal_entry(void) {
 #endif
 }
 
-void timer0_callback (timer_callback_args_t * p_args)
-{
-    if (TIMER_EVENT_CYCLE_END == p_args->event)
-    {
-         debug("aaa\n");
-    }
+void timer0_callback(timer_callback_args_t *p_args) {
+	if (TIMER_EVENT_CYCLE_END == p_args->event) {
+		debug("aaa\n");
+	}
 
 }
 
-void debug(const char *fmt, ...){
+void debug(const char *fmt, ...) {
 	//参考https://www.ibm.com/docs/en/zos/2.1.0?topic=functions-vsprintf-format-print-data-buffer
-	   va_list arg_ptr;
-
-	   va_start(arg_ptr, fmt);
-
-
+	va_list arg_ptr;
+	va_start(arg_ptr, fmt);
 	static unsigned char send_buff[100];
 	uart_send_complete_flag = false;
-	vsprintf((char *)send_buff, fmt, arg_ptr);
-	uint8_t len = strlen((char *)send_buff);
+	vsprintf((char*) send_buff, fmt, arg_ptr);
+	uint8_t len = strlen((char*) send_buff);
 	err = R_SCI_UART_Write(&g_uart0_ctrl, send_buff, len);
 	va_end(arg_ptr);
 }
@@ -114,14 +108,12 @@ void user_uart_callback(uart_callback_args_t *p_args) {
 	}
 }
 
-
 void adc_callback(adc_callback_args_t *p_args) {
 
 	FSP_PARAMETER_NOT_USED(p_args);
 
 	scan_complete_flag = true;
 }
-
 
 /*******************************************************************************************************************//**
  * This function is called at various points during the startup process.  This implementation uses the event that is
