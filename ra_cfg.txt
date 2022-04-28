@@ -166,6 +166,11 @@ FSP Configuration
   Module "Realtime Clock (r_rtc)"
     Parameter Checking: Default (BSP)
     
+  Module "I2C Master (r_iic_master)"
+    Parameter Checking: Default (BSP)
+    DTC on Transmission and Reception: Disabled
+    10-bit slave addressing: Disabled
+    
   HAL
     Instance "g_ioport I/O Port (r_ioport)"
       Name: g_ioport
@@ -356,3 +361,45 @@ FSP Configuration
       Period Interrupt Priority: Disabled
       Carry Interrupt Priority: Priority 2
       
+    Instance "g_i2c_master0 I2C Master (r_iic_master)"
+      Name: g_i2c_master0
+      Channel: 0
+      Rate: Standard
+      Rise Time (ns): 120
+      Fall Time (ns): 120
+      Duty Cycle (%): 50
+      Slave Address: 0x44
+      Address Mode: 7-Bit
+      Timeout Mode: Short Mode
+      Timeout during SCL Low: Enabled
+      Callback: i2c0_callback
+      Interrupt Priority Level: Priority 2
+      
+      Instance "g_transfer2 Transfer (r_dtc) IIC0 TXI (Transmit data empty)"
+        Name: g_transfer2
+        Mode: Normal
+        Transfer Size: 1 Byte
+        Destination Address Mode: Fixed
+        Source Address Mode: Incremented
+        Repeat Area (Unused in Normal Mode): Source
+        Destination Pointer: NULL
+        Source Pointer: NULL
+        Interrupt Frequency: After all transfers have completed
+        Number of Transfers: 0
+        Number of Blocks (Valid only in Block Mode): 0
+        Activation Source: IIC0 TXI (Transmit data empty)
+        
+      Instance "g_transfer3 Transfer (r_dtc) IIC0 RXI (Receive data full)"
+        Name: g_transfer3
+        Mode: Normal
+        Transfer Size: 1 Byte
+        Destination Address Mode: Incremented
+        Source Address Mode: Fixed
+        Repeat Area (Unused in Normal Mode): Destination
+        Destination Pointer: NULL
+        Source Pointer: NULL
+        Interrupt Frequency: After all transfers have completed
+        Number of Transfers: 0
+        Number of Blocks (Valid only in Block Mode): 0
+        Activation Source: IIC0 RXI (Receive data full)
+        

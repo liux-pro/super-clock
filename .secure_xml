@@ -37,8 +37,8 @@
       <configSetting altId="debug0.swclk.p300" configurationId="debug0.swclk" isUsedByDriver="true"/>
       <configSetting altId="debug0.swdio.p108" configurationId="debug0.swdio" isUsedByDriver="true"/>
       <configSetting altId="gpt4.gtiocb.p104" configurationId="gpt4.gtiocb"/>
-      <configSetting altId="iic0.scl.p400" configurationId="iic0.scl"/>
-      <configSetting altId="iic0.sda.p401" configurationId="iic0.sda"/>
+      <configSetting altId="iic0.scl.p400" configurationId="iic0.scl" isUsedByDriver="true"/>
+      <configSetting altId="iic0.sda.p401" configurationId="iic0.sda" isUsedByDriver="true"/>
       <configSetting altId="sci1.rxd.p212" configurationId="sci1.rxd"/>
       <configSetting altId="sci1.txd.p213" configurationId="sci1.txd"/>
       <configSetting altId="sci2.rxd.p301" configurationId="sci2.rxd"/>

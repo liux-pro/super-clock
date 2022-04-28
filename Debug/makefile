@@ -15,12 +15,14 @@ RM := rm -rf
 -include src/fcal/subdir.mk
 -include src/dtmf/subdir.mk
 -include src/debug/subdir.mk
+-include src/GXHT30/subdir.mk
 -include src/subdir.mk
 -include ra_gen/subdir.mk
 -include ra/fsp/src/r_spi/subdir.mk
 -include ra/fsp/src/r_sci_uart/subdir.mk
 -include ra/fsp/src/r_rtc/subdir.mk
 -include ra/fsp/src/r_ioport/subdir.mk
+-include ra/fsp/src/r_iic_master/subdir.mk
 -include ra/fsp/src/r_gpt/subdir.mk
 -include ra/fsp/src/r_dtc/subdir.mk
 -include ra/fsp/src/r_adc/subdir.mk

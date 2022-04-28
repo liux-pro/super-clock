@@ -1,4 +1,4 @@
-src/debug/debug.o: ../src/debug/debug.cpp ../src/debug/debug.h \
+src/GXHT30/gxht30.o: ../src/GXHT30/gxht30.cpp ../src/GXHT30/gxht30.h \
  D:\ra\workspace\super_clock\ra_gen/hal_data.h \
  D:\ra\workspace\super_clock\ra\fsp\inc\api/bsp_api.h \
  D:\ra\workspace\super_clock\ra\fsp\inc/fsp_common_api.h \
@@ -66,8 +66,9 @@ src/debug/debug.o: ../src/debug/debug.cpp ../src/debug/debug.h \
  D:\ra\workspace\super_clock\ra\fsp\inc\api/r_uart_api.h \
  D:\ra\workspace\super_clock\ra_cfg\fsp_cfg/r_sci_uart_cfg.h \
  D:\ra\workspace\super_clock\ra\fsp\inc\instances/r_spi.h \
- D:\ra\workspace\super_clock\ra\fsp\inc\api/r_spi_api.h
-../src/debug/debug.h:
+ D:\ra\workspace\super_clock\ra\fsp\inc\api/r_spi_api.h \
+ D:\ra\workspace\super_clock\src/debug/debug.h
+../src/GXHT30/gxht30.h:
 D:\ra\workspace\super_clock\ra_gen/hal_data.h:
 D:\ra\workspace\super_clock\ra\fsp\inc\api/bsp_api.h:
 D:\ra\workspace\super_clock\ra\fsp\inc/fsp_common_api.h:
@@ -136,3 +137,4 @@ D:\ra\workspace\super_clock\ra\fsp\inc\api/r_uart_api.h:
 D:\ra\workspace\super_clock\ra_cfg\fsp_cfg/r_sci_uart_cfg.h:
 D:\ra\workspace\super_clock\ra\fsp\inc\instances/r_spi.h:
 D:\ra\workspace\super_clock\ra\fsp\inc\api/r_spi_api.h:
+D:\ra\workspace\super_clock\src/debug/debug.h:

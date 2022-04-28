@@ -2,6 +2,7 @@
 #include "hal_data.h"
 #include "debug/debug.h"
 #include "timer/timer0.h"
+#include "gxht30/gxht30.h"
 
 
 extern "C" {
@@ -21,23 +22,31 @@ void debug(const char *fmt, ...);
  * is called by main() when no RTOS is used.
  **********************************************************************************************************************/
 
-
-
-
 void hal_entry(void) {
-	/* TODO: add your own code here */
 	ws2812_init();
 	ws2812_black();
-	ws2812_set_color(2, 255, 255, 0);
-	ws2812_set_color(3, 0, 255, 0);
-	ws2812_set_color(4, 0, 255, 0);
+	ws2812_set_color(0, 255, 255, 0);
+	ws2812_set_color(1, 0, 255, 0);
+	ws2812_set_color(0, 0, 20, 0);
 	ws2812_send();
 
 	debug_init();
 	timer0_init();
 	debug("%s", "legend-tech");
 
+	gxht30_init();
 	R_BSP_SoftwareDelay(20, BSP_DELAY_UNITS_MILLISECONDS);
+	gxht30_result result;
+	if(gxht30_read(&result)){
+		debug("%d\n", result.temperature);
+	}
+
+
+	while(1);
+
+
+
+
 
 
 	/* rtc_time_t is an alias for the C Standard time.h struct 'tm' */

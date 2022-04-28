@@ -8,6 +8,7 @@
 #include "debug/debug.h"
 //测试一秒输出一个alive\n
 
+
 void timer0_callback(timer_callback_args_t *p_args) {
 	if (TIMER_EVENT_CYCLE_END == p_args->event) {
 		debug("alive\n");
