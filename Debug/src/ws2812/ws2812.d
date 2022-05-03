@@ -42,6 +42,25 @@ src/ws2812/ws2812.o: ../src/ws2812/ws2812.cpp \
  d:\ra\workspace\super_clock\ra\fsp\src\bsp\mcu\all\bsp_delay.h \
  d:\ra\workspace\super_clock\ra\fsp\src\bsp\mcu\all\bsp_mcu_api.h \
  D:\ra\workspace\super_clock\ra_gen/common_data.h \
+ D:\ra\workspace\super_clock\ra\fsp\src\rm_tinycrypt_port\inc/rm_tinycrypt_port.h \
+ D:\ra\workspace\super_clock\ra\fsp\src\r_sce/hw_sce_private.h \
+ D:\ra\workspace\super_clock\ra\fsp\src\r_sce\common/hw_sce_common.h \
+ D:\ra\workspace\super_clock\ra\fsp\src\r_sce/hw_sce_trng_private.h \
+ D:\ra\workspace\super_clock\ra\intel\tinycrypt\lib\include/tinycrypt/cbc_mode.h \
+ D:\ra\workspace\super_clock\ra\intel\tinycrypt\lib\include/tinycrypt/aes.h \
+ D:\ra\workspace\super_clock\ra\intel\tinycrypt\lib\include/tinycrypt/ccm_mode.h \
+ D:\ra\workspace\super_clock\ra\intel\tinycrypt\lib\include/tinycrypt/cmac_mode.h \
+ D:\ra\workspace\super_clock\ra\intel\tinycrypt\lib\include/tinycrypt/constants.h \
+ D:\ra\workspace\super_clock\ra\intel\tinycrypt\lib\include/tinycrypt/ctr_mode.h \
+ D:\ra\workspace\super_clock\ra\intel\tinycrypt\lib\include/tinycrypt/ctr_prng.h \
+ D:\ra\workspace\super_clock\ra\intel\tinycrypt\lib\include/tinycrypt/ecc_dh.h \
+ D:\ra\workspace\super_clock\ra\intel\tinycrypt\lib\include/tinycrypt/ecc.h \
+ D:\ra\workspace\super_clock\ra\intel\tinycrypt\lib\include/tinycrypt/ecc_dsa.h \
+ D:\ra\workspace\super_clock\ra\intel\tinycrypt\lib\include/tinycrypt/ecc_platform_specific.h \
+ D:\ra\workspace\super_clock\ra\intel\tinycrypt\lib\include/tinycrypt/hmac_prng.h \
+ D:\ra\workspace\super_clock\ra\intel\tinycrypt\lib\include/tinycrypt/sha256.h \
+ D:\ra\workspace\super_clock\ra\intel\tinycrypt\lib\include/tinycrypt/hmac.h \
+ D:\ra\workspace\super_clock\ra\intel\tinycrypt\lib\include/tinycrypt/utils.h \
  D:\ra\workspace\super_clock\ra\fsp\inc\instances/r_ioport.h \
  D:\ra\workspace\super_clock\ra\fsp\inc\api/r_ioport_api.h \
  D:\ra\workspace\super_clock\ra\fsp\inc\api/bsp_api.h \
@@ -111,6 +130,25 @@ d:\ra\workspace\super_clock\ra\fsp\src\bsp\mcu\all\bsp_compiler_support.h:
 d:\ra\workspace\super_clock\ra\fsp\src\bsp\mcu\all\bsp_delay.h:
 d:\ra\workspace\super_clock\ra\fsp\src\bsp\mcu\all\bsp_mcu_api.h:
 D:\ra\workspace\super_clock\ra_gen/common_data.h:
+D:\ra\workspace\super_clock\ra\fsp\src\rm_tinycrypt_port\inc/rm_tinycrypt_port.h:
+D:\ra\workspace\super_clock\ra\fsp\src\r_sce/hw_sce_private.h:
+D:\ra\workspace\super_clock\ra\fsp\src\r_sce\common/hw_sce_common.h:
+D:\ra\workspace\super_clock\ra\fsp\src\r_sce/hw_sce_trng_private.h:
+D:\ra\workspace\super_clock\ra\intel\tinycrypt\lib\include/tinycrypt/cbc_mode.h:
+D:\ra\workspace\super_clock\ra\intel\tinycrypt\lib\include/tinycrypt/aes.h:
+D:\ra\workspace\super_clock\ra\intel\tinycrypt\lib\include/tinycrypt/ccm_mode.h:
+D:\ra\workspace\super_clock\ra\intel\tinycrypt\lib\include/tinycrypt/cmac_mode.h:
+D:\ra\workspace\super_clock\ra\intel\tinycrypt\lib\include/tinycrypt/constants.h:
+D:\ra\workspace\super_clock\ra\intel\tinycrypt\lib\include/tinycrypt/ctr_mode.h:
+D:\ra\workspace\super_clock\ra\intel\tinycrypt\lib\include/tinycrypt/ctr_prng.h:
+D:\ra\workspace\super_clock\ra\intel\tinycrypt\lib\include/tinycrypt/ecc_dh.h:
+D:\ra\workspace\super_clock\ra\intel\tinycrypt\lib\include/tinycrypt/ecc.h:
+D:\ra\workspace\super_clock\ra\intel\tinycrypt\lib\include/tinycrypt/ecc_dsa.h:
+D:\ra\workspace\super_clock\ra\intel\tinycrypt\lib\include/tinycrypt/ecc_platform_specific.h:
+D:\ra\workspace\super_clock\ra\intel\tinycrypt\lib\include/tinycrypt/hmac_prng.h:
+D:\ra\workspace\super_clock\ra\intel\tinycrypt\lib\include/tinycrypt/sha256.h:
+D:\ra\workspace\super_clock\ra\intel\tinycrypt\lib\include/tinycrypt/hmac.h:
+D:\ra\workspace\super_clock\ra\intel\tinycrypt\lib\include/tinycrypt/utils.h:
 D:\ra\workspace\super_clock\ra\fsp\inc\instances/r_ioport.h:
 D:\ra\workspace\super_clock\ra\fsp\inc\api/r_ioport_api.h:
 D:\ra\workspace\super_clock\ra\fsp\inc\api/bsp_api.h:

@@ -82,7 +82,7 @@
       <property id="config.bsp.common.id_fixed" value=""/>
     </config>
     <config id="config.bsp.ra">
-      <property id="config.bsp.common.main" value="0x400"/>
+      <property id="config.bsp.common.main" value="0x800"/>
       <property id="config.bsp.common.heap" value="0"/>
       <property id="config.bsp.common.vcc" value="3300"/>
       <property id="config.bsp.common.checking" value="config.bsp.common.checking.disabled"/>
@@ -171,6 +171,18 @@
     </component>
     <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_iic_master" variant="" vendor="Renesas" version="3.6.0">
       <description>I2C Master Interface</description>
+      <originalPack>Renesas.RA.3.6.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="Cryptography" condition="" group="all" subgroup="TinyCrypt_Acceleration" variant="" vendor="Intel" version="0.2.8+renesas.0.fsp.3.6.0">
+      <description>TinyCrypt H/W Acceleration</description>
+      <originalPack>Intel.TinyCrypt.0.2.8+renesas.0.fsp.3.6.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_sce_ra2" variant="" vendor="Renesas" version="3.6.0">
+      <description>Secure Cryptography Engine on RA2</description>
+      <originalPack>Renesas.RA.3.6.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="Middleware" condition="" group="all" subgroup="rm_tinycrypt_port" variant="" vendor="Renesas" version="3.6.0">
+      <description>TinyCrypt port</description>
       <originalPack>Renesas.RA.3.6.0.pack</originalPack>
     </component>
   </raComponentSelection>
@@ -408,6 +420,9 @@
       <property id="module.driver.transfer.num_blocks" value="0"/>
       <property id="module.driver.transfer.activation_source" value="_disabled"/>
     </module>
+    <module id="module.middleware.tinycrypt_accel.1248390253"/>
+    <module id="module.middleware.rm_tinycrypt_port.1707663254"/>
+    <module id="module.driver.crypto_ra2.1025878828"/>
     <context id="_hal.0">
       <stack module="module.driver.ioport_on_ioport.0"/>
       <stack module="module.driver.spi_on_spi.1968255156">
@@ -421,6 +436,11 @@
       <stack module="module.driver.i2c_on_iic_master.1965388080">
         <stack module="module.driver.transfer_on_dtc.1632107832" requires="module.driver.i2c_on_iic_master.requires.transfer_tx"/>
         <stack module="module.driver.transfer_on_dtc.1132482794" requires="module.driver.i2c_on_iic_master.requires.transfer_rx"/>
+      </stack>
+      <stack module="module.middleware.tinycrypt_accel.1248390253">
+        <stack module="module.middleware.rm_tinycrypt_port.1707663254" requires="module.middleware.tinycrypt_accel.requires.port">
+          <stack module="module.driver.crypto_ra2.1025878828" requires="module.middleware.rm_tinycrypt_port.requires.sce"/>
+        </stack>
       </stack>
     </context>
     <config id="config.driver.ioport">
@@ -458,6 +478,9 @@
       <property id="config.driver.spi.param_checking_enable" value="config.driver.spi.param_checking_enable.bsp"/>
       <property id="config.driver.spi.dtc_enable" value="config.driver.spi.dtc_enable.enabled"/>
       <property id="config.driver.spi.rxi_transmit" value="config.driver.spi.rxi_transmit.disabled"/>
+    </config>
+    <config id="config.middleware.tinycrypt_accel">
+      <property id="config.middleware.tinycrypt_accel.param_checking_enable" value="config.middleware.tinycrypt_accel.param_checking_enable.bsp"/>
     </config>
   </raModuleConfiguration>
   <raPinConfiguration>

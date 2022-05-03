@@ -54,7 +54,7 @@ FSP Configuration
     ID Code (32 Hex Characters): FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
     
   RA Common
-    Main stack size (bytes): 0x400
+    Main stack size (bytes): 0x800
     Heap size (bytes): 0
     MCU Vcc (mV): 3300
     Parameter checking: Disabled
@@ -171,6 +171,11 @@ FSP Configuration
     DTC on Transmission and Reception: Disabled
     10-bit slave addressing: Disabled
     
+  Module "TinyCrypt (H/W Accelerated)"
+    Parameter Checking: Default (BSP)
+    
+  Module "TinyCrypt TRNG (rm_tinycrypt_port)"
+  Module "Crypto RA2"
   HAL
     Instance "g_ioport I/O Port (r_ioport)"
       Name: g_ioport
@@ -403,3 +408,6 @@ FSP Configuration
         Number of Blocks (Valid only in Block Mode): 0
         Activation Source: IIC0 RXI (Receive data full)
         
+    Instance "TinyCrypt (H/W Accelerated)"
+      Instance "TinyCrypt TRNG (rm_tinycrypt_port)"
+        Instance "Crypto RA2"

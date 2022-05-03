@@ -24,15 +24,40 @@ void debug(const char *fmt, ...);
 
 void hal_entry(void) {
 	ws2812_init();
-	ws2812_black();
-	ws2812_set_color(0, 255, 255, 0);
-	ws2812_set_color(1, 0, 255, 0);
-	ws2812_set_color(0, 0, 20, 0);
-	ws2812_send();
+	while(1){
+		for(uint16_t i = 0;i<64;i++){
+			ws2812_black();
+			ws2812_set_color((i+0)%64, 255, 0, 0);
+			ws2812_set_color((i+1)%64, 0, 255, 0);
+			ws2812_set_color((i+2)%64, 0, 0, 255);
+			ws2812_set_color((i+3)%64, 255, 0, 0);
+			ws2812_set_color((i+4)%64, 0, 255, 0);
+			ws2812_set_color((i+5)%64, 0, 0, 255);
+
+			ws2812_send_sync();
+			R_BSP_SoftwareDelay(8, BSP_DELAY_UNITS_MILLISECONDS);
+		}
+	}
 
 	debug_init();
 	timer0_init();
 	debug("%s", "legend-tech");
+
+    err = RM_TINCYRYPT_PORT_Init();
+
+
+	while(1){
+		R_BSP_SoftwareDelay(1000, BSP_DELAY_UNITS_MILLISECONDS);
+		uint8_t my_rand;
+		err = RM_TINCYRYPT_PORT_TRNG_Read(&my_rand, 1);
+		debug("%d",my_rand);
+	}
+
+
+
+	while(1){};
+
+
 
 	gxht30_init();
 	R_BSP_SoftwareDelay(20, BSP_DELAY_UNITS_MILLISECONDS);

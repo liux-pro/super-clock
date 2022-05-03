@@ -18,8 +18,11 @@ RM := rm -rf
 -include src/GXHT30/subdir.mk
 -include src/subdir.mk
 -include ra_gen/subdir.mk
+-include ra/intel/tinycrypt/lib/source/subdir.mk
+-include ra/fsp/src/rm_tinycrypt_port/subdir.mk
 -include ra/fsp/src/r_spi/subdir.mk
 -include ra/fsp/src/r_sci_uart/subdir.mk
+-include ra/fsp/src/r_sce/ra2/subdir.mk
 -include ra/fsp/src/r_rtc/subdir.mk
 -include ra/fsp/src/r_ioport/subdir.mk
 -include ra/fsp/src/r_iic_master/subdir.mk
