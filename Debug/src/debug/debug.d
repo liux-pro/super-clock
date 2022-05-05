@@ -65,18 +65,20 @@ src/debug/debug.o: ../src/debug/debug.cpp ../src/debug/debug.h \
  D:\ra\workspace\super_clock\ra\fsp\inc\api/bsp_api.h \
  D:\ra\workspace\super_clock\ra_cfg\fsp_cfg/r_ioport_cfg.h \
  D:\ra\workspace\super_clock\ra_cfg\fsp_cfg\bsp/bsp_pin_cfg.h \
+ D:\ra\workspace\super_clock\ra\fsp\inc\instances/r_gpt.h \
+ D:\ra\workspace\super_clock\ra\fsp\inc\api/r_timer_api.h \
  D:\ra\workspace\super_clock\ra\fsp\inc\instances/r_dtc.h \
  D:\ra\workspace\super_clock\ra\fsp\inc\api/r_transfer_api.h \
  D:\ra\workspace\super_clock\ra_cfg\fsp_cfg/r_dtc_cfg.h \
+ D:\ra\workspace\super_clock\ra\fsp\inc\instances/r_sci_spi.h \
+ D:\ra\workspace\super_clock\ra\fsp\inc\api/r_spi_api.h \
+ D:\ra\workspace\super_clock\ra\fsp\inc\api/r_transfer_api.h \
  D:\ra\workspace\super_clock\ra\fsp\inc\instances/r_iic_master.h \
  D:\ra\workspace\super_clock\ra_cfg\fsp_cfg/r_iic_master_cfg.h \
  D:\ra\workspace\super_clock\ra\fsp\inc\api/r_i2c_master_api.h \
- D:\ra\workspace\super_clock\ra\fsp\inc\api/r_transfer_api.h \
  D:\ra\workspace\super_clock\ra\fsp\inc\instances/r_rtc.h \
  D:\ra\workspace\super_clock\ra_cfg\fsp_cfg/r_rtc_cfg.h \
  D:\ra\workspace\super_clock\ra\fsp\inc\api/r_rtc_api.h \
- D:\ra\workspace\super_clock\ra\fsp\inc\instances/r_gpt.h \
- D:\ra\workspace\super_clock\ra\fsp\inc\api/r_timer_api.h \
  D:\ra\workspace\super_clock\ra\fsp\inc\instances/r_adc.h \
  D:\ra\workspace\super_clock\ra_cfg\fsp_cfg/r_adc_cfg.h \
  D:\ra\workspace\super_clock\ra\fsp\inc\api/r_adc_api.h \
@@ -84,8 +86,7 @@ src/debug/debug.o: ../src/debug/debug.cpp ../src/debug/debug.h \
  D:\ra\workspace\super_clock\ra\fsp\inc\instances/r_sci_uart.h \
  D:\ra\workspace\super_clock\ra\fsp\inc\api/r_uart_api.h \
  D:\ra\workspace\super_clock\ra_cfg\fsp_cfg/r_sci_uart_cfg.h \
- D:\ra\workspace\super_clock\ra\fsp\inc\instances/r_spi.h \
- D:\ra\workspace\super_clock\ra\fsp\inc\api/r_spi_api.h
+ D:\ra\workspace\super_clock\ra\fsp\inc\instances/r_spi.h
 ../src/debug/debug.h:
 D:\ra\workspace\super_clock\ra_gen/hal_data.h:
 D:\ra\workspace\super_clock\ra\fsp\inc\api/bsp_api.h:
@@ -153,18 +154,20 @@ D:\ra\workspace\super_clock\ra\fsp\inc\api/r_ioport_api.h:
 D:\ra\workspace\super_clock\ra\fsp\inc\api/bsp_api.h:
 D:\ra\workspace\super_clock\ra_cfg\fsp_cfg/r_ioport_cfg.h:
 D:\ra\workspace\super_clock\ra_cfg\fsp_cfg\bsp/bsp_pin_cfg.h:
+D:\ra\workspace\super_clock\ra\fsp\inc\instances/r_gpt.h:
+D:\ra\workspace\super_clock\ra\fsp\inc\api/r_timer_api.h:
 D:\ra\workspace\super_clock\ra\fsp\inc\instances/r_dtc.h:
 D:\ra\workspace\super_clock\ra\fsp\inc\api/r_transfer_api.h:
 D:\ra\workspace\super_clock\ra_cfg\fsp_cfg/r_dtc_cfg.h:
+D:\ra\workspace\super_clock\ra\fsp\inc\instances/r_sci_spi.h:
+D:\ra\workspace\super_clock\ra\fsp\inc\api/r_spi_api.h:
+D:\ra\workspace\super_clock\ra\fsp\inc\api/r_transfer_api.h:
 D:\ra\workspace\super_clock\ra\fsp\inc\instances/r_iic_master.h:
 D:\ra\workspace\super_clock\ra_cfg\fsp_cfg/r_iic_master_cfg.h:
 D:\ra\workspace\super_clock\ra\fsp\inc\api/r_i2c_master_api.h:
-D:\ra\workspace\super_clock\ra\fsp\inc\api/r_transfer_api.h:
 D:\ra\workspace\super_clock\ra\fsp\inc\instances/r_rtc.h:
 D:\ra\workspace\super_clock\ra_cfg\fsp_cfg/r_rtc_cfg.h:
 D:\ra\workspace\super_clock\ra\fsp\inc\api/r_rtc_api.h:
-D:\ra\workspace\super_clock\ra\fsp\inc\instances/r_gpt.h:
-D:\ra\workspace\super_clock\ra\fsp\inc\api/r_timer_api.h:
 D:\ra\workspace\super_clock\ra\fsp\inc\instances/r_adc.h:
 D:\ra\workspace\super_clock\ra_cfg\fsp_cfg/r_adc_cfg.h:
 D:\ra\workspace\super_clock\ra\fsp\inc\api/r_adc_api.h:
@@ -173,4 +176,3 @@ D:\ra\workspace\super_clock\ra\fsp\inc\instances/r_sci_uart.h:
 D:\ra\workspace\super_clock\ra\fsp\inc\api/r_uart_api.h:
 D:\ra\workspace\super_clock\ra_cfg\fsp_cfg/r_sci_uart_cfg.h:
 D:\ra\workspace\super_clock\ra\fsp\inc\instances/r_spi.h:
-D:\ra\workspace\super_clock\ra\fsp\inc\api/r_spi_api.h:

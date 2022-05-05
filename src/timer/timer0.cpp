@@ -16,6 +16,6 @@ void timer0_callback(timer_callback_args_t *p_args) {
 }
 
 void timer0_init(){
-	R_GPT_Open(&g_timer0_ctrl, &g_timer0_cfg);
-	(void) R_GPT_Start(&g_timer0_ctrl);
+	R_GPT_Open(&gpt0_ctrl, &gpt0_cfg);
+	(void) R_GPT_Start(&gpt0_ctrl);
 }

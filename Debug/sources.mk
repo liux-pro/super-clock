@@ -76,14 +76,15 @@ ra/fsp/src/r_iic_master \
 ra/fsp/src/r_ioport \
 ra/fsp/src/r_rtc \
 ra/fsp/src/r_sce/ra2 \
+ra/fsp/src/r_sci_spi \
 ra/fsp/src/r_sci_uart \
 ra/fsp/src/r_spi \
 ra/fsp/src/rm_tinycrypt_port \
 ra/intel/tinycrypt/lib/source \
 ra_gen \
 src/GXHT30 \
+src/adc \
 src/debug \
-src/dtmf \
 src/fcal \
 src \
 src/timer \

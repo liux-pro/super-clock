@@ -4,20 +4,17 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
-../src/ws2812/logo.cpp \
-../src/ws2812/ws2812.cpp 
+../src/adc/adc.cpp 
 
 OBJS += \
-./src/ws2812/logo.o \
-./src/ws2812/ws2812.o 
+./src/adc/adc.o 
 
 CPP_DEPS += \
-./src/ws2812/logo.d \
-./src/ws2812/ws2812.d 
+./src/adc/adc.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
-src/ws2812/%.o: ../src/ws2812/%.cpp
+src/adc/%.o: ../src/adc/%.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: GNU Arm Cross C++ Compiler'
 	arm-none-eabi-g++ -mcpu=cortex-m23 -mthumb -O2 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -Wunused -Wuninitialized -Wall -Wextra -Wmissing-declarations -Wconversion -Wpointer-arith -Wshadow -Wlogical-op -Waggregate-return -Wfloat-equal  -g -D_RA_CORE=CM23 -D_RENESAS_RA_ -I"D:\ra\workspace\super_clock\src" -I"D:\ra\workspace\super_clock\ra\fsp\inc" -I"D:\ra\workspace\super_clock\ra\fsp\inc\api" -I"D:\ra\workspace\super_clock\ra\fsp\inc\instances" -I"D:\ra\workspace\super_clock\ra\arm\CMSIS_5\CMSIS\Core\Include" -I"D:\ra\workspace\super_clock\ra_gen" -I"D:\ra\workspace\super_clock\ra_cfg\fsp_cfg\bsp" -I"D:\ra\workspace\super_clock\ra_cfg\fsp_cfg" -I"D:\ra\workspace\super_clock\ra\fsp\src\rm_tinycrypt_port\inc" -I"D:\ra\workspace\super_clock\ra\intel\tinycrypt\lib\include" -I"D:\ra\workspace\super_clock\ra\fsp\src\r_sce\ra2" -I"D:\ra\workspace\super_clock\ra\fsp\src\r_sce\common" -I"D:\ra\workspace\super_clock\ra\fsp\src\r_sce" -std=c++11 -fabi-version=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -c -o "$@" -x c++ "$<"

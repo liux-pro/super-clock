@@ -8,22 +8,31 @@
 #include "debug.h"
 #include <stdarg.h>
 #include <stdio.h>
+#define DEBUG_BUFFER_SIZE 100
 
 volatile bool debug_busy = false;
+static void debug_init();
+
 void debug(const char *fmt, ...) {
+	//自动初始化
+	debug_init();
 	//参考https://www.ibm.com/docs/en/zos/2.1.0?topic=functions-vsprintf-format-print-data-buffer
 	va_list arg_ptr;
 	va_start(arg_ptr, fmt);
-	unsigned char send_buff[100];
+	static unsigned char send_buff[DEBUG_BUFFER_SIZE];
 	vsprintf((char*) send_buff, fmt, arg_ptr);
-	uint16_t len = strlen((char*) send_buff);
+	uint32_t len = strlen((char*) send_buff);
 	debug_busy = true;
 	R_SCI_UART_Write(&g_uart0_ctrl, send_buff, len);
 	while(debug_busy);
 	va_end(arg_ptr);
 }
-void debug_init(){
-	R_SCI_UART_Open(&g_uart0_ctrl, &g_uart0_cfg);
+static void debug_init(){
+	bool init = false;
+	if(!init){
+		init=true;
+		R_SCI_UART_Open(&g_uart0_ctrl, &g_uart0_cfg);
+	}
 }
 //感觉这么没啥用 先不管他
 void user_uart_callback(uart_callback_args_t *p_args) {

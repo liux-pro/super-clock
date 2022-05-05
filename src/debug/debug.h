@@ -10,7 +10,6 @@
 
 #include "hal_data.h"
 void debug(const char *fmt, ...);
-void debug_init();
 
 
 #endif /* DEBUG_DEBUG_H_ */

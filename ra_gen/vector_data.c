@@ -13,12 +13,18 @@
             [6] = sci_uart_tei_isr, /* SCI9 TEI (Transmit end) */
             [7] = sci_uart_eri_isr, /* SCI9 ERI (Receive error) */
             [8] = adc_scan_end_isr, /* ADC0 SCAN END (A/D scan end interrupt) */
-            [9] = iic_master_txi_isr, /* IIC0 TXI (Transmit data empty) */
-            [10] = iic_master_tei_isr, /* IIC0 TEI (Transmit end) */
+            [9] = rtc_alarm_periodic_isr, /* RTC ALARM (Alarm interrupt) */
+            [10] = rtc_alarm_periodic_isr, /* RTC PERIOD (Periodic interrupt) */
             [11] = rtc_carry_isr, /* RTC CARRY (Carry interrupt) */
-            [12] = gpt_counter_overflow_isr, /* GPT0 COUNTER OVERFLOW (Overflow) */
-            [15] = iic_master_eri_isr, /* IIC0 ERI (Transfer error) */
-            [16] = iic_master_rxi_isr, /* IIC0 RXI (Receive data full) */
+            [12] = sci_spi_rxi_isr, /* SCI2 RXI (Receive data full) */
+            [13] = sci_spi_txi_isr, /* SCI2 TXI (Transmit data empty) */
+            [14] = sci_spi_tei_isr, /* SCI2 TEI (Transmit end) */
+            [15] = sci_spi_eri_isr, /* SCI2 ERI (Receive error) */
+            [16] = gpt_counter_overflow_isr, /* GPT0 COUNTER OVERFLOW (Overflow) */
+            [17] = iic_master_txi_isr, /* IIC0 TXI (Transmit data empty) */
+            [18] = iic_master_tei_isr, /* IIC0 TEI (Transmit end) */
+            [19] = iic_master_eri_isr, /* IIC0 ERI (Transfer error) */
+            [20] = iic_master_rxi_isr, /* IIC0 RXI (Receive data full) */
         };
         const bsp_interrupt_event_t g_interrupt_event_link_select[BSP_ICU_VECTOR_MAX_ENTRIES] =
         {
@@ -31,11 +37,17 @@
             [6] = BSP_PRV_IELS_ENUM(EVENT_SCI9_TEI), /* SCI9 TEI (Transmit end) */
             [7] = BSP_PRV_IELS_ENUM(EVENT_SCI9_ERI), /* SCI9 ERI (Receive error) */
             [8] = BSP_PRV_IELS_ENUM(EVENT_ADC0_SCAN_END), /* ADC0 SCAN END (A/D scan end interrupt) */
-            [9] = BSP_PRV_IELS_ENUM(EVENT_IIC0_TXI), /* IIC0 TXI (Transmit data empty) */
-            [10] = BSP_PRV_IELS_ENUM(EVENT_IIC0_TEI), /* IIC0 TEI (Transmit end) */
+            [9] = BSP_PRV_IELS_ENUM(EVENT_RTC_ALARM), /* RTC ALARM (Alarm interrupt) */
+            [10] = BSP_PRV_IELS_ENUM(EVENT_RTC_PERIOD), /* RTC PERIOD (Periodic interrupt) */
             [11] = BSP_PRV_IELS_ENUM(EVENT_RTC_CARRY), /* RTC CARRY (Carry interrupt) */
-            [12] = BSP_PRV_IELS_ENUM(EVENT_GPT0_COUNTER_OVERFLOW), /* GPT0 COUNTER OVERFLOW (Overflow) */
-            [15] = BSP_PRV_IELS_ENUM(EVENT_IIC0_ERI), /* IIC0 ERI (Transfer error) */
-            [16] = BSP_PRV_IELS_ENUM(EVENT_IIC0_RXI), /* IIC0 RXI (Receive data full) */
+            [12] = BSP_PRV_IELS_ENUM(EVENT_SCI2_RXI), /* SCI2 RXI (Receive data full) */
+            [13] = BSP_PRV_IELS_ENUM(EVENT_SCI2_TXI), /* SCI2 TXI (Transmit data empty) */
+            [14] = BSP_PRV_IELS_ENUM(EVENT_SCI2_TEI), /* SCI2 TEI (Transmit end) */
+            [15] = BSP_PRV_IELS_ENUM(EVENT_SCI2_ERI), /* SCI2 ERI (Receive error) */
+            [16] = BSP_PRV_IELS_ENUM(EVENT_GPT0_COUNTER_OVERFLOW), /* GPT0 COUNTER OVERFLOW (Overflow) */
+            [17] = BSP_PRV_IELS_ENUM(EVENT_IIC0_TXI), /* IIC0 TXI (Transmit data empty) */
+            [18] = BSP_PRV_IELS_ENUM(EVENT_IIC0_TEI), /* IIC0 TEI (Transmit end) */
+            [19] = BSP_PRV_IELS_ENUM(EVENT_IIC0_ERI), /* IIC0 ERI (Transfer error) */
+            [20] = BSP_PRV_IELS_ENUM(EVENT_IIC0_RXI), /* IIC0 RXI (Receive data full) */
         };
         #endif

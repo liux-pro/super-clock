@@ -27,7 +27,6 @@ uint8_t* ws2812_get_buffer();
 bool ws2812_is_busy();
 void ws2812_send();
 void ws2812_send_sync();
-void sci_spi_callback(spi_callback_args_t *p_args);
 
 
 #endif /* WS2812_H_ */

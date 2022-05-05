@@ -4,20 +4,55 @@
 #include <stdint.h>
 #include "bsp_api.h"
 #include "common_data.h"
+#include "r_gpt.h"
+#include "r_timer_api.h"
 #include "r_dtc.h"
 #include "r_transfer_api.h"
+#include "r_sci_spi.h"
+#include "r_spi_api.h"
 #include "r_iic_master.h"
 #include "r_i2c_master_api.h"
 #include "r_rtc.h"
 #include "r_rtc_api.h"
-#include "r_gpt.h"
-#include "r_timer_api.h"
 #include "r_adc.h"
 #include "r_adc_api.h"
 #include "r_sci_uart.h"
 #include "r_uart_api.h"
 #include "r_spi.h"
 FSP_HEADER
+/** Timer on GPT Instance. */
+extern const timer_instance_t gpt4_speaker;
+
+/** Access the GPT instance using these structures when calling API functions directly (::p_api is not used). */
+extern gpt_instance_ctrl_t gpt4_speaker_ctrl;
+extern const timer_cfg_t gpt4_speaker_cfg;
+
+#ifndef NULL
+void NULL(timer_callback_args_t *p_args);
+#endif
+/* Transfer on DTC Instance. */
+extern const transfer_instance_t g_transfer5;
+
+/** Access the DTC instance using these structures when calling API functions directly (::p_api is not used). */
+extern dtc_instance_ctrl_t g_transfer5_ctrl;
+extern const transfer_cfg_t g_transfer5_cfg;
+/* Transfer on DTC Instance. */
+extern const transfer_instance_t g_transfer4;
+
+/** Access the DTC instance using these structures when calling API functions directly (::p_api is not used). */
+extern dtc_instance_ctrl_t g_transfer4_ctrl;
+extern const transfer_cfg_t g_transfer4_cfg;
+/** SPI on SCI Instance. */
+extern const spi_instance_t g_spi1;
+
+/** Access the SCI_SPI instance using these structures when calling API functions directly (::p_api is not used). */
+extern sci_spi_instance_ctrl_t g_spi1_ctrl;
+extern const spi_cfg_t g_spi1_cfg;
+
+/** Called by the driver when a transfer has completed or an error has occurred (Must be implemented by the user). */
+#ifndef sci_spi_callback
+void sci_spi_callback(spi_callback_args_t *p_args);
+#endif
 /* Transfer on DTC Instance. */
 extern const transfer_instance_t g_transfer3;
 
@@ -47,15 +82,15 @@ extern const rtc_instance_t g_rtc0;
 extern rtc_instance_ctrl_t g_rtc0_ctrl;
 extern const rtc_cfg_t g_rtc0_cfg;
 
-#ifndef NULL
-void NULL(rtc_callback_args_t *p_args);
+#ifndef rtc_callback
+void rtc_callback(rtc_callback_args_t *p_args);
 #endif
 /** Timer on GPT Instance. */
-extern const timer_instance_t g_timer0;
+extern const timer_instance_t gpt0;
 
 /** Access the GPT instance using these structures when calling API functions directly (::p_api is not used). */
-extern gpt_instance_ctrl_t g_timer0_ctrl;
-extern const timer_cfg_t g_timer0_cfg;
+extern gpt_instance_ctrl_t gpt0_ctrl;
+extern const timer_cfg_t gpt0_cfg;
 
 #ifndef timer0_callback
 void timer0_callback(timer_callback_args_t *p_args);

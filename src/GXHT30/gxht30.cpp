@@ -47,7 +47,7 @@ bool gxht30_read(gxht30_result *p_result) {
 	while (gxht30_busy) {
 	}
 	;
-	//TODO check CRC, when fail, return false
+	//check CRC, when fail, return false
 	if ( 	buffer[2] != crc8(buffer, 2)
 	     || buffer[5] != crc8(&buffer[3], 2)
 		 ) {

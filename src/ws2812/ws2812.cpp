@@ -3,10 +3,11 @@
  *
  *  Created on: 2022年4月21日
  *      Author: Legend
+ */
+/*
  *  spi 方式驱动 ws2812
  *  原理参考 http://bbs.mydigit.cn/read.php?tid=2622343
  */
-
 #include <ws2812/ws2812.h>
 #include <memory.h>
 
@@ -19,19 +20,19 @@
 #define TOTAL   LED_NUMBER * 24
 
 //buffer 显存 GRB888
-uint8_t buffer[LED_NUMBER * 24] = { 0 };
+static uint8_t buffer[LED_NUMBER * 24] = { 0 };
 
 //spi模拟0码 1100 0000
-uint8_t CODE0 = 0XC0;
+static uint8_t CODE0 = 0XC0;
 //spi模拟1码 1111 1100
-uint8_t CODE1 = 0xFC;
+static uint8_t CODE1 = 0xFC;
 
 //记录信号是否发完
 volatile bool ws2812_busy = false;
 
-fsp_err_t ws2812_err;
+static fsp_err_t ws2812_err;
 
-//初始化串口，参数已经自动生成了，所以这里没参数
+//初始化spi，参数已经自动生成了，所以这里没参数
 void ws2812_init() {
 	//打开spi
 	ws2812_err = R_SPI_Open(&g_spi0_ctrl, &g_spi0_cfg);
@@ -96,6 +97,11 @@ void ws2812_copy_to_buffer(uint8_t *source, uint16_t size) {
 	ws2812_send();
 }
 
+uint8_t* ws2812_get_buffer(){
+	return buffer;
+}
+
+
 //发送颜色数据
 void ws2812_send() {
 	ws2812_busy = true;
@@ -123,5 +129,4 @@ void spi_callback(spi_callback_args_t *p_args) {
 	}else{
 		ws2812_busy = false;
 	}
-
 }
