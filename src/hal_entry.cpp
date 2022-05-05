@@ -1,12 +1,13 @@
-#include <ws2812/ws2812.h>
-#include <ws2812/logo.h>
+#include "ws2812/ws2812.h"
+#include "ws2812/logo.h"
 #include "hal_data.h"
 #include "debug/debug.h"
-#include "timer/timer0.h"
+#include "timer/fps.h"
 #include "gxht30/gxht30.h"
 #include "rtc/rtc.h"
 #include "utils.h"
 #include "adc/adc.h"
+#include "buzzer/buzzer.h"
 
 #define SAMPLING_FREQUENCY 1000
 
@@ -21,46 +22,56 @@ fsp_err_t err;
 void hal_entry(void) {
 	debug("legend-tech\n");
 	debug("hello world\n");
+	ws2812_init();
+	fps_init();
 
-    logo_init();
-    logo_black();
-    logo_send_sync();
+	while(1){
+		if(fps_need_refresh()){
+			ws2812_black();
+			ws2812_set_color(fps_get_sync(),255,0,0);
+			ws2812_send();
+		}
+	}
+
+
+    stop();
+//    logo_init();
+//    logo_black();
+//    logo_send_sync();
 //	R_BSP_SoftwareDelay(2000, BSP_DELAY_UNITS_MILLISECONDS);
 //    logo_blue();
 //    logo_send_sync();
 //    stop();
 //	gxht30_init();
+//	R_BSP_SoftwareDelay(100, BSP_DELAY_UNITS_MILLISECONDS);
+//
+//	debug("1");
+//
 //	gxht30_result result;
+//	R_BSP_SoftwareDelay(100, BSP_DELAY_UNITS_MILLISECONDS);
+//
 //	gxht30_read(&result);
+//	R_BSP_SoftwareDelay(100, BSP_DELAY_UNITS_MILLISECONDS);
+//	debug("2");
+//	debug("%d",result.temperature);
 //  stop();
+//    buzzer_init();
+//    buzzer_start(4000);
 
 
 
-    /* Initializes the module. */
-    err = R_GPT_Open(&gpt4_speaker_ctrl, &gpt4_speaker_cfg);
-    /* Handle any errors. This function should be defined by the user. */
-    assert(FSP_SUCCESS == err);
-    /* Start the timer. */
-    (void) R_GPT_Start(&gpt4_speaker_ctrl);
-	uint32_t pclkd_freq_hz = BSP_STARTUP_PCLKD_HZ >> gpt4_speaker_cfg.source_div;
-	uint32_t period_counts =
-		(uint32_t) (((uint64_t) pclkd_freq_hz) / 262);
-	debug("%ld\n",period_counts);
-    err = R_GPT_PeriodSet(&gpt4_speaker_ctrl, period_counts);
-    err = R_GPT_DutyCycleSet(&gpt4_speaker_ctrl, period_counts/2, GPT_IO_PIN_GTIOCB);
-    R_GPT_Reset(&gpt4_speaker_ctrl);
-    stop();
-
-
-    adc_init();
 
 
 
-	while (1){
-		debug("%d\n",adc_get_brightness());
-		R_BSP_SoftwareDelay(100, BSP_DELAY_UNITS_MILLISECONDS);
-	    adc_async_scan();
-	}
+//    adc_init();
+//
+//
+//
+//	while (1){
+//		debug("%d\n",adc_get_brightness());
+//		R_BSP_SoftwareDelay(100, BSP_DELAY_UNITS_MILLISECONDS);
+//	    adc_async_scan();
+//	}
 
 #if BSP_TZ_SECURE_BUILD
     /* Enter non-secure code */

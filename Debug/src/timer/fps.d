@@ -1,4 +1,4 @@
-src/timer/timer0.o: ../src/timer/timer0.cpp ../src/timer/timer0.h \
+src/timer/fps.o: ../src/timer/fps.cpp ../src/timer/fps.h \
  D:\ra\workspace\super_clock\ra_gen/hal_data.h \
  D:\ra\workspace\super_clock\ra\fsp\inc\api/bsp_api.h \
  D:\ra\workspace\super_clock\ra\fsp\inc/fsp_common_api.h \
@@ -88,7 +88,7 @@ src/timer/timer0.o: ../src/timer/timer0.cpp ../src/timer/timer0.h \
  D:\ra\workspace\super_clock\ra_cfg\fsp_cfg/r_sci_uart_cfg.h \
  D:\ra\workspace\super_clock\ra\fsp\inc\instances/r_spi.h \
  D:\ra\workspace\super_clock\src/debug/debug.h
-../src/timer/timer0.h:
+../src/timer/fps.h:
 D:\ra\workspace\super_clock\ra_gen/hal_data.h:
 D:\ra\workspace\super_clock\ra\fsp\inc\api/bsp_api.h:
 D:\ra\workspace\super_clock\ra\fsp\inc/fsp_common_api.h:

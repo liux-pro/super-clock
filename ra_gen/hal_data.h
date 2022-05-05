@@ -86,14 +86,14 @@ extern const rtc_cfg_t g_rtc0_cfg;
 void rtc_callback(rtc_callback_args_t *p_args);
 #endif
 /** Timer on GPT Instance. */
-extern const timer_instance_t gpt0;
+extern const timer_instance_t gpt0_fps;
 
 /** Access the GPT instance using these structures when calling API functions directly (::p_api is not used). */
-extern gpt_instance_ctrl_t gpt0_ctrl;
-extern const timer_cfg_t gpt0_cfg;
+extern gpt_instance_ctrl_t gpt0_fps_ctrl;
+extern const timer_cfg_t gpt0_fps_cfg;
 
-#ifndef timer0_callback
-void timer0_callback(timer_callback_args_t *p_args);
+#ifndef gpt0_fps_callback
+void gpt0_fps_callback(timer_callback_args_t *p_args);
 #endif
 /** ADC on ADC Instance. */
 extern const adc_instance_t g_adc0;

@@ -309,12 +309,12 @@ FSP Configuration
       Interrupts: Window Compare B Interrupt Priority: Disabled
       Extra: ADC Ring Buffer: Not Supported
       
-    Instance "gpt0 Timer, General PWM (r_gpt)"
-      General: Name: gpt0
+    Instance "gpt0_fps Timer, General PWM (r_gpt)"
+      General: Name: gpt0_fps
       General: Channel: 0
       General: Mode: Periodic
-      General: Period: 1000
-      General: Period Unit: Milliseconds
+      General: Period: 60
+      General: Period Unit: Hertz
       Output: Custom Waveform: GTIOA: Initial Output Level: Pin Level Low
       Output: Custom Waveform: GTIOA: Cycle End Output Level: Pin Level Retain
       Output: Custom Waveform: GTIOA: Compare Match Output Level: Pin Level Retain
@@ -338,7 +338,7 @@ FSP Configuration
       Input: Capture B Source: 
       Input: Noise Filter A Sampling Clock Select: No Filter
       Input: Noise Filter B Sampling Clock Select: No Filter
-      Interrupts: Callback: timer0_callback
+      Interrupts: Callback: gpt0_fps_callback
       Interrupts: Overflow/Crest Interrupt Priority: Priority 2
       Interrupts: Capture A Interrupt Priority: Disabled
       Interrupts: Capture B Interrupt Priority: Disabled

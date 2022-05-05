@@ -84,6 +84,7 @@ ra/intel/tinycrypt/lib/source \
 ra_gen \
 src/GXHT30 \
 src/adc \
+src/buzzer \
 src/debug \
 src/fcal \
 src \

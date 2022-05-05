@@ -288,9 +288,9 @@ const rtc_cfg_t g_rtc0_cfg = { .clock_source = RTC_CLOCK_SOURCE_LOCO,
 /* Instance structure to use this module. */
 const rtc_instance_t g_rtc0 = { .p_ctrl = &g_rtc0_ctrl, .p_cfg = &g_rtc0_cfg,
 		.p_api = &g_rtc_on_rtc };
-gpt_instance_ctrl_t gpt0_ctrl;
+gpt_instance_ctrl_t gpt0_fps_ctrl;
 #if 0
-const gpt_extended_pwm_cfg_t gpt0_pwm_extend =
+const gpt_extended_pwm_cfg_t gpt0_fps_pwm_extend =
 {
     .trough_ipl          = (BSP_IRQ_DISABLED),
 #if defined(VECTOR_NUMBER_GPT0_COUNTER_UNDERFLOW)
@@ -312,7 +312,7 @@ const gpt_extended_pwm_cfg_t gpt0_pwm_extend =
     .gtiocb_disable_setting = GPT_GTIOC_DISABLE_PROHIBITED,
 };
 #endif
-const gpt_extended_cfg_t gpt0_extend =
+const gpt_extended_cfg_t gpt0_fps_extend =
 		{
 				.gtioca = { .output_enabled = false, .stop_level =
 						GPT_PIN_LEVEL_LOW }, .gtiocb =
@@ -339,7 +339,7 @@ const gpt_extended_cfg_t gpt0_extend =
 				.capture_filter_gtioca = GPT_CAPTURE_FILTER_NONE,
 				.capture_filter_gtiocb = GPT_CAPTURE_FILTER_NONE,
 #if 0
-    .p_pwm_cfg                   = &gpt0_pwm_extend,
+    .p_pwm_cfg                   = &gpt0_fps_pwm_extend,
 #else
 				.p_pwm_cfg = NULL,
 #endif
@@ -362,26 +362,28 @@ const gpt_extended_cfg_t gpt0_extend =
 				.gtior_setting.gtior = 0U,
 #endif
 		};
-const timer_cfg_t gpt0_cfg = { .mode = TIMER_MODE_PERIODIC,
-/* Actual period: 1 seconds. Actual duty: 50%. */.period_counts =
-		(uint32_t) 0x2dc6c00, .duty_cycle_counts = 0x16e3600, .source_div =
-		(timer_source_div_t) 0, .channel = 0, .p_callback = timer0_callback,
-/** If NULL then do not add & */
+const timer_cfg_t gpt0_fps_cfg =
+		{ .mode = TIMER_MODE_PERIODIC,
+				/* Actual period: 0.016666666666666666 seconds. Actual duty: 50%. */.period_counts =
+						(uint32_t) 0xc3500, .duty_cycle_counts = 0x61a80,
+				.source_div = (timer_source_div_t) 0, .channel = 0,
+				.p_callback = gpt0_fps_callback,
+				/** If NULL then do not add & */
 #if defined(NULL)
     .p_context           = NULL,
 #else
-		.p_context = &NULL,
+				.p_context = &NULL,
 #endif
-		.p_extend = &gpt0_extend, .cycle_end_ipl = (2),
+				.p_extend = &gpt0_fps_extend, .cycle_end_ipl = (2),
 #if defined(VECTOR_NUMBER_GPT0_COUNTER_OVERFLOW)
     .cycle_end_irq       = VECTOR_NUMBER_GPT0_COUNTER_OVERFLOW,
 #else
-		.cycle_end_irq = FSP_INVALID_VECTOR,
+				.cycle_end_irq = FSP_INVALID_VECTOR,
 #endif
 		};
 /* Instance structure to use this module. */
-const timer_instance_t gpt0 = { .p_ctrl = &gpt0_ctrl, .p_cfg = &gpt0_cfg,
-		.p_api = &g_timer_on_gpt };
+const timer_instance_t gpt0_fps = { .p_ctrl = &gpt0_fps_ctrl, .p_cfg =
+		&gpt0_fps_cfg, .p_api = &g_timer_on_gpt };
 adc_instance_ctrl_t g_adc0_ctrl;
 const adc_extended_cfg_t g_adc0_cfg_extend = { .add_average_count = ADC_ADD_OFF,
 		.clearing = ADC_CLEAR_AFTER_READ_ON, .trigger_group_b =

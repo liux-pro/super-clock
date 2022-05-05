@@ -322,11 +322,11 @@
       <property id="module.driver.adc.adbuf" value="module.driver.adc.adbuf.disabled"/>
     </module>
     <module id="module.driver.timer_on_gpt.84564196">
-      <property id="module.driver.timer.name" value="gpt0"/>
+      <property id="module.driver.timer.name" value="gpt0_fps"/>
       <property id="module.driver.timer.channel" value="0"/>
       <property id="module.driver.timer.mode" value="module.driver.timer.mode.mode_periodic"/>
-      <property id="module.driver.timer.period" value="1000"/>
-      <property id="module.driver.timer.unit" value="module.driver.timer.unit.unit_period_msec"/>
+      <property id="module.driver.timer.period" value="60"/>
+      <property id="module.driver.timer.unit" value="module.driver.timer.unit.unit_frequency_hz"/>
       <property id="module.driver.timer.gtior.gtioa.initial_output_level" value="module.driver.timer.gtior.gtioa.initial_output_level.low"/>
       <property id="module.driver.timer.gtior.gtioa.cycle_end_output_level" value="module.driver.timer.gtior.gtioa.cycle_end_output_level.retain"/>
       <property id="module.driver.timer.gtior.gtioa.compare_match_output_level" value="module.driver.timer.gtior.gtioa.compare_match_output_level.retain"/>
@@ -350,7 +350,7 @@
       <property id="module.driver.timer.capture_b_source" value=""/>
       <property id="module.driver.timer.gtioca_filter" value="module.driver.timer.gtioc_filter.gtioc_filter_none"/>
       <property id="module.driver.timer.gtiocb_filter" value="module.driver.timer.gtioc_filter.gtioc_filter_none"/>
-      <property id="module.driver.timer.p_callback" value="timer0_callback"/>
+      <property id="module.driver.timer.p_callback" value="gpt0_fps_callback"/>
       <property id="module.driver.timer.ipl" value="board.icu.common.irq.priority2"/>
       <property id="module.driver.timer.capture_a_ipl" value="_disabled"/>
       <property id="module.driver.timer.capture_b_ipl" value="_disabled"/>
