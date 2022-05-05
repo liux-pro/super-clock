@@ -8,6 +8,8 @@
 #include "utils.h"
 #include "adc/adc.h"
 #include "buzzer/buzzer.h"
+#include "color/fast_hsv2rgb.h"
+
 
 #define SAMPLING_FREQUENCY 1000
 
@@ -23,17 +25,33 @@ void hal_entry(void) {
 	debug("legend-tech\n");
 	debug("hello world\n");
 	ws2812_init();
+	logo_init();
 	fps_init();
 
 	while(1){
+		uint8_t r, g, b;
 		if(fps_need_refresh()){
-			ws2812_black();
-			ws2812_set_color(fps_get_sync(),255,0,0);
-			ws2812_send();
+//			ws2812_black();
+//
+//			for(int i=0;i<60;i++){
+//			    fast_hsv2rgb_8bit(((fps_get_sync()+i)%60)*256/10, HSV_SAT_MAX, 255, &r, &g, &b);
+//				ws2812_set_color(fps_get_sync(),r,g,b);
+//			}
+//			ws2812_send();
+
+            static uint16_t hue=0;
+            hue++;
+            hue=hue % HSV_HUE_MAX;
+            logo_black();
+			fast_hsv2rgb_8bit(hue, HSV_SAT_MAX, HSV_VAL_MAX, &r, &g, &b);
+			logo_set_color(0,r,g,b);
+			logo_set_color(1,r,g,b);
+			logo_send();
+
 		}
 	}
 
-
+	//阻止程序继续向下执行
     stop();
 //    logo_init();
 //    logo_black();
@@ -57,12 +75,6 @@ void hal_entry(void) {
 //  stop();
 //    buzzer_init();
 //    buzzer_start(4000);
-
-
-
-
-
-
 //    adc_init();
 //
 //

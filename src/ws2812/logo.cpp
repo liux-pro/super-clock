@@ -100,7 +100,7 @@ uint8_t* logo_get_buffer(){
 //发送颜色数据
 void logo_send() {
 	logo_busy = true;
-	R_SPI_Write(&g_spi0_ctrl, _buffer, sizeof(_buffer),
+	R_SCI_SPI_Write(&g_spi1_ctrl, _buffer, sizeof(_buffer),
 			SPI_BIT_WIDTH_8_BITS);
 }
 //同步发送颜色数据

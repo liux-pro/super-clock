@@ -89,7 +89,8 @@ src/hal_entry.o: ../src/hal_entry.cpp ../src/ws2812/ws2812.h \
  D:\ra\workspace\super_clock\ra\fsp\inc\instances/r_spi.h \
  ../src/ws2812/logo.h D:\ra\workspace\super_clock\src/debug/debug.h \
  ../src/debug/debug.h ../src/timer/fps.h ../src/gxht30/gxht30.h \
- ../src/rtc/rtc.h ../src/utils.h ../src/adc/adc.h ../src/buzzer/buzzer.h
+ ../src/rtc/rtc.h ../src/utils.h ../src/adc/adc.h ../src/buzzer/buzzer.h \
+ ../src/color/fast_hsv2rgb.h
 ../src/ws2812/ws2812.h:
 D:\ra\workspace\super_clock\ra_gen/hal_data.h:
 D:\ra\workspace\super_clock\ra\fsp\inc\api/bsp_api.h:
@@ -188,3 +189,4 @@ D:\ra\workspace\super_clock\src/debug/debug.h:
 ../src/utils.h:
 ../src/adc/adc.h:
 ../src/buzzer/buzzer.h:
+../src/color/fast_hsv2rgb.h:

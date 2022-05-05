@@ -85,6 +85,7 @@ ra_gen \
 src/GXHT30 \
 src/adc \
 src/buzzer \
+src/color \
 src/debug \
 src/fcal \
 src \

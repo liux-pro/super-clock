@@ -14,6 +14,7 @@ RM := rm -rf
 -include src/timer/subdir.mk
 -include src/fcal/subdir.mk
 -include src/debug/subdir.mk
+-include src/color/subdir.mk
 -include src/buzzer/subdir.mk
 -include src/adc/subdir.mk
 -include src/GXHT30/subdir.mk

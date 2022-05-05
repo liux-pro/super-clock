@@ -8,7 +8,7 @@
 #ifndef TIMER_FPS_H_
 #define TIMER_FPS_H_
 #include "hal_data.h"
-
+#define FPS 60
 
 void fps_init();
 void fps_loop();
