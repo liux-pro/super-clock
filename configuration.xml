@@ -615,6 +615,8 @@
       <configSetting altId="p110.gpio_mode.gpio_mode_peripheral" configurationId="p110.gpio_mode"/>
       <configSetting altId="p111.sci2.sck" configurationId="p111"/>
       <configSetting altId="p111.gpio_mode.gpio_mode_peripheral" configurationId="p111.gpio_mode"/>
+      <configSetting altId="p201.input" configurationId="p201"/>
+      <configSetting altId="p201.gpio_mode.gpio_mode_in" configurationId="p201.gpio_mode"/>
       <configSetting altId="p212.sci1.rxd" configurationId="p212"/>
       <configSetting altId="p212.gpio_mode.gpio_mode_peripheral" configurationId="p212.gpio_mode"/>
       <configSetting altId="p213.sci1.txd" configurationId="p213"/>

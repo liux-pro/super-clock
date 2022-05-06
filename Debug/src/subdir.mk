@@ -4,13 +4,16 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
-../src/hal_entry.cpp 
+../src/hal_entry.cpp \
+../src/main.cpp 
 
 OBJS += \
-./src/hal_entry.o 
+./src/hal_entry.o \
+./src/main.o 
 
 CPP_DEPS += \
-./src/hal_entry.d 
+./src/hal_entry.d \
+./src/main.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

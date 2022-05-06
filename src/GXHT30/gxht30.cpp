@@ -21,6 +21,9 @@ uint8_t gxht30_cmd_read_interval_measure[] = { 0xE0, 0x00 };
 
 volatile bool gxht30_busy;
 
+int32_t temperature=0;
+int32_t humidity=0;
+
 static uint8_t crc8(const uint8_t *data, int len);
 
 void gxht30_init() {
@@ -33,7 +36,7 @@ void gxht30_init() {
 		;
 }
 
-bool gxht30_read(gxht30_result *p_result) {
+bool gxht30_read() {
 	gxht30_busy = true;
 	gxht30_err = R_IIC_MASTER_Write(&g_i2c_master0_ctrl,
 			gxht30_cmd_read_interval_measure,
@@ -54,11 +57,19 @@ bool gxht30_read(gxht30_result *p_result) {
 		debug("gxht30 bad CRC");
 		return false;
 	}
-	p_result->temperature = (int32_t) ((((((buffer[0] * 256.0) + buffer[1])
+	temperature = (int32_t) ((((((buffer[0] * 256.0) + buffer[1])
 			* 175) / 65535.0) - 45) * 10000);
-	p_result->humidity = (int32_t) (((((buffer[3] * 256.0) + buffer[4]) * 100)
+	humidity = (int32_t) (((((buffer[3] * 256.0) + buffer[4]) * 100)
 			/ 65535.0) * 10000);
 	return true;
+}
+
+int32_t gxht30_get_temperature(){
+	return temperature;
+}
+
+int32_t gxht30_get_humidity(){
+	return humidity;
 }
 
 static uint8_t crc8(const uint8_t *data, int len) {

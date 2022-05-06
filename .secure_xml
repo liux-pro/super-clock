@@ -39,6 +39,7 @@
       <configSetting altId="gpt4.gtiocb.p104" configurationId="gpt4.gtiocb" isUsedByDriver="true"/>
       <configSetting altId="iic0.scl.p400" configurationId="iic0.scl" isUsedByDriver="true"/>
       <configSetting altId="iic0.sda.p401" configurationId="iic0.sda" isUsedByDriver="true"/>
+      <configSetting altId="p201.input" configurationId="p201"/>
       <configSetting altId="sci1.rxd.p212" configurationId="sci1.rxd"/>
       <configSetting altId="sci1.txd.p213" configurationId="sci1.txd"/>
       <configSetting altId="sci2.rxd.p301" configurationId="sci2.rxd" isUsedByDriver="true"/>

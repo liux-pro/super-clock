@@ -14,9 +14,12 @@
 //使用硬件spi0控制ws2812
 //从fsp中配置spi0，速率设为8M，MSB,并自动生成代码
 //MOSI接ws2812
+//横纵数量，左下角开始向右蛇形排列
+#define LED_X_NUMBER 8
+#define LED_Y_NUMBER 8
 
 //LED 灯珠数量 不要超内存
-#define LED_NUMBER 64
+#define LED_NUMBER LED_X_NUMBER * LED_Y_NUMBER
 #define TOTAL   LED_NUMBER * 24
 
 //buffer 显存 GRB888
@@ -69,6 +72,41 @@ void ws2812_black() {
 //}
 
 void ws2812_set_color(uint16_t n, uint8_t r, uint8_t g, uint8_t b) {
+	uint8_t *p_buffer = &buffer[n * 24];
+
+	for (int mask = 1 << 7; mask > 0; mask = mask >> 1) {
+		if ((g & mask) > 0) {
+			*p_buffer = CODE1;
+		} else {
+			*p_buffer = CODE0;
+		}
+		if ((r & mask) > 0) {
+			*(p_buffer + 8) = CODE1;
+		} else {
+			*(p_buffer + 8) = CODE0;
+		}
+		if ((b & mask) > 0) {
+			*(p_buffer + 16) = CODE1;
+		} else {
+			*(p_buffer + 16) = CODE0;
+		}
+		p_buffer++;
+	}
+
+}
+//xy坐标转led编号 //	蛇形排列
+uint16_t ws2812_xy_to_n(uint8_t x, uint8_t  y){
+	uint16_t n;
+	if(y%2==0){
+        n=(uint16_t)(y*LED_X_NUMBER+x);
+	}else{
+//		y%2==1
+        n=(uint16_t)((y+1)*LED_X_NUMBER-x-1);
+	}
+	return n;
+}
+void ws2812_set_color_xy(uint8_t x, uint8_t  y, uint8_t r, uint8_t g, uint8_t b) {
+	uint16_t n = ws2812_xy_to_n(x ,  y);
 	uint8_t *p_buffer = &buffer[n * 24];
 
 	for (int mask = 1 << 7; mask > 0; mask = mask >> 1) {

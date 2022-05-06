@@ -104,7 +104,7 @@ FSP Configuration
       P111 28 SCI2_SCK2 - - None "Peripheral mode" CMOS None "AGT0: AGTOA0; CTSU0: TS12-CFC; GPT6: GTIOC6A; ICU0: IRQ04; SCI2: SCK2; SCI9: SCK9" - IO - - 
       P112 29 - - - - Disabled - - "AGT0: AGTOB0; CTSU0: TSCAP; GPT6: GTIOC6B; SCI1: SCK1; SCI2: SDA2; SCI2: TXD2" - None - - 
       P200 21 - - - - Disabled - - "ICU0: NMI" - None - - 
-      P201 20 - - - - Disabled - - "SYSTEM0: MD" - None - - 
+      P201 20 GPIO - - - "Input mode" - None "SYSTEM0: MD" - IO - - 
       P206 18 - - - - Disabled - - "GPT_OPS0: GTIU; ICU0: IRQ00; SCI0: RXD0; SCI0: SCL0" - None - - 
       P207 17 - - - - Disabled - - - - None - - 
       P208 16 - - - - Disabled - - "AGT0: AGTOB0" - None - - 
