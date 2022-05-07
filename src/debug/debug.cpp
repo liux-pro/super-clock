@@ -13,9 +13,6 @@
 volatile bool debug_busy = false;
 static void debug_init();
 
-uint8_t receive_buff[DEBUG_BUFFER_SIZE];
-volatile uint8_t length = 0;
-volatile uint8_t index = 0;
 
 void debug(const char *fmt, ...) {
 	//自动初始化
@@ -44,6 +41,6 @@ void user_uart_callback(uart_callback_args_t *p_args) {
 		debug_busy=false;
 	}
 	if (p_args->event == UART_EVENT_RX_CHAR) {
-		receive_buff[index++]=p_args->data;
+//		receive_buff[index++]=(uint8_t)p_args->data;
 	}
 }

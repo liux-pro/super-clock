@@ -7,6 +7,7 @@
 
 #ifndef UTILS_H_
 #define UTILS_H_
+#include "hal_data.h"
 void stop();
 void stop(){
 	while(1);
@@ -20,7 +21,5 @@ void get_random_number(uint8_t *  buffer, uint32_t bytes){
     }
 	RM_TINCYRYPT_PORT_TRNG_Read(buffer, bytes);
 }
-
-
 
 #endif /* UTILS_H_ */

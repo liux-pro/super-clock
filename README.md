@@ -13,6 +13,17 @@ https://maker.lceda.cn/LCEDA_RAMCU
 | 蓝牙  |  CH571k  |
 | LED  |  WS2812B  |
 
+# 主MCU
+R7FA2E1A72DFL，48M Arm Cortex M23内核  
+16k ram，64k rom
+1个32位定时器（GPT0），6个16位定时器（GPT4-9），2个低功耗定时器  
+1个专用spi，1个专用i2c  
+4个sci，可配置为uart、spi、i2c  
+12位adc  
+RTC  
+触摸  
+真随机数生成器，硬件AES，ECC加速。
+
 # 外观设计
 三明治结构
 阻焊，开窗

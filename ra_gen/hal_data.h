@@ -4,10 +4,12 @@
 #include <stdint.h>
 #include "bsp_api.h"
 #include "common_data.h"
-#include "r_gpt.h"
-#include "r_timer_api.h"
 #include "r_dtc.h"
 #include "r_transfer_api.h"
+#include "r_sci_uart.h"
+#include "r_uart_api.h"
+#include "r_gpt.h"
+#include "r_timer_api.h"
 #include "r_sci_spi.h"
 #include "r_spi_api.h"
 #include "r_iic_master.h"
@@ -16,10 +18,35 @@
 #include "r_rtc_api.h"
 #include "r_adc.h"
 #include "r_adc_api.h"
-#include "r_sci_uart.h"
-#include "r_uart_api.h"
 #include "r_spi.h"
 FSP_HEADER
+/* Transfer on DTC Instance. */
+extern const transfer_instance_t g_transfer6;
+
+/** Access the DTC instance using these structures when calling API functions directly (::p_api is not used). */
+extern dtc_instance_ctrl_t g_transfer6_ctrl;
+extern const transfer_cfg_t g_transfer6_cfg;
+/** UART on SCI Instance. */
+extern const uart_instance_t uart1_ble;
+
+/** Access the UART instance using these structures when calling API functions directly (::p_api is not used). */
+extern sci_uart_instance_ctrl_t uart1_ble_ctrl;
+extern const uart_cfg_t uart1_ble_cfg;
+extern const sci_uart_extended_cfg_t uart1_ble_cfg_extend;
+
+#ifndef uart1_callback
+void uart1_callback(uart_callback_args_t *p_args);
+#endif
+/** Timer on GPT Instance. */
+extern const timer_instance_t gpt5_uart1_timeout;
+
+/** Access the GPT instance using these structures when calling API functions directly (::p_api is not used). */
+extern gpt_instance_ctrl_t gpt5_uart1_timeout_ctrl;
+extern const timer_cfg_t gpt5_uart1_timeout_cfg;
+
+#ifndef gpt5_callback
+void gpt5_callback(timer_callback_args_t *p_args);
+#endif
 /** Timer on GPT Instance. */
 extern const timer_instance_t gpt4_speaker;
 

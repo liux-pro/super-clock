@@ -33,6 +33,8 @@
         <peripheral name="IIC0" group="IIC" security=""/>
         <peripheral name="SCI2" group="SCI" security=""/>
         <peripheral name="GPT4" group="GPT" security=""/>
+        <peripheral name="GPT5" group="GPT" security=""/>
+        <peripheral name="SCI1" group="SCI" security=""/>
         <peripheral name="ICU">
             <slot name="IRQ0" secure="false"/>
             <slot name="IRQ1" secure="false"/>
@@ -55,6 +57,11 @@
             <slot name="IRQ18" secure="false"/>
             <slot name="IRQ19" secure="false"/>
             <slot name="IRQ20" secure="false"/>
+            <slot name="IRQ21" secure="false"/>
+            <slot name="IRQ22" secure="false"/>
+            <slot name="IRQ23" secure="false"/>
+            <slot name="IRQ24" secure="false"/>
+            <slot name="IRQ26" secure="false"/>
         </peripheral>
     </partition>
 </azone>

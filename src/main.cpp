@@ -14,17 +14,16 @@
 #include "adc/adc.h"
 #include "buzzer/buzzer.h"
 #include "color/fast_hsv2rgb.h"
+#include "ble/ble.h"
 void setup();
 void loop();
-extern unsigned char aaa;
+
 void setup() {
 	debug("legend-tech\n");
 	debug("hello world\n");
-//	while(1){
-//        R_BSP_SoftwareDelay(500, BSP_DELAY_UNITS_MILLISECONDS);
-//		debug("%d\n",aaa);
-//	}
-
+	ble_init();
+	uint8_t aaa[]={0xaa,0xcc,0x33};
+	ble_send_sync(aaa,3);
 	ws2812_init();
 	logo_init();
 	fps_init();
@@ -56,14 +55,28 @@ void loop() {
 		logo_set_color(0, r, g, b);
 		logo_set_color(1, r, g, b);
 		logo_send();
+
 		/*
-		 * 每隔0.5s读一次温湿度
+		 * 轮询检查蓝牙有没有发来数据
+		 * 有就处理一下。
+		 */
+		static uint8_t *ble_data;
+		static uint16_t ble_data_len;
+		if(ble_get_data(&ble_data,&ble_data_len)){
+			for(int i =0;i<ble_data_len;i++){
+				   debug("%x ",ble_data[i]);
+			   }
+			   debug("\n");
+		}
+
+		/*
+		 * 每隔0.5s读一次温湿度，避免在一次循环里既读温度又读亮度
 		 */
 		if (fps_get_sync() == 0 || fps_get_sync() == 30) {
 			gxht30_read();
 		}
 		/*
-		 * 每隔0.5s读一次亮度
+		 * 每隔0.5s读一次亮度，避免在一次循环里既读温度又读亮度
 		 */
 		if (fps_get_sync() == 5 || fps_get_sync() == 35) {
 			adc_async_scan();

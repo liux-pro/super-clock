@@ -54,7 +54,7 @@ bool gxht30_read() {
 	if ( 	buffer[2] != crc8(buffer, 2)
 	     || buffer[5] != crc8(&buffer[3], 2)
 		 ) {
-		debug("gxht30 bad CRC");
+		debug("gxht30 bad CRC\n");
 		return false;
 	}
 	temperature = (int32_t) ((((((buffer[0] * 256.0) + buffer[1])
