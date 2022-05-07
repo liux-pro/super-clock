@@ -1,3 +1,6 @@
 .idea
-Release
-Debug
+#不要提交编译目录
+Release/*
+Debug/*
+#但是提交hex文件
+!*.hex
