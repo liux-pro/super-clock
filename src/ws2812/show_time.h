@@ -5,12 +5,19 @@
  *      Author: Legend
  */
 
+
+
+
+
 #ifndef WS2812_SHOW_TIME_H_
 #define WS2812_SHOW_TIME_H_
 #include "ws2812.h"
 #include "rtc/rtc.h"
 #define LED_SHOW_UP 0
 #define LED_SHOW_DOWN 2
+
+extern uint8_t led_bluetooth;
+
 
 void show_minute();
 void show_hour();

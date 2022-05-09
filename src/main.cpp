@@ -22,7 +22,6 @@
 
 void setup();
 void loop();
-tm *t;
 
 void setup() {
 	debug("legend-tech\n");
@@ -37,14 +36,56 @@ void setup() {
 	buzzer_init();
 	adc_init();
 	rtc_init();
-	rtc_set_time(1652048718);
-	t=rtc_get_time();
 }
 
 int32_t switcher;
 const uint8_t switch_time=5;
+bool rtc_ready = false;
 void loop() {
 	if (fps_need_refresh()) {
+		/*
+		 * 轮询检查蓝牙有没有发来数据
+		 * 有就处理一下。
+		 */
+		static uint8_t *ble_data;
+		static uint16_t ble_data_len;
+		if(ble_get_data(&ble_data,&ble_data_len)){
+//			for(int i =0;i<ble_data_len;i++){
+//				   debug("%x ",ble_data[i]);
+//			   }
+			if(ble_grep_receiver(ble_data)==LEGEND_DEVICE_CURRENT){
+	            switch (ble_grep_command(ble_data)){
+	            //TODO 幂等
+	            	case  LEGEND_CMD_SET_TIME:
+	    				time_t timestamp=(((time_t)(ble_data[3]))<<56)
+	    								   |(((time_t)(ble_data[4]))<<48)
+	    								   |(((time_t)(ble_data[5]))<<40)
+	    								   |(((time_t)(ble_data[6]))<<32)
+	    								   |((ble_data[7])<<24)
+	    								   |((ble_data[8])<<16)
+	    								   |((ble_data[9])<<8)
+	    								   |((ble_data[10])<<0);
+	    	            rtc_set_time(timestamp);
+	    	            rtc_ready=true;
+	            	    break;
+	            }
+			}
+		}
+
+
+		//时钟未初始化前，这段代码接管显示。
+		if(!rtc_ready){
+			if(fps_get_sync()>(FPS/2)){
+				ws2812_black();
+				ws2812_set_color(led_bluetooth,100,0,0);
+			}else{
+				ws2812_black();
+			}
+			ws2812_send();
+		  return;
+		}
+
+
 		//每秒自增1；
 		if(fps_get_sync()==1){
 		    static uint8_t simple_timer=0;
@@ -101,38 +142,6 @@ void loop() {
 		logo_set_color(0, r, g, b);
 		logo_set_color(1, r, g, b);
 		logo_send();
-
-		/*
-		 * 轮询检查蓝牙有没有发来数据
-		 * 有就处理一下。
-		 */
-		static uint8_t *ble_data;
-		static uint16_t ble_data_len;
-		if(ble_get_data(&ble_data,&ble_data_len)){
-//			for(int i =0;i<ble_data_len;i++){
-//				   debug("%x ",ble_data[i]);
-//			   }
-			if(ble_grep_receiver(ble_data)==LEGEND_DEVICE_CURRENT){
-	            switch (ble_grep_command(ble_data)){
-	            //TODO 幂等
-	            	case  LEGEND_CMD_SET_TIME:
-	    				time_t timestamp=(((time_t)(ble_data[3]))<<56)
-	    								   |(((time_t)(ble_data[4]))<<48)
-	    								   |(((time_t)(ble_data[5]))<<40)
-	    								   |(((time_t)(ble_data[6]))<<32)
-	    								   |((ble_data[7])<<24)
-	    								   |((ble_data[8])<<16)
-	    								   |((ble_data[9])<<8)
-	    								   |((ble_data[10])<<0);
-	    	            rtc_set_time(timestamp);
-	            	    break;
-	            }
-
-
-
-
-			}
-		}
 
 		/*
 		 * 每隔0.5s读一次温湿度，避免在一次循环里既读温度又读亮度
