@@ -1,4 +1,7 @@
 #include "fdatefunc.h"
+
+#include "debug/debug.h"
+
 /* 获取BL结构体
  * 得到一年的大小月数据
  */
@@ -6,10 +9,13 @@ BL* getLunarBLArray(U16 year)
 {
 	U8 arraySize=lunarMonths(year);
 	U8 i;
-	BL* bl=(BL*)malloc(sizeof(BL));
+//	BL* bl=(BL*)malloc(sizeof(BL));
+	static BL _bl;
+	static BL* bl=&_bl;
 	if(!bl)
 		return NULL;
-	U8 *array=(U8*)malloc(sizeof(U8)*arraySize);
+//	U8 *array=(U8*)malloc(sizeof(U8)*arraySize);
+	static U8 array[20];
 	if(!array)
 		return NULL;
 	short BLData=lunarBLMonthData(year);
@@ -43,7 +49,7 @@ int sunToLunar(LunarDate* pLD,SunDate* pSD,BL* pBL,U8 leapMonth)
 		return -1;
 	// 检测数据的有效性,只要检测下限就可以了
 	if((pSD->year==1900 && pSD->month==1 && pSD->day < 31))
-		return -1;
+		return -2;
 	// 进行必要的数据转化，使得LunurDate 中保存的是春节的日期 
 	pLD->year=pSD->year;
 	pLD->month=lunarSpringInSunMonth(pSD->year);

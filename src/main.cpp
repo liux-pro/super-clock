@@ -15,8 +15,13 @@
 #include "buzzer/buzzer.h"
 #include "color/fast_hsv2rgb.h"
 #include "ble/ble.h"
+#include "ws2812/show_time.h"
+#include "fcal/fdatefunc.h"
+#include "time.h"
+
 void setup();
 void loop();
+tm *t;
 
 void setup() {
 	debug("legend-tech\n");
@@ -30,28 +35,68 @@ void setup() {
 	gxht30_init();
 	buzzer_init();
 	adc_init();
+	rtc_init();
+	rtc_set_time(1652048718);
+	t=rtc_get_time();
 }
+
+int32_t switcher;
+const uint8_t switch_time=5;
 void loop() {
 	if (fps_need_refresh()) {
+		//每秒自增1；
+		if(fps_get_sync()==1){
+		    static uint8_t simple_timer=0;
+		    simple_timer++;
+			if(simple_timer>switch_time){
+				simple_timer=0;
+				switcher++;
+			}
+		}
+		//计算彩虹颜色
 		static uint8_t r, g, b;
+		static uint8_t _r, _g, _b;
+
+		static uint16_t logo_hue = 0;
+		logo_hue++;
+		logo_hue = logo_hue % HSV_HUE_MAX;
+		fast_hsv2rgb_8bit(logo_hue, HSV_SAT_MAX, HSV_VAL_MAX / 8, &r, &g, &b);
+		fast_hsv2rgb_8bit((logo_hue+HSV_HUE_MAX/2)% HSV_HUE_MAX, HSV_SAT_MAX, HSV_VAL_MAX / 8, &_r, &_g, &_b);
+
 		/*
 		 * 主屏幕刷新
 		 */
 		ws2812_black();
-		for (int i = 0; i < 60; i++) {
-			fast_hsv2rgb_8bit(((fps_get_sync() + i) % 60) * 256 / 10,
-					HSV_SAT_MAX, HSV_VAL_MAX/8, &r, &g, &b);
-			ws2812_set_color(fps_get_sync(), r, g, b);
+		show_set_color(_r,_g,_b);
+		show_set_color2(r,g,b);
+
+		switch (switcher%4){
+		case 0:
+				show_minute();
+				show_hour();
+				break;
+		case 1:
+				show_year_week();
+				show_year();
+				break;
+		case 2:
+				show_month();
+				show_day();
+				break;
+		case 3:
+				show_lunar_month();
+				show_lunar_day();
+				break;
 		}
+
+		show_week();
+
+		show_legend(true);
 		ws2812_send();
 		/*
 		 * logo灯
 		 */
-		static uint16_t logo_hue = 0;
-		logo_hue++;
-		logo_hue = logo_hue % HSV_HUE_MAX;
 		logo_black();
-		fast_hsv2rgb_8bit(logo_hue, HSV_SAT_MAX, HSV_VAL_MAX / 8, &r, &g, &b);
 		logo_set_color(0, r, g, b);
 		logo_set_color(1, r, g, b);
 		logo_send();
