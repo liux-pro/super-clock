@@ -34,6 +34,8 @@
   <raPinConfiguration>
     <pincfg active="true" name="" symbol="">
       <configSetting altId="adc0.an19.p103" configurationId="adc0.an19" isUsedByDriver="true"/>
+      <configSetting altId="cgc0.xcin.p215" configurationId="cgc0.xcin" isUsedByDriver="true"/>
+      <configSetting altId="cgc0.xcout.p214" configurationId="cgc0.xcout" isUsedByDriver="true"/>
       <configSetting altId="debug0.swclk.p300" configurationId="debug0.swclk" isUsedByDriver="true"/>
       <configSetting altId="debug0.swdio.p108" configurationId="debug0.swdio" isUsedByDriver="true"/>
       <configSetting altId="gpt4.gtiocb.p104" configurationId="gpt4.gtiocb" isUsedByDriver="true"/>

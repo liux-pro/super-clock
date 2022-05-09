@@ -1,0 +1,20 @@
+/*
+ * LEGEND.H
+ *
+ *  Created on: 2022年5月9日
+ *      Author: Legend
+ */
+
+#ifndef LEGEND_H_
+#define LEGEND_H_
+
+#define LEGEND_DEVICE_CURRENT LEGEND_DEVICE_SUPER_CLOCK
+#define LEGEND_DEVICE_SUPER_CLOCK 0x01
+
+
+
+#define LEGEND_CMD_SET_TIME 0x00
+#define LEGEND_CMD_GET_TIME 0x01
+#define LEGEND_CMD_ADV_TEMPERATURE_HUMIDITY 0x02
+
+#endif /* LEGEND_H_ */

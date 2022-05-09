@@ -371,7 +371,7 @@
     </module>
     <module id="module.driver.rtc_on_rtc.1923748124">
       <property id="module.driver.rtc.name" value="g_rtc0"/>
-      <property id="module.driver.rtc.clock_source" value="module.driver.rtc.clock_source.clock_source_loco"/>
+      <property id="module.driver.rtc.clock_source" value="module.driver.rtc.clock_source.clock_source_subclk"/>
       <property id="module.driver.rtc.freq_cmpr_value_loco" value="255"/>
       <property id="module.driver.rtc.err_adjustment_mode" value="module.driver.rtc.err_adjustment_mode.m1"/>
       <property id="module.driver.rtc.err_adjustment_period" value="module.driver.rtc.err_adjustment_period.p1"/>
@@ -684,6 +684,9 @@
     <pincfg active="true" name="R7FA2E1A72DFL.pincfg" selected="true" symbol="g_bsp_pin_cfg">
       <configSetting altId="adc0.an19.p103" configurationId="adc0.an19"/>
       <configSetting altId="adc0.mode.custom" configurationId="adc0.mode"/>
+      <configSetting altId="cgc0.mode.sub" configurationId="cgc0.mode"/>
+      <configSetting altId="cgc0.xcin.p215" configurationId="cgc0.xcin"/>
+      <configSetting altId="cgc0.xcout.p214" configurationId="cgc0.xcout"/>
       <configSetting altId="debug0.mode.swd" configurationId="debug0.mode"/>
       <configSetting altId="debug0.swclk.p300" configurationId="debug0.swclk"/>
       <configSetting altId="debug0.swdio.p108" configurationId="debug0.swdio"/>
@@ -713,6 +716,10 @@
       <configSetting altId="p212.gpio_mode.gpio_mode_peripheral" configurationId="p212.gpio_mode"/>
       <configSetting altId="p213.sci1.txd" configurationId="p213"/>
       <configSetting altId="p213.gpio_mode.gpio_mode_peripheral" configurationId="p213.gpio_mode"/>
+      <configSetting altId="p214.cgc0.xcout" configurationId="p214"/>
+      <configSetting altId="p214.gpio_mode.gpio_mode_peripheral" configurationId="p214.gpio_mode"/>
+      <configSetting altId="p215.cgc0.xcin" configurationId="p215"/>
+      <configSetting altId="p215.gpio_mode.gpio_mode_peripheral" configurationId="p215.gpio_mode"/>
       <configSetting altId="p300.debug0.swclk" configurationId="p300"/>
       <configSetting altId="p300.gpio_mode.gpio_mode_peripheral" configurationId="p300.gpio_mode"/>
       <configSetting altId="p301.sci2.rxd" configurationId="p301"/>
@@ -736,6 +743,8 @@
       <configSetting altId="spi0.mode.custom.a" configurationId="spi0.mode"/>
       <configSetting altId="spi0.mosi.p101" configurationId="spi0.mosi"/>
       <lockSetting id="adc0.an19" lock="true"/>
+      <lockSetting id="cgc0.xcin" lock="true"/>
+      <lockSetting id="cgc0.xcout" lock="true"/>
       <lockSetting id="gpt4.gtiocb" lock="true"/>
       <lockSetting id="iic0.scl" lock="true"/>
       <lockSetting id="iic0.sda" lock="true"/>

@@ -137,3 +137,13 @@ uint8_t calc_xor(uint8_t* data,uint16_t len){
 	}
 	return result;
 }
+
+uint8_t ble_grep_sender(uint8_t* data){
+	return data[0];
+}
+uint8_t ble_grep_receiver(uint8_t* data){
+	return data[1];
+}
+uint8_t ble_grep_command (uint8_t* data){
+	return data[2];
+}

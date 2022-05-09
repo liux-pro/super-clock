@@ -15,6 +15,8 @@
             <slot name="P201" secure="false"/>
             <slot name="P212" secure="false"/>
             <slot name="P213" secure="false"/>
+            <slot name="P214" secure="false"/>
+            <slot name="P215" secure="false"/>
         </peripheral>
         <peripheral name="PORT3" group="PORT">
             <slot name="P300" secure="false"/>

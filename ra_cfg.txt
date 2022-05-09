@@ -110,8 +110,8 @@ FSP Configuration
       P208 16 - - - - Disabled - - "AGT0: AGTOB0" - None - - 
       P212 8 SCI1_RXD1 - - None "Peripheral mode" CMOS None "AGT1: AGTEE1; CGC0: EXTAL; GPT_POEG1: GTETRGB; GPT0: GTIOC0B; ICU0: IRQ03; SCI1: RXD1; SCI1: SCL1" - IO - - 
       P213 7 SCI1_TXD1 - - None "Peripheral mode" CMOS None "CGC0: XTAL; GPT_POEG0: GTETRGA; GPT0: GTIOC0A; ICU0: IRQ02; SCI1: SDA1; SCI1: TXD1" - IO - - 
-      P214 5 - - - - Disabled - - "CGC0: XCOUT" - None - - 
-      P215 4 - - - - Disabled - - "CGC0: XCIN" - None - - 
+      P214 5 CGC0_XCOUT - - - "Peripheral mode" - - "CGC0: XCOUT" - IO - - 
+      P215 4 CGC0_XCIN - - - "Peripheral mode" - - "CGC0: XCIN" - IO - - 
       P300 24 DEBUG0_SWCLK - - - "Peripheral mode" - None "DEBUG0: SWCLK; GPT_OPS0: GTOUUP; GPT0: GTIOC0A" - IO - - 
       P301 23 SCI2_RXD2 - - None "Peripheral mode" CMOS None "AGT0: AGTIO0; CTSU0: TS09-CFC; GPT_OPS0: GTOULO; GPT7: GTIOC7B; ICU0: IRQ06; SCI2: RXD2; SCI2: SCL2; SCI9: CTS9" - IO - - 
       P302 22 SCI2_TXD2 - - None "Peripheral mode" CMOS None "CTSU0: TS08-CFC; GPT_OPS0: GTOUUP; GPT7: GTIOC7A; ICU0: IRQ05; SCI2: SDA2; SCI2: TXD2" - IO - - 
@@ -359,7 +359,7 @@ FSP Configuration
       
     Instance "g_rtc0 Realtime Clock (r_rtc)"
       Name: g_rtc0
-      Clock Source: LOCO
+      Clock Source: Sub-Clock
       Frequency Comparision Value (LOCO): 255
       Automatic Adjustment Mode: Enabled
       Automatic Adjustment Period: 10 Seconds

@@ -18,6 +18,10 @@ fsp_err_t gxht30_err;
 uint8_t gxht30_cmd_start_interval_measure[] = { 0x23, 0x34 };
 //读取周期测量的命令
 uint8_t gxht30_cmd_read_interval_measure[] = { 0xE0, 0x00 };
+//复位命令
+uint8_t gxht30_cmd_reset[] = { 0x30, 0xA2 };
+//停止周期测量
+uint8_t gxht30_cmd_stop_interval_measure[] = { 0x30, 0x93 };
 
 volatile bool gxht30_busy;
 
@@ -28,6 +32,18 @@ static uint8_t crc8(const uint8_t *data, int len);
 
 void gxht30_init() {
 	gxht30_err = R_IIC_MASTER_Open(&g_i2c_master0_ctrl, &g_i2c_master0_cfg);
+	gxht30_busy = true;
+	gxht30_err = R_IIC_MASTER_Write(&g_i2c_master0_ctrl,
+			gxht30_cmd_stop_interval_measure,
+			sizeof(gxht30_cmd_stop_interval_measure), true);
+	while (gxht30_busy)
+		;
+	gxht30_busy = true;
+	gxht30_err = R_IIC_MASTER_Write(&g_i2c_master0_ctrl,
+			gxht30_cmd_reset,
+			sizeof(gxht30_cmd_reset), true);
+	while (gxht30_busy)
+		;
 	gxht30_busy = true;
 	gxht30_err = R_IIC_MASTER_Write(&g_i2c_master0_ctrl,
 			gxht30_cmd_start_interval_measure,

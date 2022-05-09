@@ -452,7 +452,7 @@ const rtc_error_adjustment_cfg_t g_rtc0_err_cfg = { .adjustment_mode =
 		RTC_ERROR_ADJUSTMENT_MODE_AUTOMATIC, .adjustment_period =
 		RTC_ERROR_ADJUSTMENT_PERIOD_10_SECOND, .adjustment_type =
 		RTC_ERROR_ADJUSTMENT_NONE, .adjustment_value = 0, };
-const rtc_cfg_t g_rtc0_cfg = { .clock_source = RTC_CLOCK_SOURCE_LOCO,
+const rtc_cfg_t g_rtc0_cfg = { .clock_source = RTC_CLOCK_SOURCE_SUBCLK,
 		.freq_compare_value_loco = 255, .p_err_cfg = &g_rtc0_err_cfg,
 		.p_callback = rtc_callback, .p_context = NULL, .alarm_ipl = (2),
 		.periodic_ipl = (2), .carry_ipl = (2),
