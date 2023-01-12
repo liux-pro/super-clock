@@ -75,6 +75,7 @@ void loop() {
 
 		//时钟未初始化前，这段代码接管显示。
 		if(!rtc_ready){
+//			蓝牙灯闪烁，提醒用户进行授时
 			if(fps_get_sync()>(FPS/2)){
 				ws2812_black();
 				ws2812_set_color(led_bluetooth,100,0,0);
