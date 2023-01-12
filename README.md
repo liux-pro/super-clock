@@ -13,5 +13,8 @@ https://maker.lceda.cn/LCEDA_RAMCU
 | 蓝牙  |  CH571k  |
 | LED  |  WS2812B  |
 
+# 第三方软件包
+https://github.com/FlyingFishBird/fcal
+
 # 详见
 [https://oshwhub.com/legend-tech/super-clock](https://oshwhub.com/legend-tech/super-clock)
